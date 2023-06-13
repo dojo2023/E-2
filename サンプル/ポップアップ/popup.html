@@ -1,0 +1,38 @@
+<html>
+
+<head>
+    <meta charset="UTF=8">
+    <link href="popup.css" rel="stylesheet">
+    <title>ポップアップサンプル</title>
+</head>
+
+<body>
+    <!-- このボタンを押したときにポップアップが表示される -->
+    <button class="show_pop">問題表示</button>
+
+    <!-- ポップアップ用の画面 -->
+    <div class="modal_pop">
+        <div class="bg"></div>
+        <div class="modal_pop_main">
+            <div class="content">
+                <div class="pop">今日のクイズ</div><br>
+                <div class="pop">スマートフォンやタブレットなどの携帯端末に用いられている，OSS(Open Source Software)であるOSはどれか</div>
+                <form id="quiz" action="">
+                <div><label><input type="radio" name="radio">Android</label></div>
+                <div><label><input type="radio" name="radio">iOS</label></div>
+                <div><label><input type="radio" name="radio">Safari</label></div>
+                <div><label><input type="radio" name="radio">Windows</label></div>
+                <input type="button" value="回答">
+            </form>
+                <img src="mark_batsu.png" class="js-modal-close" width="50">
+            </div>
+        </div>
+    </div>
+
+
+</body>
+<!-- このリンクを書くことでjqueryが使用できる -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="popup.js"></script>
+
+</html>
