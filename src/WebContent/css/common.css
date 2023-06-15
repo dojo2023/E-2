@@ -1,1 +1,156 @@
 @charset "UTF-8";
+body {
+    margin: 0;
+    padding: 0;
+    /* background-image: url(/sozai_file/pattern.png); */
+  }
+
+  main {
+    padding-top:60px;
+  }
+
+  header {
+    position: fixed;
+    display: flex;
+    width: 100%;
+    height: 60px;
+    background: #c1c1c1;
+    z-index: 9999;
+
+  }
+
+  .login_select {
+    float: left;
+    margin-left: 80px;
+  }
+  .word_box{
+    padding: 3px;
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 4px;
+    background-color: #ffffff;
+    margin-left: 500px;
+  }
+  .word{
+    font-size: 25px;
+    float: left;
+    padding-top: 5px;
+  }
+  .word_button{
+    font-size: 25px;
+    padding: 3px;
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 10px;
+    float: left;
+  }
+
+  #nav {
+    position: absolute;
+    height: 80vh;
+    width: 45%;
+    right: 100%;
+    top: 60px;
+    background: #f0f0f0;
+    transition: .7s;
+  }
+
+  #nav ul {
+    padding-top: 80px;
+    text-align:center;
+  }
+
+  #nav ul li {
+    list-style-type: none;
+    font-size: 20px;
+    text-align: right;
+  }
+
+  #nav a {
+    display: block;
+    text-decoration: none;
+    color: #000000;
+    margin: 0 15px;
+    padding: 10px;
+    transition: .5s;
+  }
+
+  #nav li a:hover {
+    color: #ffffff;
+    background: #959595;
+    border-bottom: none;
+  }
+
+  #hamburger {
+    position: absolute;
+    top: 18px;
+    width: 50px;
+    height: 44px;
+    cursor: pointer;
+    transition: 1s;
+  }
+
+  .inner_line {
+    display: block;
+    position: absolute;
+    width: 30px;
+    height: 4px;
+    background-color: #000000;
+    transition: 1s;
+    border-radius: 4px;
+    margin-left: 30px;
+  }
+
+  #line1 {
+    top: 0px;
+  }
+
+  #line2 {
+    top: 10px;
+  }
+
+  #line3 {
+    top: 20px;
+  }
+
+  p {
+    padding-top: 200px;
+    text-align: center;
+  }
+
+  .in {
+    transform: translateX(30%);
+  }
+
+  .line_1,
+  .line_2,
+  .line_3 {
+    background: #000000;
+  }
+
+  .line_1 {
+    transform: translateY(10px) rotate(-45deg);
+    top: 0;
+  }
+
+  .line_2 {
+    opacity: 0;
+  }
+
+  .line_3 {
+    transform: translateY(-10px) rotate(45deg);
+    bottom: 0;
+  }
+
+  @media screen and (max-width: 480px) {
+    #nav ul li {
+      font-size: 14px;
+    }
+
+    h1 {
+      display: none;
+    }
+
+    h2 {
+      display: block;
+      font-size: 14px;
+    }
+  }

@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
  <link href="./css/common.css" rel="stylesheet">
     <link href="./css/gacha.css" rel="stylesheet">
-<title>ガチャ</title>
+<title>ガチャ結果</title>
 </head>
 <body>
 <header class="header">
@@ -38,40 +38,21 @@
         </div>
     </header>
     <main>
-        <div class="gacha-view">
-            <div class="top-box">
-                <div class="gacha-title">ガチャ</div>
-                <div class="gacha-ticket-box">
-                    <div class="gacha-ticket">足軽チケット　　:　100枚</div>
-                    <div class="gacha-ticket">侍チケット　　　:　10枚</div>
-                    <div class="gacha-ticket">総大将チケット　:　1枚</div>
-                </div>
-            </div>
-            <div class="gacha-ex">チケットを一枚使ってガチャを引くことができます</div>
-            <div class="gacha-ex">排出対象:マーク、背景</div>
-            <div class="gacha-button">
-                <button class="asigaru_pop">足軽ガチャ</button>
-                <button class="samurai_pop">侍ガチャ</button>
-                <button class="taisyou_pop">総大将ガチャ</button>
-            </div>
-        </div>
-        <!-- 足軽ガチャ確認ポップアップ用の画面 -->
-        <div class="modal_pop">
-            <div class="bg"></div>
+           <div class="modal_pop2">
             <div class="modal_pop_main">
                 <div class="content">
-                    <div class="pop">ガチャを引いてもよろしいですか？</div><br>
+                    <div><a href="/kumano_onigiri/GachaServlet">閉じる</a></div>
+                    <img src="${asiimg}" width="150">
+                    <div class="pop">「${asigaru}」が当たりました!</div><br>
+                    <div class="pop">足軽チケット　　:　100枚</div><br>
                     <form id="gacha" action="/kumano_onigiri/GachaServlet" method="post">
-                        <div><input type="submit" value="はい" class="gacha-modal2-open" name="asigaru"></div>
-                        <div><input type="button" name="radio" value="いいえ" class="js-modal-close"></div>
+                        <div><input type="submit" name="radio" value="もう一回ガチャする" class="gacha-modal2-open"></div>
                     </form>
                 </div>
             </div>
         </div>
     </main>
 </body>
-<!-- このリンクを書くことでjqueryが使用できる -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="./js/common.js"></script>
 <script src="./js/gacha.js"></script>
 </html>
