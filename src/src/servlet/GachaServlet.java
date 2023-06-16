@@ -12,7 +12,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dao.GachaDAO;
+import dao.Gatya_getDAO;
 import model.Gacha;
+import model.Gatya_get;
 
 /**
  * Servlet implementation class GachaServlet
@@ -43,6 +45,7 @@ public class GachaServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		GachaDAO dao = new GachaDAO();
+		Gatya_getDAO daoget = new Gatya_getDAO();
 		Random random = new Random();
 
 		//DBからチケットの枚数を取得
@@ -81,8 +84,15 @@ public class GachaServlet extends HttpServlet {
         	Gacha gacha = gachaList.get(random.nextInt(5));
         	String samu = gacha.getGachaname();
 			String samuimg = gacha.getGachapath();
+			String samuid = gacha.getGachaid();
 			//チケットを1枚消費
 			samu_tkt = samu_tkt - 1;
+			//Gatya_getテーブルに引いたガチャを追加
+			if (daoget.idinsert(new Gatya_get(samuid, "1"))) {
+				System.out.println("追加しました");			}
+			else {
+				System.out.println("既に持っています");
+			}
 			// ガチャ結果をリクエストスコープに格納する
 			request.setAttribute("gachaname", samu);
 			request.setAttribute("gachapath", samuimg);
