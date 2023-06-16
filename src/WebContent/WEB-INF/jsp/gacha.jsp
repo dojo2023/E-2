@@ -38,13 +38,13 @@
         </div>
     </header>
     <main>
-        <div class="gacha-view">
+        <div class="gacha-view" style="background-image: url('img/gacha_bg.jpg')">
             <div class="top-box">
                 <div class="gacha-title">ガチャ</div>
                 <div class="gacha-ticket-box">
-                    <div class="gacha-ticket">足軽チケット　　:　100枚</div>
-                    <div class="gacha-ticket">侍チケット　　　:　10枚</div>
-                    <div class="gacha-ticket">総大将チケット　:　1枚</div>
+                    <div class="gacha-ticket">足軽チケット　　:　${asi_tkt}枚</div>
+                    <div class="gacha-ticket">侍チケット　　　:　${samu_tkt}枚</div>
+                    <div class="gacha-ticket">総大将チケット　:　${tai_tkt}枚</div>
                 </div>
             </div>
             <div class="gacha-ex">チケットを一枚使ってガチャを引くことができます</div>
@@ -61,10 +61,20 @@
             <div class="modal_pop_main">
                 <div class="content">
                     <div class="pop">ガチャを引いてもよろしいですか？</div><br>
-                    <form id="gacha" action="/kumano_onigiri/GachaServlet" method="post">
+                    <div class="pop-btn">
+                    <form id="gacha" action="/kumano_onigiri/GachaServlet" method="post" class="asigacha">
                         <div><input type="submit" value="はい" class="gacha-modal2-open" name="asigaru"></div>
                         <div><input type="button" name="radio" value="いいえ" class="js-modal-close"></div>
                     </form>
+                    <form id="gacha" action="/kumano_onigiri/GachaServlet" method="post" class="samugacha">
+                        <div><input type="submit" value="はい" class="gacha-modal2-open" name="samurai"></div>
+                        <div><input type="button" name="radio" value="いいえ" class="js-modal-close"></div>
+                    </form>
+                    <form id="gacha" action="/kumano_onigiri/GachaServlet" method="post" class="taigacha">
+                        <div><input type="submit" value="はい" class="gacha-modal2-open" name="taisyou"></div>
+                        <div><input type="button" name="radio" value="いいえ" class="js-modal-close"></div>
+                    </form>
+                    </div>
                 </div>
             </div>
         </div>

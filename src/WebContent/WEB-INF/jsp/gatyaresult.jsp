@@ -38,19 +38,33 @@
         </div>
     </header>
     <main>
-           <div class="modal_pop2">
-            <div class="modal_pop_main">
-                <div class="content">
-                    <div><a href="/kumano_onigiri/GachaServlet">閉じる</a></div>
-                    <img src="${asiimg}" width="150">
-                    <div class="pop">「${asigaru}」が当たりました!</div><br>
-                    <div class="pop">足軽チケット　　:　100枚</div><br>
+          <div class="gacha-result-view">
+                    <div class="top-result-box">
+                <div class="gacha-result-title">ガチャ結果</div>
+                 <a href="/kumano_onigiri/GachaServlet"><img src="./img/mark_batsu.png" width="50" class="batsu"></a>
+                 </div>
+                 <div class="gacha-result">
+                 <img src="${gachapath}" width="150" class="gacha-img">
+                    <div class="gachaname">「${gachaname}」が当たりました!</div><br>
+                    </div>
+                    <div class="nx-text">もう一度ガチャしますか？</div><br>
+                    <div class="nx-box">
                     <form id="gacha" action="/kumano_onigiri/GachaServlet" method="post">
-                        <div><input type="submit" name="radio" value="もう一回ガチャする" class="gacha-modal2-open"></div>
+                     <div class="nx-btn">足軽ガチャ
+                     <div class="gacha-ticket">チケット数:${asi_tkt}枚</div>
+                        <input type="submit" name="asigaru" value="はい" class="result-btn">
+                        </div>
+                         <div class="nx-btn">侍ガチャ
+                         <div class="gacha-ticket">チケット数:${samu_tkt}枚</div>
+                        <input type="submit" name="samurai" value="はい" class="result-btn">
+                        </div>
+                         <div class="nx-btn">総大将ガチャ
+                         <div class="gacha-ticket">チケット数:${tai_tkt}枚</div>
+                        <input type="submit" name="taisyou" value="はい" class="result-btn">
+                        </div>
                     </form>
+                    </div>
                 </div>
-            </div>
-        </div>
     </main>
 </body>
 <script src="./js/common.js"></script>
