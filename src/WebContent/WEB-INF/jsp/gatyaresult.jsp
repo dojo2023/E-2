@@ -46,7 +46,6 @@
                  <div class="gacha-result">
                  <img src="${gachapath}" width="150" class="gacha-img">
                     <div class="gachaname">「${gachaname}」が当たりました!</div><br>
-                    <div class="gachaname">「${gachaname}」が当たりました!</div><br>
                     </div>
                     <div class="nx-text">もう一度ガチャしますか？</div><br>
                     <div class="nx-box">

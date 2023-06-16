@@ -85,14 +85,14 @@ public class GachaServlet extends HttpServlet {
         	String samu = gacha.getGachaname();
 			String samuimg = gacha.getGachapath();
 			String samuid = gacha.getGachaid();
+			//GATYAGETテーブルに格納
+			if (daoget.idinsert(new Gatya_get(samuid, "1"))) {
+				System.out.println("新たなアイテムを手に入れました");			}
+			else {
+				System.out.println("すでに持っているアイテムです");
+			}
 			//チケットを1枚消費
 			samu_tkt = samu_tkt - 1;
-			//Gatya_getテーブルに引いたガチャを追加
-			if (daoget.idinsert(new Gatya_get(samuid, "1"))) {
-				System.out.println("追加しました");			}
-			else {
-				System.out.println("既に持っています");
-			}
 			// ガチャ結果をリクエストスコープに格納する
 			request.setAttribute("gachaname", samu);
 			request.setAttribute("gachapath", samuimg);
