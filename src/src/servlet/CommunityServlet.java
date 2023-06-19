@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dao.CommunityDAO;
-import model.Community;
+import model.Communityjoin;
 
 /**
  * Servlet implementation class CommunityServlet
@@ -30,7 +30,7 @@ public class CommunityServlet extends HttpServlet {
 
 		// 全件表示処理を行う
 		CommunityDAO cDao = new CommunityDAO();
-		List<Community> commList = cDao.allselect();
+		List<Communityjoin> commList = cDao.allselect();
 
 		// 検索結果をリクエストスコープに格納する
 		request.setAttribute("commList", commList);

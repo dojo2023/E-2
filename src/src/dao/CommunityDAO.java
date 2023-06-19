@@ -9,12 +9,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import model.Community;
+import model.Communityjoin;
 
 public class CommunityDAO {
 	//投稿情報をすべて取得し、リストを表示する
-		public List<Community> allselect() {
+		public List<Communityjoin> allselect() {
 			Connection conn = null;
-			List<Community> commList = new ArrayList<Community>();
+			List<Communityjoin> commList = new ArrayList<Communityjoin>();
 
 			try {
 				// JDBCドライバを読み込む
@@ -24,7 +25,7 @@ public class CommunityDAO {
 				conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6/db/GardenDB", "sa", "password");
 
 				// SQL文を準備する
-				String sql = "select * from COMMUNITY";
+				String sql = "SELECT WRITING_ID ,WRITING_FORM ,WRITING_TIME ,GOOD ,NAME ,Q_POINT ,GATYA_ID ,COMMUNITY .STAFF_ID FROM COMMUNITY INNER JOIN USER ON COMMUNITY.STAFF_ID =USER.STAFF_ID;";
 				PreparedStatement pStmt = conn.prepareStatement(sql);
 
 				// SQL文を実行し、結果表を取得する
@@ -32,11 +33,14 @@ public class CommunityDAO {
 
 				// 結果表をコレクションにコピーする
 				while (rs.next()) {
-					Community comm = new Community(
+					Communityjoin comm = new Communityjoin(
 					rs.getString("WRITING_ID"),
 					rs.getString("WRITING_FORM"),
 					rs.getString("WRITING_TIME"),
 					rs.getString("GOOD"),
+					rs.getString("NAME"),
+					rs.getString("Q_POINT"),
+					rs.getString("GATYA_ID"),
 					rs.getString("STAFF_ID")
 					);
 					commList.add(comm);
