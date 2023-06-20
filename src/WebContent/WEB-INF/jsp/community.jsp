@@ -4,11 +4,121 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link href="./css/common.css" rel="stylesheet">
+ <link href="./css/community.css" rel="stylesheet">
 <title>コミュニティ</title>
 </head>
 <body>
-<c:forEach var="e" items="${commList}" >
-  <div>${e.writingform}</div>
- </c:forEach>
+ <header class="header">
+    <div id="hamburger">
+      <span class="inner_line" id="line1"></span>
+      <span class="inner_line" id="line2"></span>
+      <span class="inner_line" id="line3"></span>
+    </div>
+    <div class="login_select">
+      <img src="./img/apricon01.png" width="180">
+    </div>
+    <div class="word_box">
+      <div class="word">
+        <div>今日の用語:SQLインジェクション</div>
+      </div>
+      <div class="word_button">
+        <div>解説</div>
+      </div>
+    </div>
+    <nav id="nav">
+      <ul>
+        <li><a href="">拙者</a></li>
+        <li><a href="">勤怠</a></li>
+        <li><a href="">勉強</a></li>
+        <li><a href="">コミュニティ</a></li><br><br><br>
+        <li><a href="">ログアウト</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <div class="search_box">
+      <form method="POST" action="/kumano_onigiri/CommunityServlet"class="search_form">
+        <input type="text" placeholder="コミュニティ内を検索" class="search">
+        <input type="submit" value="検索" class="search_btn">
+      </form>
+    </div>
+    <div class="text_cate">
+      <c:forEach var="e" items="${commList}" >
+      <c:choose>
+  		<c:when test="${e.staffid == '1'}">
+ <div class="text_box_main">
+        <div class="text_inf">
+          <img src="./img/${e.gatyaid}.png" width="60">
+          <div class="user">
+          <div class="userid">${e.staffid}</div>
+          <div class="name">${e.name}</div>
+          <div class="point">${e.qpoint}</div>
+          </div>
+          <div class="time">${e.writingtime}</div>
+        </div>
+        <div class="text_word">
+          <textarea class="text" readonly id="textid${e.writingid}">${e.writingform}</textarea>
+        </div>
+        <div class="text_und">
+        <img src="./img/edit.svg" class="edit" id="${e.writingid}"onclick="editfun(this.id)">
+          <img src="./img/delete.svg" class="delete">
+        </div>
+        </div>
+  		</c:when>
+   		<c:otherwise>
+    <div class="text_box">
+        <div class="text_inf">
+          <img src="./img/${e.gatyaid}.png" width="60">
+          <div class="user">
+          <div class="userid">${e.staffid}</div>
+          <div class="name">${e.name}</div>
+          <div class="point">${e.qpoint}</div>
+          </div>
+          <div class="time">${e.writingtime}</div>
+        </div>
+        <div class="text_word">
+          <textarea class="text" readonly id="${e.staffid}">${e.writingform}</textarea>
+        </div>
+        <div class="text_und">
+          <img src="./img/reply.svg" class="reply">
+          <div class="good_ct">${e.good}</div>
+          <img class="good" src="./img/good.svg" width="30">
+        </div>
+        </div>
+  		</c:otherwise>
+	</c:choose>
+      </c:forEach>
+      </div>
+    <div class="writing_form">
+      <form method="POST" action="/kumano_onigiri/CommunityServlet">
+        <textarea class="textarea" placeholder="メッセージを書き込む" name="WRITING_FORM" required></textarea>
+        <input type="image" src="./img/send.svg" class="submit" width="30" >
+      </form>
+    </div>
+
+    <!-- ポップアップ用の画面 -->
+    <div class="modal_pop">
+      <div class="bg"></div>
+      <div class="modal_pop_main">
+          <div class="content">
+            <div class="pop_box">
+              <div class="pop">編集</div>
+              <div class="js-modal-close">キャンセル</div>
+            </div>
+              <form method="POST" id="edit" action="/kumano_onigiri/CommuntiyeditServlet">
+                   <textarea class="editid"name="WRITING_ID" readonly></textarea>
+                <textarea class="editarea"name="WRITING_FORM">${writingform}</textarea>
+              <input type="submit" value="確定" class="edit_btn">
+          </form>
+          </div>
+      </div>
+  </div>
+  </main>
 </body>
+<!-- このリンクを書くことでjqueryが使用できる -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="./js/common.js"></script>
+<script src="./js/community.js"></script>
+
 </html>

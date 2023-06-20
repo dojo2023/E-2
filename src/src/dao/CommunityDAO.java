@@ -209,7 +209,7 @@ public class CommunityDAO {
 			return cardList;
 		}
 		//書き込みを編集する
-		public boolean update(Community card) {
+		public boolean update(String text , String id) {
 			Connection conn = null;
 			boolean result = false;
 
@@ -221,17 +221,12 @@ public class CommunityDAO {
 				conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6/db/GardenDB", "sa", "password");
 
 				// SQL文を準備する
-				String sql = "update COMMUNITY set WRITING_FORM=? where WRITING_ID=?";
+				String sql = "UPDATE COMMUNITY  SET WRITING_FORM  =? where WRITING_ID = ?";
 				PreparedStatement pStmt = conn.prepareStatement(sql);
 
 				// SQL文を完成させる
-				if (card.getWritingform() != null && !card.getWritingform().equals("")) {
-					pStmt.setString(1, card.getWritingform());
-				}
-				else {
-					pStmt.setString(1, null);
-				}
-				pStmt.setString(2, card.getWritingid());
+				pStmt.setString(1, text);
+				pStmt.setString(2, id);
 
 				// SQL文を実行する
 				if (pStmt.executeUpdate() == 1) {
