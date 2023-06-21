@@ -1,1 +1,539 @@
 @charset "UTF-8";
+body {
+    margin: 0;
+    padding: 0;
+    /* background-image: url(/sozai_file/pattern.png); */
+  }
+
+  main {
+    padding-top:60px;
+  }
+
+  header {
+    position: fixed;
+    display: flex;
+    width: 100%;
+    height: 60px;
+    background: #c1c1c1;
+    z-index: 9999;
+
+  }
+
+  .login_select {
+    float: left;
+    padding-left: 80px;
+  }
+  .word_box{
+    padding: 2px;
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 4px;
+    background-color: #ffffff;
+    margin-left: 500px;
+  }
+  .word{
+    font-size: 25px;
+    float: left;
+    padding-top: 5px;
+  }
+  .word_button{
+    font-size: 20px;
+    padding: 3px;
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 10px;
+    float: left;
+    width: 60;
+    margin-left: 0;
+  }
+
+  #nav {
+    position: absolute;
+    height: 80vh;
+    width: 45%;
+    right: 100%;
+    top: 60px;
+    background: #f0f0f0;
+    transition: .7s;
+  }
+
+  #nav ul {
+    padding-top: 80px;
+    text-align:center;
+  }
+
+  #nav ul li {
+    list-style-type: none;
+    font-size: 20px;
+    text-align: right;
+  }
+
+  #nav a {
+    display: block;
+    text-decoration: none;
+    color: #000000;
+    margin: 0 15px;
+    padding: 10px;
+    transition: .5s;
+  }
+
+  #nav li a:hover {
+    color: #ffffff;
+    background: #959595;
+    border-bottom: none;
+  }
+
+  #hamburger {
+    position: absolute;
+    top: 18px;
+    width: 50px;
+    height: 44px;
+    cursor: pointer;
+    transition: 1s;
+  }
+
+  .inner_line {
+    display: block;
+    position: absolute;
+    width: 30px;
+    height: 4px;
+    background-color: #000000;
+    transition: 1s;
+    border-radius: 4px;
+    margin-left: 30px;
+  }
+
+  #line1 {
+    top: 0px;
+  }
+
+  #line2 {
+    top: 10px;
+  }
+
+  #line3 {
+    top: 20px;
+  }
+
+  p {
+    padding-top: 200px;
+    text-align: center;
+  }
+
+  .in {
+    transform: translateX(30%);
+  }
+
+  .line_1,
+  .line_2,
+  .line_3 {
+    background: #000000;
+  }
+
+  .line_1 {
+    transform: translateY(10px) rotate(-45deg);
+    top: 0;
+  }
+
+  .line_2 {
+    opacity: 0;
+  }
+
+  .line_3 {
+    transform: translateY(-10px) rotate(45deg);
+    bottom: 0;
+  }
+
+  @media screen and (max-width: 480px) {
+    #nav ul li {
+      font-size: 14px;
+    }
+
+    h1 {
+      display: none;
+    }
+
+    h2 {
+      display: block;
+      font-size: 14px;
+    }
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.wrap {
+    padding: 32px 0 64px;
+    background-color: #54B1E5;
+}
+
+.content {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 16px;
+    background-color: #fff;
+}
+
+.heading-lv1 {
+    font-size: 32px;
+    font-style: italic;
+}
+
+.heading-lv2 {
+    font-size: 24px;
+}
+
+.heading-lv3 {
+    font-size: 20px;
+}
+
+.heading-margin {
+    margin-top: 32px;
+}
+
+.text {
+    margin: 16px 0 0;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.profile-image {
+    margin: 16px 0 0;
+    text-align: center;
+}
+
+.profile-image img {
+    width: 150px;
+    height: auto;
+    border-radius: 50%;
+}
+
+a {
+    color: #3F82A8;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+.user-data{
+
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+.gacha-btn{
+  display: flex;
+  justify-content: center
+}
+
+.gachabutton{
+  display       : inline-block;
+  border-radius : 5px;          /* 角丸       */
+  font-size     : 15pt;        /* 文字サイズ */
+  text-align    : center;      /* 文字位置   */
+  cursor        : pointer;     /* カーソル   */
+  padding       : 7px 40px;   /* 余白       */
+  background    : #ff4d4d;     /* 背景色     */
+  color         : #ffffff;     /* 文字色     */
+  line-height   : 1em;         /* 1行の高さ  */
+  transition    : .3s;         /* なめらか変化 */
+  border        : 2px solid #ff4d4d;    /* 枠の指定 */
+
+}
+
+.gachabutton:hover {
+  color         : #ff4d4d;     /* 背景色     */
+  background    : #ffffff;     /* 文字色     */
+}
+
+.box{
+display: flex;
+justify-content: space-between;
+}
+
+.task-box{
+  background-color: #b7ccdd;
+  width:500px;
+  border-radius : 5px;
+
+}
+.option-box{
+  background-color: rgb(212, 241, 246);
+  width:500px;
+  border-radius : 5px;
+}
+
+.radioArea input[type="radio"] {
+  width         : 16pt;        /* 大きさ：横 */
+  height        : 16pt;        /* 大きさ：縦 */
+  vertical-align: top;         /* 並び位置   */
+}
+ /* --- チェックボックス直後のlabel --- */
+.radioArea input[type="radio"] + label {
+  padding       : 0 4px;                      /* labelの余白 */
+  font-size     : 14pt;                       /* labelの文字サイズ */
+  font-weight   : bold;                       /* 文字太さ   */
+  border        : 3px solid rgba(0, 0, 0, 0); /* labelの枠線 */
+  border-radius : 5px;                        /* labelの角丸 */
+  cursor        : pointer;                    /* カーソル設定 */
+  transition    : .2s;                        /* なめらか変化 */
+}
+ /* --- 選択されたチェックボックス直後のlabel --- */
+.radioArea input[type="radio"]:checked + label {
+  border        : 3px solid #007fff; /* labelの枠線 */
+}
+ /* --- 選択されていないチェックボックス直後のlabelにマウスが乗った --- */
+.radioArea input[type="radio"]:not(:checked) + label:hover {
+  background    : rgba(0, 127, 255, 0.40);     /* lebelの背景 */
+}
+
+
+
+.btn{
+  display: flex;
+  flex-direction: column;
+}
+
+
+
+/*sisakuhin 拙者のページのオプションの背景ボタン*/
+.button {
+  background:  rgb(98, 205, 240);
+  color: #fff;
+  padding: 0 2em;
+  border: 0;
+  width: 200px;
+  height: 50px;
+  font-size: 20px;
+  border-radius: 5px;
+  font-weight: 900;
+  position: relative;
+  left: 30px;
+  top: 10px;
+  font-family:  "Arial",'メイリオ';
+}
+
+.button:hover {
+  background: lightcoral;
+  cursor: pointer;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+  background-color: #f4f4f4;
+  margin: 20% auto;
+  width: 50%;
+
+  box-shadow: 0 5px 8px 0 rgba(0,0,0,0.2),0 7px 20px 0 rgba(0,0,0,0.17);
+  animation-name: modalopen;
+  animation-duration: 1s;
+}
+
+@keyframes modalopen {
+  from {opacity: 0}
+  to {opacity: 1}
+}
+
+.modal-header h1 {
+  margin: 1rem 0;
+}
+
+.modal-header {
+  background: lightblue;
+  padding: 3px 15px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.modalClose {
+  font-size: 2rem;
+}
+
+.modalClose:hover {
+  cursor: pointer;
+}
+
+.modal-body {
+  padding: 10px 20px;
+  color: black;
+}
+
+.select-backgroud{
+  left: 200px;
+}
+
+
+
+
+/*オプションのマークボタン オプションのマークボタン オプションのマークボタン オプションのマークボタン */
+.button2 {
+  background: rgb(98, 205, 240);
+  color: #fff;
+  padding: 0 2em;
+  border: 0;
+  width: 200px;
+  height: 50px;
+  font-size: 20px;
+  border-radius: 5px;
+  font-weight: 900;
+  position: relative;
+  left: 30px;
+  top: 10px;
+  font-family: "Arial",'メイリオ';
+}
+
+.button2:hover {
+  background: lightcoral;
+  cursor: pointer;
+}
+
+.modal2 {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content2 {
+  background-color: #f4f4f4;
+  margin: 20% auto;
+  width: 50%;
+
+  box-shadow: 0 5px 8px 0 rgba(0,0,0,0.2),0 7px 20px 0 rgba(0,0,0,0.17);
+  animation-name: modalopen;
+  animation-duration: 1s;
+}
+
+@keyframes modalopen {
+  from {opacity: 0}
+  to {opacity: 1}
+}
+
+.modal-header h1 {
+  margin: 1rem 0;
+}
+
+.modal-header2 {
+  background: lightblue;
+  padding: 3px 15px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.modalClose2{
+  font-size: 2rem;
+}
+
+.modalClose2:hover {
+  cursor: pointer;
+}
+
+.modal-body2{
+  padding: 10px 20px;
+  color: black;
+}
+
+.modal-body2{
+
+  display: inline-block;
+  top: 200px; left: 200px;
+
+}
+
+/*マーク設定.背景設定のプルダウンメニューの形式*/
+
+.mark-select {
+	overflow: hidden;
+	width: 260;
+	margin: 2em auto;
+	display: flex;
+  margin-top: -150px; /*モーダルウィンドウのグレーの縦幅変わる*/
+  margin-bottom: 150px;
+  margin-left: 145px;
+}
+.mark-select select {
+	width: 100%;
+	padding-right: 1em;
+	cursor: pointer;
+	text-indent: 0.01px;
+	text-overflow: ellipsis;
+	border: none;
+	outline: none;
+	background: transparent;
+	background-image: none;
+	box-shadow: none;
+	-webkit-appearance: none;
+	appearance: none;
+
+
+}
+
+.mark-select select::-ms-expand {
+    display: none;
+}
+.mark-select.cp_sl01 {
+  position: relative;
+	border: 1px solid #bbbbbb;
+	border-radius: 2px;
+	background: #ffffff;
+}
+.mark-select.cp_sl01::before {
+	position: absolute;
+	top: 10; /*プルダウの▼ボタン*/
+	right: 0.9em;
+	width: 0;
+	height: 40px;
+	padding: 0;
+	content: '';
+	border-left: 6px solid transparent;
+	border-right: 6px solid transparent;
+	border-top: 6px solid #666666;
+	pointer-events: none;
+}
+.mark-select.cp_sl01 select {
+	padding: 8px 38px 8px 8px;
+	color: #666666;
+}
+
+/**/
+.bg-mark-changebutton {
+ margin-left: 240px;
+  border-radius : 5px;          /* 角丸       */
+  font-size     : 18pt;        /* 文字サイズ */
+  cursor        : pointer;     /* カーソル   */
+  padding       : 12px 30px;   /* 余白       */
+  background    : #ff4d4d;     /* 背景色     */
+  color         : #ffffff;     /* 文字色     */
+  line-height   : 1em;         /* 1行の高さ  */
+  transition    : .3s;         /* なめらか変化 */
+  border        : 2px solid #ff4d4d;    /* 枠の指定 */
+}
+.bg-mark-changebutton:hover {
+  color         : #ff4d4d;     /* 背景色     */
+  background    : #ffffff;     /* 文字色     */
+}
