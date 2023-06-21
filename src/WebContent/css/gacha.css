@@ -31,7 +31,13 @@
     background-color: #ffffff7e;
 }
 
-.gacha-ticket {
+.asgr-ticket {
+    margin: 2px;
+}
+.smri-ticket {
+    margin: 2px;
+}
+.sds-ticket {
     margin: 2px;
 }
 
@@ -74,7 +80,7 @@ button {
     letter-spacing: 1.5px;
     font-size: 15px;
     transition: all .3s ease;
-    box-shadow: rgb(201, 46, 70) 0px 10px 0px 0px;
+     box-shadow: rgb(201, 46, 70) 0px 10px 0px 0px;
     color: hsl(0, 0%, 100%);
 }
 
@@ -222,7 +228,7 @@ margin-right: 10px;
 font-size: 20px;
 text-align: center;
 }
-.result-btn{
+.asgr_result-btn{
 	padding: 10px 30px;
     border-radius: 10px;
     border: 0;
@@ -234,11 +240,59 @@ text-align: center;
     color: hsl(0, 0%, 100%);
     font-weight: 700;
 }
-.result-btn:hover {
+.asgr_result-btn:hover {
     box-shadow: rgb(201, 46, 70) 0px 7px 0px 0px;
 }
 
-.result-btn:active {
+.asgr_result-btn:active {
+    background-color: rgb(255, 56, 86);
+    /*50, 168, 80*/
+    box-shadow: rgb(201, 46, 70) 0px 0px 0px 0px;
+    transform: translateY(5px);
+    transition: 200ms;
+}
+
+.smri_result-btn{
+	padding: 10px 30px;
+    border-radius: 10px;
+    border: 0;
+    background-color: rgb(255, 56, 86);
+    letter-spacing: 1.5px;
+    font-size: 15px;
+    transition: all .3s ease;
+    box-shadow: rgb(201, 46, 70) 0px 10px 0px 0px;
+    color: hsl(0, 0%, 100%);
+    font-weight: 700;
+}
+.smri_result-btn:hover {
+    box-shadow: rgb(201, 46, 70) 0px 7px 0px 0px;
+}
+
+.smri_result-btn:active {
+    background-color: rgb(255, 56, 86);
+    /*50, 168, 80*/
+    box-shadow: rgb(201, 46, 70) 0px 0px 0px 0px;
+    transform: translateY(5px);
+    transition: 200ms;
+}
+
+.sds_result-btn{
+	padding: 10px 30px;
+    border-radius: 10px;
+    border: 0;
+    background-color: rgb(255, 56, 86);
+    letter-spacing: 1.5px;
+    font-size: 15px;
+    transition: all .3s ease;
+    box-shadow: rgb(201, 46, 70) 0px 10px 0px 0px;
+    color: hsl(0, 0%, 100%);
+    font-weight: 700;
+}
+.sds_result-btn:hover {
+    box-shadow: rgb(201, 46, 70) 0px 7px 0px 0px;
+}
+
+.sds_result-btn:active {
     background-color: rgb(255, 56, 86);
     /*50, 168, 80*/
     box-shadow: rgb(201, 46, 70) 0px 0px 0px 0px;

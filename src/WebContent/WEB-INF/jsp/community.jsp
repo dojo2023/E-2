@@ -38,8 +38,8 @@
   </header>
   <main>
     <div class="search_box">
-      <form method="POST" action="/kumano_onigiri/CommunityServlet"class="search_form">
-        <input type="text" placeholder="コミュニティ内を検索" class="search">
+      <form method="POST" action="/kumano_onigiri/CommunitySearchServlet"class="search_form">
+        <input type="text" placeholder="コミュニティ内を検索" class="search" name="TEXT">
         <input type="submit" value="検索" class="search_btn">
       </form>
     </div>
@@ -51,9 +51,9 @@
         <div class="text_inf">
           <img src="./img/${e.gatyaid}.png" width="60">
           <div class="user">
-          <div class="userid">${e.staffid}</div>
+          <div class="userid">ID:${e.staffid}</div>
           <div class="name">${e.name}</div>
-          <div class="point">${e.qpoint}</div>
+          <div class="point">${e.qpoint}pt</div>
           </div>
           <div class="time">${e.writingtime}</div>
         </div>
@@ -62,7 +62,6 @@
         </div>
         <div class="text_und">
         <img src="./img/edit.svg" class="edit" id="${e.writingid}"onclick="editfun(this.id)">
-          <img src="./img/delete.svg" class="delete">
         </div>
         </div>
   		</c:when>
@@ -71,9 +70,9 @@
         <div class="text_inf">
           <img src="./img/${e.gatyaid}.png" width="60">
           <div class="user">
-          <div class="userid">${e.staffid}</div>
-          <div class="name">${e.name}</div>
-          <div class="point">${e.qpoint}</div>
+          <div class="userid">ID:${e.staffid}</div>
+          <div class="name"id="nameid${e.writingid}">${e.name}</div>
+          <div class="point">${e.qpoint}pt</div>
           </div>
           <div class="time">${e.writingtime}</div>
         </div>
@@ -81,9 +80,13 @@
           <textarea class="text" readonly id="${e.staffid}">${e.writingform}</textarea>
         </div>
         <div class="text_und">
-          <img src="./img/reply.svg" class="reply">
+          <img src="./img/reply.svg" class="reply" id="${e.writingid}" onclick="replyfun(this.id)">
+          <form method="POST" action="/kumano_onigiri/CommunityGoodServlet">
           <div class="good_ct">${e.good}</div>
-          <img class="good" src="./img/good.svg" width="30">
+          <textarea class="editid"name="GOOD" readonly>${e.good}</textarea>
+          <textarea class="editid"name="WRITING_ID" readonly>${e.writingid}</textarea>
+          <input type="image" src="./img/good.svg" class="good" width="30" >
+      </form>
         </div>
         </div>
   		</c:otherwise>
@@ -109,7 +112,11 @@
               <form method="POST" id="edit" action="/kumano_onigiri/CommuntiyeditServlet">
                    <textarea class="editid"name="WRITING_ID" readonly></textarea>
                 <textarea class="editarea"name="WRITING_FORM">${writingform}</textarea>
-              <input type="submit" value="確定" class="edit_btn">
+              <input type="submit" value="確定" class="edit_btn" name="SUBMIT">
+          </form>
+          <form method="POST" id="edit" action="/kumano_onigiri/CommuntiydeleteServlet">
+          <textarea class="editid"name="WRITING_ID" readonly></textarea>
+          <input type="image" src="./img/delete.svg" class="delete" width="30" name="SUBMIT"value="削除">
           </form>
           </div>
       </div>
@@ -120,5 +127,4 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="./js/common.js"></script>
 <script src="./js/community.js"></script>
-
 </html>

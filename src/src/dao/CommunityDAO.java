@@ -25,7 +25,7 @@ public class CommunityDAO {
 				conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6/db/GardenDB", "sa", "password");
 
 				// SQL文を準備する
-				String sql = "SELECT WRITING_ID ,WRITING_FORM ,WRITING_TIME ,GOOD ,NAME ,Q_POINT ,GATYA_ID ,COMMUNITY .STAFF_ID FROM COMMUNITY INNER JOIN USER ON COMMUNITY.STAFF_ID =USER.STAFF_ID;";
+				String sql = "SELECT WRITING_ID ,WRITING_FORM ,WRITING_TIME ,GOOD ,NAME ,GATYA_ID ,COMMUNITY .STAFF_ID ,Q_POINT FROM COMMUNITY INNER JOIN USER ON COMMUNITY.STAFF_ID =USER.STAFF_ID INNER JOIN QPOINT  ON COMMUNITY.STAFF_ID =QPOINT .STAFF_ID";
 				PreparedStatement pStmt = conn.prepareStatement(sql);
 
 				// SQL文を実行し、結果表を取得する
@@ -140,9 +140,9 @@ public class CommunityDAO {
 			return result;
 		}
 		//検索する
-		public List<Community> select(Community param) {
+		public List<Communityjoin> select(String text) {
 			Connection conn = null;
-			List<Community> cardList = new ArrayList<Community>();
+			List<Communityjoin> cardList = new ArrayList<Communityjoin>();
 
 			try {
 				// JDBCドライバを読み込む
@@ -152,33 +152,24 @@ public class CommunityDAO {
 				conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6/db/GardenDB", "sa", "password");
 
 				// SQL文を準備する
-				String sql = "select * from COMMUNITY WHERE WRITING_FORM LIKE ? AND STAFF_ID LIKE ?";
+				String sql = "SELECT WRITING_ID ,WRITING_FORM ,WRITING_TIME ,GOOD ,NAME ,GATYA_ID ,COMMUNITY .STAFF_ID ,Q_POINT FROM COMMUNITY INNER JOIN USER ON COMMUNITY.STAFF_ID =USER.STAFF_ID INNER JOIN QPOINT  ON COMMUNITY.STAFF_ID =QPOINT .STAFF_ID WHERE WRITING_FORM LIKE ?";
 				PreparedStatement pStmt = conn.prepareStatement(sql);
 
 				// SQL文を完成させる
-				if (param.getWritingform() != null) {
-					pStmt.setString(1, "%" + param.getWritingform() + "%");
-				}
-				else {
-					pStmt.setString(1, "%");
-				}
-				if (param.getWritingform() != null) {
-					pStmt.setString(2, "%" + param.getStaffid() + "%");
-				}
-				else {
-					pStmt.setString(2, "%");
-				}
-
+					pStmt.setString(1, "%" + text + "%");
 				// SQL文を実行し、結果表を取得する
 				ResultSet rs = pStmt.executeQuery();
 
 				// 結果表をコレクションにコピーする
 				while (rs.next()) {
-					Community card = new Community(
+					Communityjoin card = new Communityjoin(
 							rs.getString("WRITING_ID"),
 							rs.getString("WRITING_FORM"),
 							rs.getString("WRITING_TIME"),
 							rs.getString("GOOD"),
+							rs.getString("NAME"),
+							rs.getString("Q_POINT"),
+							rs.getString("GATYA_ID"),
 							rs.getString("STAFF_ID")
 					);
 					cardList.add(card);
@@ -256,7 +247,7 @@ public class CommunityDAO {
 		}
 
 		//いいねを追加する
-		public boolean goodupdate(Community card) {
+		public boolean goodupdate(String good ,String id) {
 			Connection conn = null;
 			boolean result = false;
 
@@ -272,13 +263,8 @@ public class CommunityDAO {
 				PreparedStatement pStmt = conn.prepareStatement(sql);
 
 				// SQL文を完成させる
-				if (card.getGood() != null && !card.getGood().equals("")) {
-					pStmt.setString(1, card.getGood());
-				}
-				else {
-					pStmt.setString(1, null);
-				}
-				pStmt.setString(2, card.getWritingid());
+				pStmt.setString(1, good);
+				pStmt.setString(2, id);
 
 				// SQL文を実行する
 				if (pStmt.executeUpdate() == 1) {

@@ -10,6 +10,7 @@ public class CommunityDAOTest {
 		CommunityDAO dao = new CommunityDAO();
 
 	//select()のテスト
+		dao.goodupdate("10" ,"3");
 			List<Communityjoin> commList = dao.allselect();
 			for (Communityjoin card : commList) {
 				System.out.println("WRITING_ID：" + card.getWritingid());
@@ -44,5 +45,15 @@ public class CommunityDAOTest {
 				System.out.println("更新失敗！");
 			}
 
+
+			//delete
+			System.out.println("---------- update()のテスト ----------");
+			System.out.println("---------- delete()のテスト ----------");
+			if (dao.delete("82")) {
+				System.out.println("削除成功！");
+			}
+			else {
+				System.out.println("削除失敗！");
+			}
 }
 }

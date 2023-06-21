@@ -42,9 +42,9 @@
             <div class="top-box">
                 <div class="gacha-title">ガチャ</div>
                 <div class="gacha-ticket-box">
-                    <div class="gacha-ticket">足軽チケット　　:　${asi_tkt}枚</div>
-                    <div class="gacha-ticket">侍チケット　　　:　${samu_tkt}枚</div>
-                    <div class="gacha-ticket">総大将チケット　:　${tai_tkt}枚</div>
+                    <div class="asgr-ticket">足軽チケット　　:　${asi_tkt}枚</div>
+                    <div class="smri-ticket">侍チケット　　　:　${samu_tkt}枚</div>
+                    <div class="sds-ticket">総大将チケット　:　${tai_tkt}枚</div>
                 </div>
             </div>
             <div class="gacha-ex">チケットを一枚使ってガチャを引くことができます</div>
