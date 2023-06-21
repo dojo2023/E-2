@@ -1,1 +1,53 @@
 @charset "UTF-8";
+.modal_pop {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9997 !important;
+}
+
+.bg {
+    background-color: #1119;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 9998 !important;
+}
+
+.content {
+    width: 600px;
+    height: 400px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999 !important;
+    background: #fff;
+    padding: 30px;
+}
+
+.pop {
+    color: #000;
+    text-align: center;
+}
+
+/*ボタン*/
+.btn-flat-simple {
+  position: relative;
+  display: inline-block;
+  font-weight: bold;
+  padding: 0.25em 0.5em;
+  text-decoration: none;
+  color: #00BCD4;
+  background: #ECECEC;
+  transition: .4s;
+}
+
+.btn-flat-simple:hover {
+  background: #00bcd4;
+  color: white;
+}
+
+
