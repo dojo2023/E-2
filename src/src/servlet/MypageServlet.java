@@ -23,7 +23,7 @@ public class MypageServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//		// もしもログインして�?なかったらログインサーブレ�?トにリダイレクトす�?
+//		// もしもログインしてなかったらログインサーブレットにリダイレクトする
 //		HttpSession session = request.getSession();
 //		if (session.getAttribute("staff_id") == null) {
 //			response.sendRedirect("/kumano_onigiri/LoginServlet");
@@ -44,20 +44,29 @@ public class MypageServlet extends HttpServlet {
 		Mypage banana = commList.get(0);
     	String id = banana.getStaff_id();
     	String name = banana.getName();
-    	String point = banana.getQ_point();
+    	String role = banana.getRole();
+    	String quiz = banana.getQuiz();
+    	String q_point = banana.getQ_point();
+    	String gatya_id = banana.getGatya_id();
+    	String task_thread = banana.getTask_thread();
 
 		request.setAttribute("staff_id", id);
 		request.setAttribute("name", name);
-		request.setAttribute("q_point", point);
-		// 検索結果をリクエストスコープに格納す�?
+		request.setAttribute("role", role);
+		request.setAttribute("quiz", quiz);
+		request.setAttribute("q_poimt", q_point);
+		request.setAttribute("gatya_id", gatya_id);
+		request.setAttribute("task_thread", task_thread);
+
+		// 検索結果をリクエストスコープに格納する
 				request.setAttribute("mypagelist", commList);
-		// マイペ�?�ジにフォワードす�?
+		// マイページにフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/mypage.jsp");
 		dispatcher.forward(request, response);
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// リクエストパラメータを取得す�?
-//		request.setCharacterEncoding("UTF-8");
+		// リクエストパラメータを取得する
+		request.setCharacterEncoding("UTF-8");
 //		String staff_id = request.getParameter("STAFF_ID");
 //		String name = request.getParameter("NAME");
 //		String role = request.getParameter("ROLE");
@@ -67,7 +76,7 @@ public class MypageServlet extends HttpServlet {
 
 
 
-			// マイペ�?�ジにフォワードす�?
+			// マイペジにフォワードする
 //			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/mypage.jsp");
 //			dispatcher.forward(request, response);
 		}
