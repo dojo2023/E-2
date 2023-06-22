@@ -1,1 +1,75 @@
 @charset "UTF-8";
+
+body{
+    background-image: url(bg10.png);
+}
+
+/* 全体のフォント */
+html{
+    font-family: sans-serif;
+}
+
+nav li {
+    display: inline;
+    text-align: center;
+}
+
+.w_select {
+    text-align: left;
+    margin: auto;
+    margin-top: 100px;
+    margin-bottom: 30px;
+}
+
+.w_select th {
+    padding: auto;
+    width: 15em;
+    font-size: 17px;
+
+}
+
+select{
+    height: 2em;
+    width: 10em;
+    font-size: 17px;
+    border: 2px solid;
+    border-radius: 5px;
+}
+
+
+#table{
+    background-color: gray;
+    border: 1px solid black;
+    height: 300px;
+    margin-left: 200px;
+    margin-right: 300px;
+    margin-top: 50px;
+    overflow: auto;
+}
+
+.work_list{
+    height: 350px;
+    border: 1px solid black;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+.work_list tr {
+    padding: 6px 16px 6px 0;
+    border: 1px solid black;
+    border-collapse: collapse;
+    background-color: white;
+    width: auto;
+}
+.work_list th, td {
+    padding: 6px 16px 6px 0;
+    border: 1px solid black;
+    border-collapse: collapse;
+    background-color: white;
+    width: 300px;
+    text-align: center;
+}
+.work_sum {
+    margin-left: 1100px;
+    margin-top: -100px;
+}
