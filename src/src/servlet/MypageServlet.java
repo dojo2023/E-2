@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.MypageDao;
+import dao.MypageDAO;
 import model.Mypage;
 /**
  * Servlet implementation class LoginServlet
@@ -30,37 +30,45 @@ public class MypageServlet extends HttpServlet {
 //			return;
 //		}
 
-		MypageDao dao = new MypageDao();
-		List<Mypage> mypagelist = dao.mypageselect("6");
-		for(Mypage i : mypagelist) {
-			System.out.println(i.getStaff_id());
-			System.out.println(i.getName());
-			System.out.println(i.getRole());
-			System.out.println(i.getQuiz());
-			System.out.println(i.getQ_point());
-			System.out.println(i.getGatya_id());
-			System.out.println(i.getTask_thread());
+		MypageDAO dao = new MypageDAO();
+		List<Mypage> commList = dao.mypageselect("6");
+		for (Mypage card : commList) {
+			System.out.println(card.getStaff_id());
+			System.out.println(card.getName());
+			System.out.println(card.getRole());
+			System.out.println(card.getQuiz());
+			System.out.println(card.getQ_point());
+			System.out.println(card.getGatya_id());
+			System.out.println(card.getTask_thread());
 		}
+		Mypage banana = commList.get(0);
+    	String id = banana.getStaff_id();
+    	String name = banana.getName();
+    	String point = banana.getQ_point();
+
+		request.setAttribute("staff_id", id);
+		request.setAttribute("name", name);
+		request.setAttribute("q_point", point);
 		// 検索結果をリクエストスコープに格納する
-				request.setAttribute("mypagelist", mypagelist);
+				request.setAttribute("mypagelist", commList);
 		// マイページにフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/mypage.jsp");
 		dispatcher.forward(request, response);
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// リクエストパラメータを取得する
-		request.setCharacterEncoding("UTF-8");
-		String staff_id = request.getParameter("STAFF_ID");
-		String name = request.getParameter("NAME");
-		String role = request.getParameter("ROLE");
-		String mark_id = request.getParameter("MARK_ID");
-		String gatya_id = request.getParameter("GATYA_ID");
-		String task_thread = request.getParameter("TASK_THREAD");
+//		request.setCharacterEncoding("UTF-8");
+//		String staff_id = request.getParameter("STAFF_ID");
+//		String name = request.getParameter("NAME");
+//		String role = request.getParameter("ROLE");
+//		String mark_id = request.getParameter("MARK_ID");
+//		String gatya_id = request.getParameter("GATYA_ID");
+//		String task_thread = request.getParameter("TASK_THREAD");
 
 
 
 			// マイページにフォワードする
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/mypage.jsp");
-			dispatcher.forward(request, response);
+//			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/mypage.jsp");
+//			dispatcher.forward(request, response);
 		}
     }

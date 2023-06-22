@@ -49,10 +49,10 @@
             <h3 class="heading-lv3 heading-margin text-center">社員情報</h3>
             <article>
               <ul class="user-data">
-              <li>  社員ID</li>
-              <li>氏名</li>
+              <li>  社員ID ${staff_id}</li>
+              <li>氏名 ${name}</li>
               <li>社員区分</li>
-              <li>クイズポイント</li>
+              <li>クイズポイント ${q_point}</li>
               </ul>
               <br>
             </article>

@@ -10,7 +10,7 @@ import java.util.List;
 
 import model.Mypage;
 
-public class MypageDao{
+public class MypageDAO{
 	//チケットをすべて取得し、リストを表示する
 			public List<Mypage> mypageselect(String staffid) {
 				Connection conn = null;
