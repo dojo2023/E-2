@@ -83,8 +83,8 @@
         <div class="text_und">
           <img src="./img/reply.svg" class="reply" id="${e.writingid}" onclick="replyfun(this.id)">
           <form method="POST" action="/kumano_onigiri/CommunityGoodServlet">
-          	<textarea id="editid"name="GOOD" readonly>${e.good}</textarea>
-          	<textarea id="editid"name="WRITING_ID" readonly>${e.writingid}</textarea>
+          	<textarea class="editid"name="GOOD" readonly>${e.good}</textarea>
+          	<textarea class="editid"name="WRITING_ID" readonly>${e.writingid}</textarea>
           	<input type="image" src="./img/good.svg" class="good" width="30" >
       	  </form>
       	  <div class="good_ct">${e.good}</div>
