@@ -10,6 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.GachaDAO;
 import dao.GachaTicketDAO;
@@ -29,10 +30,13 @@ public class GachaServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//ログインIDを取得
+				HttpSession session = request.getSession();
+				String staff_id = (String)session.getAttribute("staff_id");
 
 		//DBからチケットの枚数を取得
 		GachaTicketDAO dao = new GachaTicketDAO();
-		List<GachaTicket> gachaList = dao.ticketselect("1");
+		List<GachaTicket> gachaList = dao.ticketselect(staff_id);
 		GachaTicket ticketlist = gachaList.get(0);
     	int asi = ticketlist.getAsgrticket();
     	int smri = ticketlist.getSmriticket();
@@ -50,13 +54,16 @@ public class GachaServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//ログインIDを取得
+		HttpSession session = request.getSession();
+		String staff_id = (String)session.getAttribute("staff_id");
 		GachaDAO dao = new GachaDAO();
 		Gatya_getDAO daoget = new Gatya_getDAO();
 		GachaTicketDAO daoticket = new GachaTicketDAO();
 		Random random = new Random();
 
 		//DBからチケットの枚数を取得
-				List<GachaTicket> gachaList = daoticket.ticketselect("1");
+				List<GachaTicket> gachaList = daoticket.ticketselect(staff_id);
 				GachaTicket ticketlist = gachaList.get(0);
 		    	int asi = ticketlist.getAsgrticket();
 		    	int smri = ticketlist.getSmriticket();
@@ -79,14 +86,14 @@ public class GachaServlet extends HttpServlet {
 			String asiimg = gacha.getGachapath();
 			String asiid = gacha.getGachaid();
 			//GATYAGETテーブルに格納
-			if (daoget.idinsert(new Gatya_get(asiid, "1"))) {
+			if (daoget.idinsert(new Gatya_get(asiid, staff_id))) {
 				System.out.println("新たなアイテムを手に入れました");			}
 			else {
 				System.out.println("すでに持っているアイテムです");
 			}
 			//チケットを1枚消費
 			asi = asi - 1;
-			daoticket.asgrupdate(asi,"1");
+			daoticket.asgrupdate(asi,staff_id);
 			// ガチャ結果をリクエストスコープに格納する
 			request.setAttribute("gachaname", asiname);
 			request.setAttribute("gachapath", asiimg);
@@ -103,14 +110,14 @@ public class GachaServlet extends HttpServlet {
 			String samuimg = gacha.getGachapath();
 			String samuid = gacha.getGachaid();
 			//GATYAGETテーブルに格納
-			if (daoget.idinsert(new Gatya_get(samuid, "1"))) {
+			if (daoget.idinsert(new Gatya_get(samuid, staff_id))) {
 				System.out.println("新たなアイテムを手に入れました");			}
 			else {
 				System.out.println("すでに持っているアイテムです");
 			}
 			//チケットを1枚消費
 			smri = smri - 1;
-			daoticket.smriupdate(smri,"1");
+			daoticket.smriupdate(smri,staff_id);
 			// ガチャ結果をリクエストスコープに格納する
 			request.setAttribute("gachaname", samuname);
 			request.setAttribute("gachapath", samuimg);
@@ -127,14 +134,14 @@ public class GachaServlet extends HttpServlet {
 			String taiimg = gacha.getGachapath();
 			String sdsid = gacha.getGachaid();
 			//GATYAGETテーブルに格納
-			if (daoget.idinsert(new Gatya_get(sdsid, "1"))) {
+			if (daoget.idinsert(new Gatya_get(sdsid, staff_id))) {
 				System.out.println("新たなアイテムを手に入れました");			}
 			else {
 				System.out.println("すでに持っているアイテムです");
 			}
 			//チケットを1枚消費
 			sds = sds - 1;
-			daoticket.sdsupdate(sds,"1");
+			daoticket.sdsupdate(sds,staff_id);
 			// ガチャ結果をリクエストスコープに格納する
 			request.setAttribute("gachaname",tainame);
 			request.setAttribute("gachapath", taiimg);
