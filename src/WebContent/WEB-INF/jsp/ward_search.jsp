@@ -1,15 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!-- 追加部分 -->
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page import="model.Study"%>
-<%@ page import="java.util.ArrayList" %>
-<%@ page import="java.util.List"%>
-
-<%
-List<Study> cardList = (List<Study>)session.getAttribute("cardlist");
-%>
-<!-- ここまで -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -53,23 +44,23 @@ List<Study> cardList = (List<Study>)session.getAttribute("cardlist");
 	<h3>検索</h3>
 		<form method="POST" action="/kumano_onigiri/SearchServlet">
 			<div class="search">
-	          <input type="text" name="search">
+	          <input type="text" name="WORD_ITEM">
 	          <input type="submit" name="s_submit" value="検索">
 			</div>
 		</form>
 		<nav class="button">
 	    	<ul id="ul">
-	    		<li><input type="button" name="a_sort" onclick="location.href='/kumano_onigiri/UpSortServlet'" value="昇順"></li>
-	    		<li><input type="button" name="d_sort" onclick="location.href='/kumano_onigiri/DownSortServlet'" value="降順"></li>
-	    		<li><input type="button" name="n_sort" onclick="location.href='/kumano_onigiri/LatestServlet'" value="新着順"></li>
+	    		<li><a href="/kumano_onigiri/UpSortServlet"><input type="button" name="a_sort" value="昇順"></a></li>
+	    		<li><a href="/kumano_onigiri/DownSortServlet"><input type="button" name="d_sort" value="降順"></a></li>
+	    		<li><a href="/kumano_onigiri/LatestServlet"><input type="button" name="n_sort" value="新着順"></a></li>
 	    	</ul>
 	    </nav>
-	<form method="POST" action="/kumano_onigiri/WardServlet">
+	<form method="POST" action="/kumano_onigiri/SearchServlet">
     <div id="table">
         <table class="w_list">
 	    	<c:forEach var="e" items="${cardList}">
  				<tr class="word_row">
-				<th>${e.word_id}</th><th>${e.word_item}</th><td>${e.word_ex}</td>
+				<th>${e.word_item}</th><td>${e.word_ex}</td>
 	    		</tr>
 			</c:forEach>
             <!--<tr class="word_row"><th>SQLインジェクション</th><td>アプリケーションのセキュリティ上の不備を意図的に利用し、アプリケーションが想定しないSQL文を実行させることにより、データベースシステムを不正に操作する攻撃方法</td></tr>

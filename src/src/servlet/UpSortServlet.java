@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -8,51 +9,53 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-
-
+import dao.StudyDAO;
+import model.Study;
 
 /**
- * Servlet implementation class MenuServlet
+ * Servlet implementation class UpSortServlet
  */
-@WebServlet("/Work_listServlet")
-public class Work_listServlet extends HttpServlet {
+@WebServlet("/UpSortServlet")
+public class UpSortServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	
+
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// もしもログインしていなかったらログインサーブレットにリダイレクトする
 //		HttpSession session = request.getSession();
 //		if (session.getAttribute("id") == null) {
 //			response.sendRedirect("/simpleBC/LoginServlet");
 //			return;
 //		}
-		
 		// メニューページにフォワードする
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/work_list.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/ward.jsp");
 		dispatcher.forward(request, response);
 				
 		doPost(request, response);
 	}
-	
+
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// もしもログインしていなかったらログインサーブレットにリダイレクトする
-//		HttpSession session = request.getSession();
+		HttpSession session = request.getSession();
 //		if (session.getAttribute("id") == null) {
 //			response.sendRedirect("/simpleBC/LoginServlet");
 //			return;
-//		}m
+//		}
+		StudyDAO sd = new StudyDAO();
 		
-		// メニューページにフォワードする
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/menu.jsp");
+		//一覧表示
+		List<Study> cardList = sd.StudyUpSort();
+		session.setAttribute("cardList", cardList);
+		
+		
+		// 用語ページにフォワードする
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/ward.jsp");
 		dispatcher.forward(request, response);
 	}
-
 
 }
