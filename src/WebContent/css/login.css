@@ -65,7 +65,7 @@ header {
 .wrapper {
   margin: 10px auto;	/* 中央揃え */
   height: 150px;
-  text-indent: -9.0rem; /* 挨拶文字位置の微調整*/
+  text-indent: -15.0rem; /* 挨拶文字位置の微調整*/
   text-align: center
 }
 body {
