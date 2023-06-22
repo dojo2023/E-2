@@ -23,7 +23,7 @@ public class MypageServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//		// もしもログインしていなかったらログインサーブレットにリダイレクトする
+//		// もしもログインして�?なかったらログインサーブレ�?トにリダイレクトす�?
 //		HttpSession session = request.getSession();
 //		if (session.getAttribute("staff_id") == null) {
 //			response.sendRedirect("/kumano_onigiri/LoginServlet");
@@ -49,14 +49,14 @@ public class MypageServlet extends HttpServlet {
 		request.setAttribute("staff_id", id);
 		request.setAttribute("name", name);
 		request.setAttribute("q_point", point);
-		// 検索結果をリクエストスコープに格納する
+		// 検索結果をリクエストスコープに格納す�?
 				request.setAttribute("mypagelist", commList);
-		// マイページにフォワードする
+		// マイペ�?�ジにフォワードす�?
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/mypage.jsp");
 		dispatcher.forward(request, response);
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// リクエストパラメータを取得する
+		// リクエストパラメータを取得す�?
 //		request.setCharacterEncoding("UTF-8");
 //		String staff_id = request.getParameter("STAFF_ID");
 //		String name = request.getParameter("NAME");
@@ -67,7 +67,7 @@ public class MypageServlet extends HttpServlet {
 
 
 
-			// マイページにフォワードする
+			// マイペ�?�ジにフォワードす�?
 //			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/mypage.jsp");
 //			dispatcher.forward(request, response);
 		}
