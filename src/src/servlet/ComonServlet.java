@@ -1,9 +1,6 @@
 package servlet;
 
 import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 import java.util.Random;
 
@@ -14,10 +11,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.Login_timeDAO;
 import dao.StudyDAO;
-import model.Login_time;
 import model.Study;
+import model.TodayDate;
 
 /**
  * Servlet implementation class Comon
@@ -31,19 +27,9 @@ public class ComonServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		StudyDAO studyDAO = new StudyDAO();
-		Login_timeDAO timeDAO = new Login_timeDAO();
-		//ANSWER_TIMEを取得
-		List<Login_time> timeList = timeDAO.login_timeget("1");
-		Login_time time = timeList.get(0);
-		//指定のタイムゾーンで現在時刻を取得
-		Calendar cal = Calendar.getInstance();
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-		String newlogintime = sdf.format(cal.getTime());
+		TodayDate todaydate = new TodayDate();
 
-		Date logintime = time.getAnswer_time();
-		String nowtime = new SimpleDateFormat("yyyy-MM-dd").format(logintime);
-
-		if(newlogintime.compareTo(nowtime) == 1) {
+		if(todaydate.datecheck("6")) {
 			System.out.println("用語を再取得");
 			//ランダムで用語と解説を取得する
 			Random random = new Random();
@@ -53,9 +39,8 @@ public class ComonServlet extends HttpServlet {
 			String wordex = todayword.getWord_ex();
 			//用語をスコープに格納
 			request.setAttribute("word", word);
-		}else {
-			System.out.println("用語は変更しない");
 		}
+
 
 		// フォワード
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/gacha.jsp");

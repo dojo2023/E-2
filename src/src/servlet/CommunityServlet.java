@@ -31,6 +31,8 @@ public class CommunityServlet extends HttpServlet {
 		//ログインIDを取得
 				HttpSession session = request.getSession();
 				String num = (String)session.getAttribute("staff_id");
+				System.out.println(num);
+
 
 
 		// リクエストパラメータを取得する
