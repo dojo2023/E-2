@@ -10,7 +10,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.MypageDao;
+import dao.Gatya_getDAO;
+import dao.MypageDAO;
+import model.Gatya_get;
 import model.Mypage;
 /**
  * Servlet implementation class LoginServlet
@@ -23,44 +25,59 @@ public class MypageServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//		// もしもログインしていなかったらログインサーブレットにリダイレクトする
+//		// もしもログインして�?なかったらログインサーブレ�?トにリダイレクトす�?
 //		HttpSession session = request.getSession();
 //		if (session.getAttribute("staff_id") == null) {
 //			response.sendRedirect("/kumano_onigiri/LoginServlet");
 //			return;
 //		}
 
-		MypageDao dao = new MypageDao();
-		List<Mypage> mypagelist = dao.mypageselect("6");
-		for(Mypage i : mypagelist) {
-			System.out.println(i.getStaff_id());
-			System.out.println(i.getName());
-			System.out.println(i.getRole());
-			System.out.println(i.getQuiz());
-			System.out.println(i.getQ_point());
-			System.out.println(i.getGatya_id());
-			System.out.println(i.getTask_thread());
+		MypageDAO dao = new MypageDAO();
+		Gatya_getDAO gachadao = new Gatya_getDAO();
+		List<Gatya_get> markList = gachadao.gachapull("6","Mk");
+		List<Gatya_get> bgList = gachadao.gachapull("6","Bg");
+		List<Mypage> commList = dao.mypageselect("6");
+		for (Mypage card : commList) {
+			System.out.println(card.getStaff_id());
+			System.out.println(card.getName());
+			System.out.println(card.getRole());
+			System.out.println(card.getQuiz());
+			System.out.println(card.getQ_point());
+			System.out.println(card.getGatya_id());
+			System.out.println(card.getTask_thread());
 		}
-		// 検索結果をリクエストスコープに格納する
-				request.setAttribute("mypagelist", mypagelist);
-		// マイページにフォワードする
+		Mypage banana = commList.get(0);
+    	String id = banana.getStaff_id();
+    	String name = banana.getName();
+    	String point = banana.getQ_point();
+
+		request.setAttribute("staff_id", id);
+		request.setAttribute("name", name);
+		request.setAttribute("q_point", point);
+		// 検索結果をリクエストスコープに格納す�?
+				request.setAttribute("markList", markList);
+				request.setAttribute("bgList", bgList);
+		// マイペ�?�ジにフォワードす�?
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/mypage.jsp");
 		dispatcher.forward(request, response);
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// リクエストパラメータを取得する
+		// リクエストパラメータを取得す�?
+//		String staff_id = request.getParameter("STAFF_ID");
+//		String name = request.getParameter("NAME");
+//		String role = request.getParameter("ROLE");
+//		String mark_id = request.getParameter("MARK_ID");
 		request.setCharacterEncoding("UTF-8");
-		String staff_id = request.getParameter("STAFF_ID");
-		String name = request.getParameter("NAME");
-		String role = request.getParameter("ROLE");
-		String mark_id = request.getParameter("MARK_ID");
-		String gatya_id = request.getParameter("GATYA_ID");
-		String task_thread = request.getParameter("TASK_THREAD");
+		String on = request.getParameter("ON");
+	MypageDAO dao = new MypageDAO();
+		if(on == null) {
+			dao.onoffupdate(false, "6");
+			}else {
+				dao.onoffupdate(true, "6");
+			}
 
-
-
-			// マイページにフォワードする
+			// マイペ�?�ジにフォワードす�?
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/mypage.jsp");
-			dispatcher.forward(request, response);
+		dispatcher.forward(request, response);
 		}
     }

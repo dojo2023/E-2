@@ -10,8 +10,8 @@ import java.util.List;
 
 import model.Mypage;
 
-public class MypageDao{
-	//チケットをすべて取得し、リストを表示する
+public class MypageDAO{
+	//チケットをすべて取得し、リストを表示する!
 			public List<Mypage> mypageselect(String staffid) {
 				Connection conn = null;
 				List<Mypage> mypageList = new ArrayList<Mypage>();
@@ -70,4 +70,52 @@ public class MypageDao{
 				// 結果を返す
 				return mypageList;
 			}
+
+			//出題機能ONOFFを切り替える
+			public boolean onoffupdate(Boolean onoff,String id) {
+				Connection conn = null;
+				boolean result = false;
+
+				try {
+					// JDBCドライバを読み込む
+					Class.forName("org.h2.Driver");
+
+					// データベースに接続する
+					conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6/db/GardenDB", "sa", "password");
+
+					// SQL文を準備する
+					String sql = "UPDATE USER   SET QUIZ  = ? where STAFF_ID  = ?";
+					PreparedStatement pStmt = conn.prepareStatement(sql);
+
+					// SQL文を完成させる
+					pStmt.setBoolean(1, onoff);
+					pStmt.setString(2, id);
+
+					// SQL文を実行する
+					if (pStmt.executeUpdate() == 1) {
+						result = true;
+					}
+				}
+				catch (SQLException e) {
+					e.printStackTrace();
+				}
+				catch (ClassNotFoundException e) {
+					e.printStackTrace();
+				}
+				finally {
+					// データベースを切断
+					if (conn != null) {
+						try {
+							conn.close();
+						}
+						catch (SQLException e) {
+							e.printStackTrace();
+						}
+					}
+				}
+
+				// 結果を返す
+				return result;
+			}
+
 }

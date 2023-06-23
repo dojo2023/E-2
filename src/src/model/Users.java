@@ -8,7 +8,6 @@ public class Users implements Serializable {
 		private String role;
 		private String quiz;
 		private String answer_time;
-		private String gatya_id;
 
 		public Users(String staff_id, String password, String name, String role,
 				String quiz, String answer_time,String gatya_id) {
@@ -19,7 +18,6 @@ public class Users implements Serializable {
 			this.role = role;
 			this.quiz = quiz;
 			this.answer_time = answer_time;
-			this.gatya_id = gatya_id;
 
 		}
 
@@ -30,7 +28,6 @@ public class Users implements Serializable {
 			this.role = "";
 			this.quiz = "";
 			this.answer_time = "";
-			this.gatya_id = "";
 		}
 
 		public String getStaff_id() {
@@ -76,14 +73,6 @@ public class Users implements Serializable {
 
 		public void setAnswer_time(String answer_time) {
 			this.answer_time = answer_time;
-		}
-
-		public String getGatya_id() {
-			return gatya_id;
-		}
-
-		public void setGatya_id(String gatya_id) {
-			this.gatya_id = gatya_id;
 		}
 	}
 

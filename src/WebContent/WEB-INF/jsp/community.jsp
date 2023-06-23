@@ -28,11 +28,11 @@
     </div>
     <nav id="nav">
       <ul>
-        <li><a href="">拙者</a></li>
-        <li><a href="">勤怠</a></li>
-        <li><a href="">勉強</a></li>
-        <li><a href="">コミュニティ</a></li><br><br><br>
-        <li><a href="">ログアウト</a></li>
+        <li><a href="/kumano_onigiri/MypageServlet">拙者</a></li>
+        <li><a href="/kumano_onigiri/Work_listServlet">勤怠</a></li>
+        <li><a href="/kumano_onigiri/StudyServlet">勉強</a></li>
+        <li><a href="/kumano_onigiri/CommunityServlet">コミュニティ</a></li><br><br><br>
+        <li><a href="/kumano_onigiri/LogoutServlet">ログアウト</a></li>
       </ul>
     </nav>
   </header>
@@ -62,6 +62,7 @@
         </div>
         <div class="text_und">
         <img src="./img/edit.svg" class="edit" id="${e.writingid}"onclick="editfun(this.id)">
+        <div class="good_ct">${e.good}</div>
         </div>
         </div>
   		</c:when>
@@ -70,9 +71,9 @@
         <div class="text_inf">
           <img src="./img/${e.gatyaid}.png" width="60">
           <div class="user">
-          <div class="userid">ID:${e.staffid}</div>
-          <div class="name"id="nameid${e.writingid}">${e.name}</div>
-          <div class="point">${e.qpoint}pt</div>
+          	<div class="userid">ID:${e.staffid}</div>
+          	<div class="name"id="nameid${e.writingid}">${e.name}</div>
+          	<div class="point">${e.qpoint}pt</div>
           </div>
           <div class="time">${e.writingtime}</div>
         </div>
@@ -82,11 +83,11 @@
         <div class="text_und">
           <img src="./img/reply.svg" class="reply" id="${e.writingid}" onclick="replyfun(this.id)">
           <form method="POST" action="/kumano_onigiri/CommunityGoodServlet">
-          <div class="good_ct">${e.good}</div>
-          <textarea class="editid"name="GOOD" readonly>${e.good}</textarea>
-          <textarea class="editid"name="WRITING_ID" readonly>${e.writingid}</textarea>
-          <input type="image" src="./img/good.svg" class="good" width="30" >
-      </form>
+          	<textarea class="editid"name="GOOD" readonly>${e.good}</textarea>
+          	<textarea class="editid"name="WRITING_ID" readonly>${e.writingid}</textarea>
+          	<input type="image" src="./img/good.svg" class="good" width="30" >
+      	  </form>
+      	  <div class="good_ct">${e.good}</div>
         </div>
         </div>
   		</c:otherwise>
@@ -106,10 +107,10 @@
       <div class="modal_pop_main">
           <div class="content">
             <div class="pop_box">
-              <div class="pop">編集</div>
-              <div class="js-modal-close">キャンセル</div>
+              <div class="pop">編集/削除</div>
+              <img alt="削除" src="./img/batsu.png"class="js-modal-close"width="40">
             </div>
-              <form method="POST" id="edit" action="/kumano_onigiri/CommuntiyeditServlet">
+               <form method="POST" id="edit" action="/kumano_onigiri/CommuntiyeditServlet">
                    <textarea class="editid"name="WRITING_ID" readonly></textarea>
                 <textarea class="editarea"name="WRITING_FORM">${writingform}</textarea>
               <input type="submit" value="確定" class="edit_btn" name="SUBMIT">
@@ -127,4 +128,6 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="./js/common.js"></script>
 <script src="./js/community.js"></script>
+
+
 </html>

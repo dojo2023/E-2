@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,11 +25,11 @@
         </div>
         <nav id="nav">
           <ul>
-            <li><a href="">拙者</a></li>
-            <li><a href="">勤怠</a></li>
-            <li><a href="">勉強</a></li>
-            <li><a href="">コミュニティ</a></li><br><br><br>
-            <li><a href="">ログアウト</a></li>
+           <li><a href="/kumano_onigiri/MypageServlet">拙者</a></li>
+            <li><a href="/kumano_onigiri/WorkingServlet">勤怠</a></li>
+            <li><a href="/kumano_onigiri/StudyServlet">勉強</a></li>
+            <li><a href="/kumano_onigiri/CommunityServlet">コミュニティ</a></li><br><br><br>
+            <li><a href="/kumano_onigiri/LoginServlet">ログアウト</a></li>
           </ul>
         </nav>
 
@@ -43,29 +44,28 @@
           <br> <br><br><br>
           <h1 class="heading-lv1 text-center">拙者のページ</h1>
             <figure class="profile-image">
-                <img src="C:\kumaoni\mypage\afc4ff684a3f838967d76611b9274164_t.jpeg" alt="東條 はるのプロフィール画像" width="300" height="300">
+                <img src="./img/Mk03.png"  width="300" height="300">
             </figure>
 
             <h3 class="heading-lv3 heading-margin text-center">社員情報</h3>
             <article>
               <ul class="user-data">
-              <li>  社員ID</li>
-              <li>氏名</li>
-              <li>社員区分</li>
-              <li>クイズポイント</li>
+              <li>社員ID:${staff_id}</li>
+              <li>氏名:${name}</li>
+              <li>社員区分:${role}</li>
+              <li>クイズポイント:${q_point}</li>
               </ul>
               <br>
             </article>
-
             <div class="gacha-btn">
-             <div><a href="https://www.google.com/maps"  class="gachabutton">ガチャページへ</a></div>
+             <div><a href="/kumano-onigiri/GachaServlet/"  class="gachabutton">ガチャページへ</a></div>
             </div><br><br>
 
 
            <div class="box">
             <div class="task-box">
               <h3 style="text-align:center">今日のタスク</h3>
-              content2
+              ${task_thread}
 
             </div>
             &nbsp;&nbsp;
@@ -73,66 +73,69 @@
               <h3 style="text-align:center">オプション</h3><br>
 
 
-
-
               <div class="radioArea" id="makeImg">
-                クイズ機能&nbsp;　<input type="radio" name="n1" id="r1" checked><label for="r1">ON</label>
-                <input type="radio" name="n1" id="r2"><label for="r2">OFF</label>
-                <!--背景設定ボタン-->
+              <form action="/kumano_onigiri/MypageServlet" method="post">
+                クイズ機能&nbsp;　<input type="submit" name="ON" id="r1" checked><label for="r1">ON</label>
+                <input type="submit" name="OFF" id="r2"><label for="r2">OFF</label>
+                </form>
+                <!--背景設定�?�タン-->
                  <button id="modalOpen" class="button">背景設定</button>
                   <div id="easyModal" class="modal">
                     <div class="modal-content">
                       <div class="modal-header">
                         <h2>&ensp;&ensp;&ensp;&ensp;
                           &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
-                          &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;背景設定 </h2>
+                          &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;背景設定</h2>
 
-                        <span class="modalClose">×</span>
+                        <span class="modalClose">�?</span>
                       </div>
                       <div class="modal-body">
                         <br><br><br><br><br><br><br><br>
-                        <!--背景モーダルウィンドウ内のプルダウンメニュー-->
+                        <!--背景モーダルウィンドウ�?のプルダウンメニュー-->
                         <div class="mark-select cp_sl01">
+                        <form action="/kumano_onigiri/BackgroundServlet" method="post">
+
                           <select required >
                             <option value="" hidden>背景を選択してください</option>
-                            <option value="1">cat</option>
-                            <option value="2">dog</option>
-                            <option value="3">rabbit</option>
-                            <option value="4">squirrel</option>
+                            <c:forEach var="e" items="${bgList}" >
+ 								 <option name="chenge_bg">${e.gachaid}</option>
+  							</c:forEach>
                           </select>
                         </div>
-                        <!--背景モーダルウィンドウ内のOKボタン-->
+                        <!--背景モーダルウィンドウ�?のOKボタン-->
                         <input type="submit" value="OK" class="bg-mark-changebutton">
+                        </form>
                       </div>
                     </div>
                   </div><br>
 
                   <!--マーク設定ボタン-->
                   <br>
-                  <button id="modalOpen2" class="button2">マーク設定</button>
+                  <button id="modalOpen2" class="button2">マ-ク設定</button>
                   <div id="easyModal2" class="modal2">
                     <div class="modal-content2">
                       <div class="modal-header2">
                         <h2>&ensp;&ensp;&ensp;&ensp;
                           &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
-                          &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;マーク設定</h2>
+                          &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;マ-ク設定</h2>
 
-                        <span class="modalClose2">×</span>
+                        <span class="modalClose2">�?</span>
                       </div>
                       <div class="modal-body2">
                        <br><br><br><br><br><br><br><br>
-                       <!--マーク設定モーダルウィンドウ内のプルダウンメニュー-->
+                       <!--マ�?�ク設定モーダルウィンドウ�?のプルダウンメニュー-->
                         <div class="mark-select cp_sl01">
+                        <form action="/kumano_onigiri/MarkServlet" method="post">
                           <select required>
-                            <option value="" hidden>マークを選択してください</option>
-                            <option value="1">cat</option>
-                            <option value="2">dog</option>
-                            <option value="3">rabbit</option>
-                            <option value="4">squirrel</option>
+                            <option value="" hidden>マ-クを選択してください</option>
+                            <c:forEach var="e" items="${markList}" >
+ 								 <option name="chenge_mark">${e.gachaid}</option>
+  							</c:forEach>
                           </select>
                         </div>
                         <div class="button-parent">
                           <input type="submit" value="OK" class="bg-mark-changebutton">
+                          </form>
                         </div>
 
                       </div>
@@ -156,7 +159,7 @@
 
 
       <script  src="./js/mypage.js"></script>
-      <!-- このリンクを書くことでjqueryが使用できる -->
+      <!-- こ�?�リンクを書くことでjqueryが使用できる -->
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
       </html>

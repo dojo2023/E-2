@@ -11,6 +11,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.CommunityDAO;
 import model.Community;
@@ -46,12 +47,13 @@ public class CommunityServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//ログインIDを取得
+		HttpSession session = request.getSession();
+		String staff_id = (String)session.getAttribute("staff_id");
 		// リクエストパラメータを取得する
 				request.setCharacterEncoding("UTF-8");
 				String writingform = request.getParameter("WRITING_FORM");
 				String good ="0";
-				String staffid = "1";
-//				String staffid = request.getParameter("STAFF_ID");
 				//指定のタイムゾーンで現在時刻を取得
 				Calendar cal = Calendar.getInstance();
 				SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -59,7 +61,7 @@ public class CommunityServlet extends HttpServlet {
 
 				// 登録処理を行う
 				CommunityDAO cDao = new CommunityDAO();
-				if(cDao.insert(new Community(null,writingform,writingtime,good,staffid))) {
+				if(cDao.insert(new Community(null,writingform,writingtime,good,staff_id))) {
 					System.out.println("投稿DB登録完了");
 				}else {
 					System.out.println("投稿DB登録失敗");

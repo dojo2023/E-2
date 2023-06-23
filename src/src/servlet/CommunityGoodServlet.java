@@ -32,11 +32,13 @@ public class CommunityGoodServlet extends HttpServlet {
         CommunityDAO dao = new CommunityDAO();
         dao.goodupdate(good ,id);
 
-		// 全件表示処理を行う
+	// 全件表示処理を行う
 		List<Communityjoin> commList = dao.allselect();
 
 		// 結果をリクエストスコープに格納する
 		request.setAttribute("commList", commList);
+
+
 		// 結果ページにフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/community.jsp");
 		dispatcher.forward(request, response);
