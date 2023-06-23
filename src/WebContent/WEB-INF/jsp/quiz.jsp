@@ -49,6 +49,8 @@
                 <div class="pop">クイズ</div><br>
                 <div class="pop"><%= request.getAttribute("quiz") %></div>
 
+				<input type="hidden" id="hoge" value = "<%= request.getAttribute("quiz_point") %>">
+
                 <form id="quiz" action="">
                 <c:forEach var="e" items="${ChoiceList}">
                 <div><label><input type="radio" name="radio" value = "${e.is_answer}">${e.choices}</label>
@@ -67,13 +69,22 @@
 		                <div class="pop" id = "edit_area"></div><br>
 		                <div class="pop"><%= request.getAttribute("quiz_ex") %></div>
 
-		                <img src="./img/mark_batsu.png" class="js-modal-close" width="50">
-		                <a href="#" class="btn-flat-simple"><i class="fa fa-caret-right"></i> 用語解説</a><!-- 用語ページに飛ばす -->
+		                <div class="batsu"><a class="js-modal-close" width="50">×</a></div>
+		                <a href="/servlet/WardServlet/" class="btn-flat-simple"><i class="fa fa-caret-right"></i> 用語解説</a><!-- 用語ページに飛ばす -->
 		                <a href="#" id ="btn" class="btn-flat-simple" class="js-modal-close" onclick="window.location.reload();">
 		                <i class="fa fa-caret-right" onclick="func_reload()"></i> 次の問題</a>
+		                <div class="pop" id = "quiz_point"></div>
+
 		            </div>
 		    	</div>
     		</div>
+
+    		<!-- ポイントをサーブレットへ送る -->
+    		<form action="kumano_onigiri/servlet/QuizpointServlet" method="post">
+			  <input type="hidden" id = "quiz_point" name="quiz_point">
+			</form>
+
+
 
 	</div>
 

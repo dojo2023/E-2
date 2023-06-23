@@ -25,13 +25,15 @@
     transform: translate(-50%, -50%);
     z-index: 9999 !important;
     background: #fff;
-    padding: 30px;
+    /*padding: 30px;*/
 }
 
 .pop {
     color: #000;
     text-align: center;
 }
+
+
 
 /*ボタン*/
 .btn-flat-simple {
@@ -50,4 +52,12 @@
   color: white;
 }
 
-
+/*×ボタン作成*/
+.batsu{
+    font-size: 400%;
+    font-weight: bold;
+    color: red;
+    position: absolute;
+    right: 50%;
+    top: 50%;
+}

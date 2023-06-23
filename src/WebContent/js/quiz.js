@@ -11,20 +11,20 @@ $('.modal_pop').hide();
 
 
 const func = () => {
-let score = 0;
+ var hoge = document.getElementById( 'hoge' ).value;
 
-const quiz_ans = document.getElementById('quiz');
+ const quiz_ans = document.getElementById('quiz');
   if (quiz_ans.radio.value == 'true') {
-    alert("正解");
     var str = "正解";
     document.getElementById('edit_area').innerHTML = str ;
-    score++;
+    hoge++;
   } else if (quiz_ans.radio.value == 'false') {
-    alert("不正解");
     var str = "不正解";
     document.getElementById('edit_area').innerHTML = str ;
   }
-console.log('現在の点数:'+ score);
+ var qpoint = hoge;
+console.log('現在の点数:'+ qpoint);
+document.getElementById('quiz_point').innerHTML = qpoint ;
 
 }
 
