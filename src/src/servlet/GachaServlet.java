@@ -31,8 +31,8 @@ public class GachaServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//ログインIDを取得
-				HttpSession session = request.getSession();
-				String staff_id = (String)session.getAttribute("staff_id");
+		HttpSession session = request.getSession();
+		String staff_id = (String)session.getAttribute("staff_id");
 
 		//DBからチケットの枚数を取得
 		GachaTicketDAO dao = new GachaTicketDAO();
@@ -46,8 +46,8 @@ public class GachaServlet extends HttpServlet {
 		request.setAttribute("samu_tkt", smri);
 		request.setAttribute("tai_tkt", sds);
 		// フォワード
-				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/gacha.jsp");
-				dispatcher.forward(request,response);
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/gacha.jsp");
+		dispatcher.forward(request,response);
 	}
 
 	/**
