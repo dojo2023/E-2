@@ -50,10 +50,10 @@
             <h3 class="heading-lv3 heading-margin text-center">社員情報</h3>
             <article>
               <ul class="user-data">
-              <li>  社員ID ${staff_id}</li>
-              <li>氏名 ${name}</li>
-              <li>社員区分</li>
-              <li>クイズポイント ${q_point}</li>
+              <li>社員ID:${staff_id}</li>
+              <li>氏名:${name}</li>
+              <li>社員区分:${role}</li>
+              <li>クイズポイント:${q_point}</li>
               </ul>
               <br>
             </article>
@@ -65,7 +65,7 @@
            <div class="box">
             <div class="task-box">
               <h3 style="text-align:center">今日のタスク</h3>
-              content2
+              ${task_thread}
 
             </div>
             &nbsp;&nbsp;
@@ -93,15 +93,18 @@
                         <br><br><br><br><br><br><br><br>
                         <!--背景モーダルウィンドウ�?のプルダウンメニュー-->
                         <div class="mark-select cp_sl01">
+                        <form action="/kumano_onigiri/BackgroundServlet" method="post">
+
                           <select required >
                             <option value="" hidden>背景を選択してください</option>
                             <c:forEach var="e" items="${bgList}" >
- 								 <option >${e.gachaid}</option>
+ 								 <option name="chenge_bg">${e.gachaid}</option>
   							</c:forEach>
                           </select>
                         </div>
                         <!--背景モーダルウィンドウ�?のOKボタン-->
                         <input type="submit" value="OK" class="bg-mark-changebutton">
+                        </form>
                       </div>
                     </div>
                   </div><br>
@@ -122,15 +125,17 @@
                        <br><br><br><br><br><br><br><br>
                        <!--マ�?�ク設定モーダルウィンドウ�?のプルダウンメニュー-->
                         <div class="mark-select cp_sl01">
+                        <form action="/kumano_onigiri/MarkServlet" method="post">
                           <select required>
                             <option value="" hidden>マ-クを選択してください</option>
                             <c:forEach var="e" items="${markList}" >
- 								 <option >${e.gachaid}</option>
+ 								 <option name="chenge_mark">${e.gachaid}</option>
   							</c:forEach>
                           </select>
                         </div>
                         <div class="button-parent">
                           <input type="submit" value="OK" class="bg-mark-changebutton">
+                          </form>
                         </div>
 
                       </div>
