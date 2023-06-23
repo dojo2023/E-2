@@ -3,6 +3,7 @@ package servlet;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.Random;
 
@@ -29,29 +30,32 @@ public class ComonServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Login_timeDAO timeDAO = new Login_timeDAO();
 		StudyDAO studyDAO = new StudyDAO();
+		Login_timeDAO timeDAO = new Login_timeDAO();
 		//ANSWER_TIMEを取得
-		List<Login_time> timeList = timeDAO.login_timeget("6");
-
+		List<Login_time> timeList = timeDAO.login_timeget("1");
+		Login_time time = timeList.get(0);
 		//指定のタイムゾーンで現在時刻を取得
 		Calendar cal = Calendar.getInstance();
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		String newlogintime = sdf.format(cal.getTime());
 
-		for (Login_time str : timeList) {
-			System.out.println(str.getAnswer_time());
+		Date logintime = time.getAnswer_time();
+		String nowtime = new SimpleDateFormat("yyyy-MM-dd").format(logintime);
+
+		if(newlogintime.compareTo(nowtime) == 1) {
+			System.out.println("用語を再取得");
+			//ランダムで用語と解説を取得する
+			Random random = new Random();
+			List<Study> wordList = studyDAO.StudyAllList();
+			Study todayword = wordList.get(random.nextInt(wordList.size()));
+			String word = todayword.getWord_item();
+			String wordex = todayword.getWord_ex();
+			//用語をスコープに格納
+			request.setAttribute("word", word);
+		}else {
+			System.out.println("用語は変更しない");
 		}
-
-
-		//ランダムで用語と解説を取得する
-		Random random = new Random();
-		List<Study> wordList = studyDAO.StudyAllList();
-		Study todayword = wordList.get(random.nextInt(wordList.size()));
-		String word = todayword.getWord_item();
-		String wordex = todayword.getWord_ex();
-		//用語をスコープに格納
-		request.setAttribute("word", word);
 
 		// フォワード
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/gacha.jsp");

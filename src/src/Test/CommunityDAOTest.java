@@ -19,7 +19,7 @@ public class CommunityDAOTest {
 				System.out.println("GOOD：" + card.getGood());
 				System.out.println("NAME：" + card.getName());
 				System.out.println("Q_POINT：" + card.getQpoint());
-				System.out.println("GATYA_ID：" + card.getGatyaid());
+				System.out.println("MARK_ID：" + card.getGatyaid());
 				System.out.println("STAFF_ID：" + card.getStaffid());
 				System.out.println();
 			}

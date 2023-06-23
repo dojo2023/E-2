@@ -58,7 +58,7 @@
               <br>
             </article>
             <div class="gacha-btn">
-             <div><a href="/kumano-onigiri/GachaServlet/"  class="gachabutton">ガチャページへ</a></div>
+             <div><a href="/kumano_onigiri/GachaServlet"  class="gachabutton">ガチャページへ</a></div>
             </div><br><br>
 
 

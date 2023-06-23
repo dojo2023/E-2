@@ -36,11 +36,15 @@ public class GachaServlet extends HttpServlet {
 
 		//DBからチケットの枚数を取得
 		GachaTicketDAO dao = new GachaTicketDAO();
-		List<GachaTicket> gachaList = dao.ticketselect(staff_id);
+		List<GachaTicket> gachaList = dao.ticketselect("6");
 		GachaTicket ticketlist = gachaList.get(0);
     	int asi = ticketlist.getAsgrticket();
     	int smri = ticketlist.getSmriticket();
     	int sds = ticketlist.getSdsticket();
+    	System.out.println(asi);
+    	System.out.println(smri);
+    	System.out.println(sds);
+
 
 		request.setAttribute("asi_tkt", asi);
 		request.setAttribute("samu_tkt", smri);

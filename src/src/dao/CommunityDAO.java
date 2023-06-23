@@ -25,7 +25,7 @@ public class CommunityDAO {
 				conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6/db/GardenDB", "sa", "password");
 
 				// SQL文を準備する
-				String sql = "SELECT WRITING_ID ,WRITING_FORM ,WRITING_TIME ,GOOD ,NAME ,GATYA_ID ,COMMUNITY .STAFF_ID ,Q_POINT FROM COMMUNITY INNER JOIN USER ON COMMUNITY.STAFF_ID =USER.STAFF_ID INNER JOIN QPOINT  ON COMMUNITY.STAFF_ID =QPOINT .STAFF_ID";
+				String sql = "SELECT WRITING_ID ,WRITING_FORM ,WRITING_TIME ,GOOD ,NAME ,MARK_ID ,COMMUNITY .STAFF_ID ,Q_POINT FROM COMMUNITY INNER JOIN USER ON COMMUNITY.STAFF_ID =USER.STAFF_ID INNER JOIN QPOINT  ON COMMUNITY.STAFF_ID =QPOINT .STAFF_ID";
 				PreparedStatement pStmt = conn.prepareStatement(sql);
 
 				// SQL文を実行し、結果表を取得する
@@ -40,7 +40,7 @@ public class CommunityDAO {
 					rs.getString("GOOD"),
 					rs.getString("NAME"),
 					rs.getString("Q_POINT"),
-					rs.getString("GATYA_ID"),
+					rs.getString("MARK_ID"),
 					rs.getString("STAFF_ID")
 					);
 					commList.add(comm);

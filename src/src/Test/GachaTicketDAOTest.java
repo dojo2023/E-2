@@ -12,7 +12,7 @@ public class GachaTicketDAOTest {
 
 
 	// ticketselect()のテスト
-			List<GachaTicket> gachaList = dao.ticketselect("1");
+			List<GachaTicket> gachaList = dao.ticketselect("6");
 			GachaTicket ticketlist = gachaList.get(0);
         	int asi = ticketlist.getAsgrticket();
         	int smri = ticketlist.getSmriticket();

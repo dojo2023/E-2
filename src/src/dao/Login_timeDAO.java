@@ -37,7 +37,7 @@ public class Login_timeDAO {
 				if (rs.next()) {
 					Login_time time = new Login_time(
 					rs.getString("STAFF_ID"),
-					rs.getString("ANSWER_TIME")
+					rs.getDate("ANSWER_TIME")
 					);
 					timeList.add(time);
 				}

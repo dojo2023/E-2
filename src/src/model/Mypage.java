@@ -19,12 +19,12 @@ public class Mypage implements Serializable {
 		}
 
 		public Mypage() {
-			this.staff_id = staff_id;
-			this.name = name;
-			this.role = role;
-			this.quiz = quiz;
-			this.q_point = q_point;
-			this.task_thread = task_thread;
+			this.staff_id = "";
+			this.name = "";
+			this.role = "";
+			this.quiz = "";
+			this.q_point = "";
+			this.task_thread = "";
 		}
 
 		public String getStaff_id() {

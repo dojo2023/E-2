@@ -28,6 +28,10 @@ public class CommunityServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//ログインIDを取得
+				HttpSession session = request.getSession();
+				String num = (String)session.getAttribute("staff_id");
+
 
 		// リクエストパラメータを取得する
 		request.setCharacterEncoding("UTF-8");
@@ -38,6 +42,7 @@ public class CommunityServlet extends HttpServlet {
 
 		// 検索結果をリクエストスコープに格納する
 		request.setAttribute("commList", commList);
+		request.setAttribute("num", num);
 		// フォワード
 				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/community.jsp");
 				dispatcher.forward(request,response);
@@ -75,8 +80,5 @@ public class CommunityServlet extends HttpServlet {
 				// 結果ページにフォワードする
 				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/community.jsp");
 				dispatcher.forward(request, response);
-
-
 	}
-
 }

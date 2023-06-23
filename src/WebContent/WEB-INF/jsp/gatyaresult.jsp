@@ -51,15 +51,15 @@
                     <div class="nx-box">
                     <form id="gacha" action="/kumano_onigiri/GachaServlet" method="post">
                      <div class="nx-btn">足軽ガチャ
-                     <div class="asgr-ticket">チケット数:${asi_tkt}枚</div>
+                     <div class="asgr-ticket">チケット数:<span>${asi_tkt}</span>枚</div>
                         <input type="submit" name="asigaru" value="はい" class="asgr_result-btn">
                         </div>
                          <div class="nx-btn">侍ガチャ
-                         <div class="smri-ticket">チケット数:${samu_tkt}枚</div>
+                         <div class="smri-ticket">チケット数:<span>${samu_tkt}</span>枚</div>
                         <input type="submit" name="samurai" value="はい" class="smri_result-btn">
                         </div>
                          <div class="nx-btn">総大将ガチャ
-                         <div class="sds-ticket">チケット数:${tai_tkt}枚</div>
+                         <div class="sds-ticket">チケット数:<span>${tai_tkt}</span>枚</div>
                         <input type="submit" name="taisyou" value="はい" class="sds_result-btn">
                         </div>
                     </form>
