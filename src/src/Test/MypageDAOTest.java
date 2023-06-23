@@ -20,7 +20,6 @@ public class MypageDAOTest {
 				System.out.println(card.getRole());
 				System.out.println(card.getQuiz());
 				System.out.println(card.getQ_point());
-				System.out.println(card.getGatya_id());
 				System.out.println(card.getTask_thread());
 			}
 
@@ -42,7 +41,6 @@ public class MypageDAOTest {
 								System.out.println(card.getRole());
 								System.out.println(card.getQuiz());
 								System.out.println(card.getQ_point());
-								System.out.println(card.getGatya_id());
 								System.out.println(card.getTask_thread());
 							}
 						}

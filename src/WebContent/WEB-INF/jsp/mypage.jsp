@@ -65,7 +65,7 @@
            <div class="box">
             <div class="task-box">
               <h3 style="text-align:center">今日のタスク</h3>
-              ${task_thread}
+              ${task}
 
             </div>
             &nbsp;&nbsp;

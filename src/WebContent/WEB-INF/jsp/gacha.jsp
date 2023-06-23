@@ -15,7 +15,7 @@
         </div>
         <div class="word_box">
             <div class="word">
-                <div>今日の用語:SQLインジェクション</div>
+                <div>今日の用語:${word}</div>
             </div>
             <div class="word_button">
                 <div>解説</div>

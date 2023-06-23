@@ -37,23 +37,19 @@ public class MypageServlet extends HttpServlet {
 		List<Gatya_get> markList = gachadao.gachapull("6","Mk");
 		List<Gatya_get> bgList = gachadao.gachapull("6","Bg");
 		List<Mypage> commList = dao.mypageselect("6");
-		for (Mypage card : commList) {
-			System.out.println(card.getStaff_id());
-			System.out.println(card.getName());
-			System.out.println(card.getRole());
-			System.out.println(card.getQuiz());
-			System.out.println(card.getQ_point());
-			System.out.println(card.getGatya_id());
-			System.out.println(card.getTask_thread());
-		}
+
 		Mypage banana = commList.get(0);
     	String id = banana.getStaff_id();
     	String name = banana.getName();
     	String point = banana.getQ_point();
+    	String role = banana.getRole();
+    	String task = banana.getTask_thread();
 
 		request.setAttribute("staff_id", id);
 		request.setAttribute("name", name);
 		request.setAttribute("q_point", point);
+		request.setAttribute("role", role);
+		request.setAttribute("task", task);
 		// 検索結果をリクエストスコープに格納す�?
 				request.setAttribute("markList", markList);
 				request.setAttribute("bgList", bgList);
