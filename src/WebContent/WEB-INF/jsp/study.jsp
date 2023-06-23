@@ -49,8 +49,8 @@
         <br>
         <br><br><br><br><br>
         <div class="linkbutton3">
-          <div><a href="https://www.cman.jp" class="button">用語</a></div>
-          <div><a href="https://www.cman.jp" class="button">クイズ</a></div>
+          <div><a href="/kumano_onigiri/WardServlet" class="button">用語</a></div>
+          <div><a href="/kumano_onigiri/QuizServlet" class="button">クイズ</a></div>
           <div><a href="/kumano_onigiri/LinkServlet" class="button">リンク</a></div>
       </div>
 
