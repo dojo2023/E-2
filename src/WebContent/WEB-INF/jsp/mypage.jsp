@@ -15,13 +15,11 @@
           <img src="./img/apricon01.png" width="180">
         </div>
         <div class="word_box">
-        <div class="word">
-            今日の用語:SQLインジェクション<a href="" class="word_button">解説</a>
+	        <div class="word">
+	        今日の用語:SQLインジェクション
+	            <a href="/kumano_onigiri/WardServlet" class="word_button">解説</a>
 
-          </div>
-          <div class="word_button">
-            <div>解説</div>
-          </div>
+	        </div>
         </div>
         <nav id="nav">
           <ul>
@@ -78,7 +76,7 @@
                 クイズ機能&nbsp;　<input type="submit" name="ON" id="r1" checked><label for="r1">ON</label>
                 <input type="submit" name="OFF" id="r2"><label for="r2">OFF</label>
                 </form>
-                <!--背景設定�?�タン-->
+                <!--背景設定ボタン-->
                  <button id="modalOpen" class="button">背景設定</button>
                   <div id="easyModal" class="modal">
                     <div class="modal-content">
@@ -87,11 +85,11 @@
                           &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
                           &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;背景設定</h2>
 
-                        <span class="modalClose">�?</span>
+                        <span class="modalClose">×</span>
                       </div>
                       <div class="modal-body">
                         <br><br><br><br><br><br><br><br>
-                        <!--背景モーダルウィンドウ�?のプルダウンメニュー-->
+                        <!--背景モーダルウィンドウのプルダウンメニュー-->
                         <div class="mark-select cp_sl01">
                         <form action="/kumano_onigiri/BackgroundServlet" method="post">
 
@@ -102,7 +100,7 @@
   							</c:forEach>
                           </select>
                         </div>
-                        <!--背景モーダルウィンドウ�?のOKボタン-->
+                        <!--背景モーダルウィンドウのOKボタン-->
                         <input type="submit" value="OK" class="bg-mark-changebutton">
                         </form>
                       </div>
@@ -111,19 +109,19 @@
 
                   <!--マーク設定ボタン-->
                   <br>
-                  <button id="modalOpen2" class="button2">マ-ク設定</button>
+                  <button id="modalOpen2" class="button2">マーク設定</button>
                   <div id="easyModal2" class="modal2">
                     <div class="modal-content2">
                       <div class="modal-header2">
                         <h2>&ensp;&ensp;&ensp;&ensp;
                           &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
-                          &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;マ-ク設定</h2>
+                          &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;マーク設定</h2>
 
-                        <span class="modalClose2">�?</span>
+                        <span class="modalClose2">×</span>
                       </div>
                       <div class="modal-body2">
                        <br><br><br><br><br><br><br><br>
-                       <!--マ�?�ク設定モーダルウィンドウ�?のプルダウンメニュー-->
+                       <!--マーク設定モーダルウィンドウ�?のプルダウンメニュー-->
                         <div class="mark-select cp_sl01">
                         <form action="/kumano_onigiri/MarkServlet" method="post">
                           <select required>
