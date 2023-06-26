@@ -48,13 +48,13 @@ public class SearchServlet extends HttpServlet {
 		
 		//リクエストパラメータを取得
 		request.setCharacterEncoding("UTF-8");
-		int word_id = Integer.parseInt(request.getParameter("WORD_ID"));
+//		int word_id = Integer.parseInt(request.getParameter("WORD_ID"));
 		String word_item = request.getParameter("WORD_ITEM");
-		String word_ex = request.getParameter("WORD_EX");
+//		String word_ex = request.getParameter("WORD_EX");
 		
 		//検索処理
 		StudyDAO S_sd = new StudyDAO();
-		List<Study> cardList = S_sd.select(new Study(word_id, word_item, word_ex));
+		List<Study> cardList = S_sd.select(new Study(0, word_item, null));
 		
 		// 検索結果をリクエストスコープに格納する
 		request.setAttribute("cardList", cardList);

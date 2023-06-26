@@ -23,8 +23,9 @@ nav li {
 
 .w_select th {
     padding: auto;
-    width: 15em;
+    width: 13em;
     font-size: 17px;
+    margin-left: 600px;
 
 }
 
@@ -38,13 +39,30 @@ select{
 
 
 #table{
-    background-color: gray;
+    background-color: white;
     border: 1px solid black;
     height: 300px;
     margin-left: 200px;
     margin-right: 300px;
     margin-top: 50px;
     overflow: auto;
+}
+
+input[name="REGIST"] {
+    position: relative;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0 auto;
+    max-width: 240px;
+    padding: 6px 20px;
+    color: #000000;
+    transition: 0.3s ease-in-out;
+    font-weight: 600;
+    background: #6bb6ff;
+    filter: drop-shadow(0px 2px 4px #ccc);
+    border-radius: 3px;
+    border-radius: 5px;
+    
 }
 
 .work_list{
@@ -61,6 +79,7 @@ select{
     background-color: white;
     width: auto;
 }
+
 .work_list th, td {
     padding: 6px 16px 6px 0;
     border: 1px solid black;
@@ -69,7 +88,10 @@ select{
     width: 300px;
     text-align: center;
 }
-.work_sum {
+#work_msg {
+	margin-left: 1100px;
+}
+#work_time {
     margin-left: 1100px;
     margin-top: -100px;
 }
