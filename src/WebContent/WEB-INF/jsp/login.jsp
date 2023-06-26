@@ -22,14 +22,15 @@
 <!--ヘッダー (ここまで)-->
 <div class="banana">
 <h2>ログイン</h2>
-<form id="login_form" method="POST" action="/kumano_onigiri/LoginServlet">
-社員ID<br><input type="text" name="STAFF_ID"><br>
-password<br><input type="password" name="PASSWORD">
-<a><input type="submit" name="ログイン" class="login_form_btm" value="login"></a>
+<form onsubmit="return mit()" method="POST" action="/kumano_onigiri/LoginServlet">
+<input type="text" name="STAFF_ID" id="login_id" value="" placeholder="社員ID">
+<input type="password" name="PASSWORD" id="login_pw" value="" placeholder="Password">
+<a><input type="submit" name="btm" class="login_form_btm" value="login"></a>
+<div class="error"></div>
 </form>
 </div>
 <!--フッター（ここから）-->
 <!--フッター(ここまで）-->
-<script src="js/login.js"></script>
+<script src="./js/login.js"></script>
 </body>
 </html>
