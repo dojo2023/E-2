@@ -93,13 +93,12 @@
                       <div class="modal-body">
                         <br><br><br><br><br><br><br><br>
                         <!--背景モーダルウィンドウのプルダウンメニュー-->
-                        <div class="mark-select cp_sl01">
                         <form action="/kumano_onigiri/BackgroundServlet" method="post">
-
-                          <select required >
+                        <div class="mark-select cp_sl01">
+                          <select required name="chenge_bg">
                             <option value="" hidden>背景を選択してください</option>
                             <c:forEach var="e" items="${bgList}" >
- 								 <option name="chenge_bg">${e.gachaid}</option>
+ 								 <option value = "${e.stuffid}">${e.gachaid}</option>
   							</c:forEach>
                           </select>
                         </div>
