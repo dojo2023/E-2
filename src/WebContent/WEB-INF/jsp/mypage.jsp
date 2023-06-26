@@ -73,7 +73,7 @@
 
               <div class="radioArea" id="makeImg">
                	<form action="/kumano_onigiri/MypageServlet" method="post">
-	                クイズ機能&nbsp; <input type="submit"  id="r1" value="   " name="ON"  class="qonbutton" checked>
+	                &nbsp;&nbsp;&nbsp;&nbsp;クイズ機能&nbsp; <input type="submit"  id="r1" value="   " name="ON"  class="qonbutton" checked>
 	                <label for="r1">ON</label>&nbsp;
 	                <input type="submit" id="r2"  value="   "  name="OFF" class="qoffbutton">
                     <label for="r2">OFF</label>
