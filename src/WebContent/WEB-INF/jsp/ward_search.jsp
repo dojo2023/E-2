@@ -44,8 +44,8 @@
 	<h3>検索</h3>
 		<form method="POST" action="/kumano_onigiri/SearchServlet">
 			<div class="search">
-	          <input type="text" name="WORD_ITEM">
-	          <input type="submit" name="s_submit" value="検索">
+	          <input type="text" name="WORD_ITEM" placeholder = 用語を入力>
+	          <input type="submit" name="REGIST" value="検索">
 			</div>
 		</form>
 		<nav class="button">
@@ -56,25 +56,21 @@
 	    	</ul>
 	    </nav>
 	<form method="POST" action="/kumano_onigiri/SearchServlet">
-    <div id="table">
-        <table class="w_list">
-	    	<c:forEach var="e" items="${cardList}">
- 				<tr class="word_row">
-				<th>${e.word_item}</th><td>${e.word_ex}</td>
-	    		</tr>
-			</c:forEach>
-            <!--<tr class="word_row"><th>SQLインジェクション</th><td>アプリケーションのセキュリティ上の不備を意図的に利用し、アプリケーションが想定しないSQL文を実行させることにより、データベースシステムを不正に操作する攻撃方法</td></tr>
-            <tr class="word_row"><th>ディレクトリトラバーサル攻撃</th><td>ファイルやディレクトリを操作する際に、不正なパスを挿入されることによって意図しないディレクトリやファイルを参照、操作されてしまう問題</td></tr>
-            <tr class="word_row"><th>word</th><td>word_ex</td></tr>
-            <tr class="word_row"><th>word</th><td>word_ex</td></tr>
-            <tr class="word_row"><th>word</th><td>word_ex</td></tr>
-            <tr class="word_row"><th>word</th><td>word_ex</td></tr>
-            <tr class="word_row"><th>word</th><td>word_ex</td></tr>
-            <tr class="word_row"><th>word</th><td>word_ex</td></tr>
-            <tr class="word_row"><th>word</th><td>word_ex</td></tr>
-            <tr class="word_row"><th>word</th><td>word_ex</td></tr>
-            <tr class="word_row"><th>word</th><td>word_ex</td></tr> -->
-        </table>
+    <div id="result_table">
+    	<c:choose>
+	    	<c:when test="${empty cardList}">
+	    		<p class = "error">一致する用語がありません。</p>
+	    	</c:when>
+	    	<c:otherwise>
+		        <table class="w_list">
+			    	<c:forEach var="e" items="${cardList}">
+		 				<tr class="word_row">
+						<th>${e.word_item}</th><td>${e.word_ex}</td>
+			    		</tr>
+					</c:forEach>
+		        </table>
+		   	</c:otherwise>
+	   	</c:choose>
 	</div>    
 	</form>
 </main>
