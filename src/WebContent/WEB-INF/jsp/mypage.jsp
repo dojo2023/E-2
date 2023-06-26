@@ -68,7 +68,7 @@
             </div>
             &nbsp;&nbsp;
             <div class="option-box">
-              <h3 style="text-align:center">オプション</h3><br>
+              <h3 style="text-align:center">設定</h3><br>
 
 
               <div class="radioArea" id="makeImg">

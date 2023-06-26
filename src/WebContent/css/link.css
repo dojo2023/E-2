@@ -24,24 +24,30 @@ header {
   padding-left: 80px;
 }
 .word_box{
-  padding: 3px;
-  border: 2px solid rgb(0, 0, 0);
-  border-radius: 4px;
-  background-color: #ffffff;
-  margin-left: 500px;
-}
-.word{
-  font-size: 25px;
-  float: left;
-  padding-top: 5px;
-}
-.word_button{
-  font-size: 25px;
-  padding: 3px;
-  border: 2px solid rgb(0, 0, 0);
-  border-radius: 10px;
-  float: left;
-}
+    padding: 2px;
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 4px;
+    background-color: #ffffff;
+    margin-left: 580px;
+    width: 600;
+
+  }
+  .word{
+    font-size: 20px;
+    float: right;
+    padding-top: 9px;
+    justify-content: center;
+    display:flex;
+  }
+  .word_button{
+    font-size: 18px;
+    padding: 2px;
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 10px;
+    float: right;
+    width: 60;
+    margin-left: 100;
+  }
 
 #nav {
   position: absolute;
