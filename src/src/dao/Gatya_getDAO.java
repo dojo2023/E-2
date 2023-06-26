@@ -80,7 +80,7 @@ public class Gatya_getDAO {
 					conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6/db/GardenDB", "sa", "password");
 
 					// SQL文を準備する
-					String sql = "SELECT GATYA_NAME,STAFF_ID FROM GATYAGET INNER JOIN GATYA  ON GATYAGET .GATYA_ID  = GATYA .GATYA_ID WHERE STAFF_ID = ? AND GATYA .GATYA_ID LIKE ?";
+					String sql = "SELECT GATYAGET.GATYA_ID,GATYA_NAME,STAFF_ID FROM GATYAGET INNER JOIN GATYA  ON GATYAGET .GATYA_ID  = GATYA .GATYA_ID WHERE STAFF_ID = ? AND GATYA .GATYA_ID LIKE ?";
 					PreparedStatement pStmt = conn.prepareStatement(sql);
 
 					// SQL文を実行し、結果表を取得する
@@ -92,7 +92,7 @@ public class Gatya_getDAO {
 					while (rs.next()) {
 						Gatya_get card = new Gatya_get(
 								rs.getString("GATYA_NAME"),
-								rs.getString("STAFF_ID")
+								rs.getString("GATYA_ID")
 						);
 						pullList.add(card);
 					}

@@ -8,14 +8,17 @@ public class Mypage implements Serializable {
 		private String quiz;
 		private String q_point;
 		private String task_thread;
+		private String mark_id;
 
-		public Mypage(String staff_id, String name, String role, String quiz, String q_point, String task_thread) {
+		public Mypage(String staff_id, String name, String role, String quiz, String q_point, String task_thread,
+				String mark_id) {
 			this.staff_id = staff_id;
 			this.name = name;
 			this.role = role;
 			this.quiz = quiz;
 			this.q_point = q_point;
 			this.task_thread = task_thread;
+			this.mark_id = mark_id;
 		}
 
 		public Mypage() {
@@ -25,6 +28,7 @@ public class Mypage implements Serializable {
 			this.quiz = "";
 			this.q_point = "";
 			this.task_thread = "";
+			this.mark_id = "";
 		}
 
 		public String getStaff_id() {
@@ -74,6 +78,17 @@ public class Mypage implements Serializable {
 		public void setTask_thread(String task_thread) {
 			this.task_thread = task_thread;
 		}
+
+		public String getMark_id() {
+			return mark_id;
+		}
+
+		public void setMark_id(String mark_id) {
+			this.mark_id = mark_id;
+		}
+
+
+
 
 
 }
