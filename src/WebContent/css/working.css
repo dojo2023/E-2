@@ -1,1 +1,8 @@
 @charset "UTF-8";
+.main {
+    display: flex;
+}
+.table {
+    justify-content: space-between;
+    text-align: right;
+}
