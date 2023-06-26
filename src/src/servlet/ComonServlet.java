@@ -10,9 +10,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.StudyDAO;
 import model.Study;
+import model.Ticket_get;
 import model.TodayDate;
 
 /**
@@ -31,16 +33,25 @@ public class ComonServlet extends HttpServlet {
 /*------------------今日の用語の処理-----------------------*/
 		StudyDAO studyDAO = new StudyDAO();
 		TodayDate todaydate = new TodayDate();
+		Ticket_get get = new Ticket_get();
+
+		get.addticket(6, 3, 2, 1);
 		if(todaydate.datecheck("6")) {
-			System.out.println("用語を再取得");
+			System.out.println("日付が変わったときの処理");
+
 			//ランダムで用語と解説を取得する
 			Random random = new Random();
 			List<Study> wordList = studyDAO.StudyAllList();
 			Study todayword = wordList.get(random.nextInt(wordList.size()));
 			String word = todayword.getWord_item();
 			String wordex = todayword.getWord_ex();
+
 			//用語をスコープに格納
-			request.setAttribute("word", word);
+			HttpSession session = request.getSession();
+			session.setAttribute("word", word);
+
+		}else {
+			System.out.println("日付が変わらないときの処理");
 		}
 /*------------------------------------------------------------*/
 

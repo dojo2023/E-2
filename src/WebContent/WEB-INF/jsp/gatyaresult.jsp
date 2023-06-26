@@ -67,26 +67,23 @@
                 </div>
     </main>
 </body>
+<!-- このリンクを書くことでjqueryが使用できる -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="./js/common.js"></script>
 <script>
 $(function() {
 	  if($('#asgr-ticket').text() == "0"){
-	   $('.asigaru_pop').prop('disabled',true);
 	  $('.asgr_result-btn').prop('disabled',true);
-	  $('.asigaru_pop').css('background-color','rgb(116, 166, 216)');
-	  $('.asigaru_pop').css('box-shadow','rgb(49, 71, 198) 0px 10px 0px 0px');
+	  $('.asgr_result-btn').css('background-color','rgb(116, 166, 216)');
+	  $('.asgr_result-btn').css('box-shadow','rgb(49, 71, 198) 0px 10px 0px 0px');
 	  }
 	  if($('#smri-ticket').text() == "0"){
-	  $('.samurai_pop').prop('disabled',true);
 	  $('.smri_result-btn').prop('disabled',true);
-	  $('.samurai_pop').css('background-color','rgb(116, 166, 216)');
-	  $('.samurai_pop').css('box-shadow','rgb(49, 71, 198) 0px 10px 0px 0px');
+	  $('.smri_result-btn').css('background-color','rgb(116, 166, 216)');
+	  $('.smri_result-btn').css('box-shadow','rgb(49, 71, 198) 0px 10px 0px 0px');
 	  }
 	  if($('#sds-ticket').text() == "0"){
-	  $('.taisyou_pop').prop('disabled',true);
 	  $('.sds_result-btn').prop('disabled',true);
-	  $('.taisyou_pop').css('background-color','rgb(116, 166, 216)');
-	  $('.taisyou_pop').css('box-shadow','rgb(49, 71, 198) 0px 10px 0px 0px');
 	  $('.sds_result-btn').css('background-color','rgb(116, 166, 216)');
 	  $('.sds_result-btn').css('box-shadow','rgb(49, 71, 198) 0px 10px 0px 0px');
 	  }
