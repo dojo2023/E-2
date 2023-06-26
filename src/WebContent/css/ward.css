@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 body{
-    background-image: url(img/bg09.png);
+    background-image: url(../img/bg07.png);
 }
 
 
@@ -24,16 +24,17 @@ nav li{
 
 
 h3{
-    margin-left: 545px;
+    text-align: center;
+    margin-bottom: 20px
 }
 
-input[name="search"] {
+input[name="WORD_ID"], input[name="WORD_ITEM"], input[name="WORD_EX"] {
     margin: auto;
     font-size: large;
     text-align: center;
 }
 
-input[name="s_submit"] {
+input[name="REGIST"] {
     position: relative;
     justify-content: space-around;
     align-items: center;
@@ -51,6 +52,12 @@ input[name="s_submit"] {
 }
 
 
+.error {
+	height: auto;
+	text-align: center;
+	margin-top: -60px;
+	font-size: 40px;
+}
 
 
 nav ul{
@@ -82,7 +89,15 @@ input[name="a_sort"], input[name="d_sort"], input[name="n_sort"] {
 
 #table{
 	border: 1px solid black;
-    background-color: gray;
+    height: 350px;
+    margin-left: 300px;
+    margin-right: 300px;
+    overflow: auto;
+}
+
+#result_table{
+	border: 1px solid black;
+	background-color: white;
     height: 350px;
     margin-left: 300px;
     margin-right: 300px;
@@ -111,7 +126,7 @@ input[name="a_sort"], input[name="d_sort"], input[name="n_sort"] {
     border: 1px solid black;
     border-collapse: collapse;
     background-color: white;
-    width: auto;
+    width: 350px;
 }
 
 

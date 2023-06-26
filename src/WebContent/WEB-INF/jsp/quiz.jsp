@@ -45,7 +45,7 @@
 
 
 	<!-- クイズコンテンツ -->
-	<div class="content">
+	<div class="box">
                 <div class="pop">クイズ</div><br>
                 <div class="pop"><%= request.getAttribute("quiz") %></div>
 
@@ -59,7 +59,7 @@
 				</c:forEach>
                 <input type="button"  class="show_pop" value="回答" onclick="func()">
             	</form>
-
+	</div>
 
 		    <!-- ポップアップ用の画面 -->
 		    <div class="modal_pop">
@@ -68,7 +68,7 @@
 		            <div class="content">
 		                <div class="pop" id = "edit_area"></div><br>
 		                <div class="pop"><%= request.getAttribute("quiz_ex") %></div>
-						<div class="pop" id = "quiz_point"></div><br>
+						現在のポイント:<div class="pop" id = "quiz_point"></div><br>
 						<form action="/kumano_onigiri/QuizServlet" method="post">
 			  				<input type="image" src="./img/mark_batsu.png" class="js-modal-close" width="50">
 							<!-- <input type="hidden" value = "800" name="quiz_point"> -->
@@ -85,7 +85,7 @@
     		</div>
 
 
-	</div>
+
 
 
 
