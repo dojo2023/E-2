@@ -26,10 +26,22 @@ const func = () => {
 console.log('現在の点数:'+ qpoint);
 document.getElementById('quiz_point').innerHTML = qpoint ;
 
+document.getElementById('get_point').value = qpoint;
+
+
 }
+
+$('#get_point').hide();
+
 
 document.addEventListener('DOMContentLoaded', function() {
     document.getElementById("btn").addEventListener("click", function(){
     window.location.reload();
     })
 });
+
+
+
+
+
+

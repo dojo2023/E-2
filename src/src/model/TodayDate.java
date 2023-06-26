@@ -24,13 +24,12 @@ public class TodayDate {
 		String nowtime = new SimpleDateFormat("yyyy-MM-dd").format(logintime);
 
 
-		if(newlogintime.compareTo(nowtime) == 1) {
+		if(newlogintime.compareTo(nowtime) == 1 || newlogintime.compareTo(nowtime) == 2) {
 			result = true;
 		}else {
 			result = false;
 		}
-
-
+		timeDAO.timeupdate(newlogintime, staffid);
 		return result;
 	}
 }

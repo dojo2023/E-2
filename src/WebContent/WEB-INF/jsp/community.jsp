@@ -46,7 +46,7 @@
     <div class="text_cate">
       <c:forEach var="e" items="${commList}" >
       <c:choose>
-  		<c:when test="${e.staffid == 1}">
+  		<c:when test="${e.staffid == num}">
  <div class="text_box_main">
         <div class="text_inf">
           <img src="./img/${e.gatyaid}.png" width="60">
