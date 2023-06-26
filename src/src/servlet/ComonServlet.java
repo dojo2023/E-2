@@ -33,9 +33,12 @@ public class ComonServlet extends HttpServlet {
 /*------------------今日の用語の処理-----------------------*/
 		StudyDAO studyDAO = new StudyDAO();
 		TodayDate todaydate = new TodayDate();
-		Ticket_get get = new Ticket_get();
 
-		get.addticket(6, 3, 2, 1);
+
+		Ticket_get get = new Ticket_get();
+		get.addticket(6,800);
+
+
 		if(todaydate.datecheck("6")) {
 			System.out.println("日付が変わったときの処理");
 

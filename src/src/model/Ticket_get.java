@@ -7,7 +7,7 @@ import dao.GachaTicketDAO;
 public class Ticket_get {
 
 
-	public void addticket(int staffid,int asgr,int smri,int sds) {
+	public void addticket(int staffid,int qpoint) {
 		GachaTicketDAO  dao = new GachaTicketDAO();
 		String id = String.valueOf(staffid);
 		//チケットの枚数を取得
@@ -17,10 +17,17 @@ public class Ticket_get {
     	int smritc = ticketlist.getSmriticket();
     	int sdstc = ticketlist.getSdsticket();
 
-		//チケットの枚数を計算
-    	asitc = asitc + asgr;
-    	smritc = smritc + smri;
-    	sdstc = sdstc + sds;
+    	//足軽ランクの場合
+    	if(qpoint <= 500) {
+    		asitc = asitc + 1;
+    	}else if(qpoint >= 501 && qpoint <= 9999) {//侍ランクの場合
+    		asitc = asitc + 2;
+        	smritc = smritc + 1;
+    	}else {//総大将ランクの場合
+    		asitc = asitc + 3;
+        	smritc = smritc + 2;
+        	sdstc = sdstc + 1;
+    	}
 
 		//チケットの枚数を更新
     	dao.asgrupdate(asitc, id);
