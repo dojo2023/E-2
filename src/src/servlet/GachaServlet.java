@@ -161,5 +161,5 @@ public class GachaServlet extends HttpServlet {
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/gatyaresult.jsp");
 		dispatcher.forward(request, response);
 	}
-
 }
+

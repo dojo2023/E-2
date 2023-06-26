@@ -26,9 +26,11 @@ public class ComonServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+
+/*------------------今日の用語の処理-----------------------*/
 		StudyDAO studyDAO = new StudyDAO();
 		TodayDate todaydate = new TodayDate();
-
 		if(todaydate.datecheck("6")) {
 			System.out.println("用語を再取得");
 			//ランダムで用語と解説を取得する
@@ -40,7 +42,7 @@ public class ComonServlet extends HttpServlet {
 			//用語をスコープに格納
 			request.setAttribute("word", word);
 		}
-
+/*------------------------------------------------------------*/
 
 		// フォワード
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/gacha.jsp");
