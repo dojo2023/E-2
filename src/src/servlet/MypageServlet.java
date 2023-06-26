@@ -118,6 +118,11 @@ public class MypageServlet extends HttpServlet {
     	}else {
     		quiz = "OFF";
     	}
+    	if(role.equals("1")) {
+    		role = "一般";
+    	}else {
+    		role = "管理者";
+    	}
 
 		request.setAttribute("staff_id", id);
 		request.setAttribute("name", name);
