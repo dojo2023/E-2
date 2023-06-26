@@ -8,9 +8,11 @@ public class Users implements Serializable {
 		private String role;
 		private String quiz;
 		private String answer_time;
+		private String mark_id;
+		private String background_id;
 
 		public Users(String staff_id, String password, String name, String role,
-				String quiz, String answer_time,String gatya_id) {
+				String quiz, String answer_time,String mark_id, String background_id) {
 			super();
 			this.staff_id = staff_id;
 			this.password = password;
@@ -18,7 +20,8 @@ public class Users implements Serializable {
 			this.role = role;
 			this.quiz = quiz;
 			this.answer_time = answer_time;
-
+			this.mark_id = mark_id;
+			this.background_id = background_id;
 		}
 
 		public Users() {
@@ -28,6 +31,8 @@ public class Users implements Serializable {
 			this.role = "";
 			this.quiz = "";
 			this.answer_time = "";
+			this.mark_id = "";
+			this.background_id = "";
 		}
 
 		public String getStaff_id() {
@@ -73,6 +78,20 @@ public class Users implements Serializable {
 
 		public void setAnswer_time(String answer_time) {
 			this.answer_time = answer_time;
+		}
+		public String getMark_id() {
+			return mark_id;
+		}
+
+		public void setMark_id(String mark_id) {
+			this.mark_id = mark_id;
+		}
+		public String getBackground_id() {
+			return background_id;
+		}
+
+		public void setBackground_id(String background_id) {
+			this.background_id = background_id;
 		}
 	}
 

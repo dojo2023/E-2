@@ -31,7 +31,7 @@ public class WardServlet extends HttpServlet {
 //			return;
 //		}
 		
-		// メニューページにフォワードする
+		// 用語ページにフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/ward.jsp");
 		dispatcher.forward(request, response);
 				

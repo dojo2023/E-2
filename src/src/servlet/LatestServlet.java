@@ -30,7 +30,7 @@ public class LatestServlet extends HttpServlet {
 //			response.sendRedirect("/simpleBC/LoginServlet");
 //			return;
 //		}
-		// メニューページにフォワードする
+		// 用語ページにフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/ward.jsp");
 		dispatcher.forward(request, response);
 				
