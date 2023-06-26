@@ -72,9 +72,11 @@
 
 
               <div class="radioArea" id="makeImg">
-              <form action="/kumano_onigiri/MypageServlet" method="post">
-                クイズ機能&nbsp;　<input type="submit" name="ON" id="r1" checked><label for="r1">ON</label>
-                <input type="submit" name="OFF" id="r2"><label for="r2">OFF</label>
+               	<form action="/kumano_onigiri/MypageServlet" method="post">
+	                クイズ機能&nbsp; <input type="submit"  id="r1" value="   " name="ON"  class="qonbutton" checked>
+	                <label for="r1">ON</label>&nbsp;
+	                <input type="submit" id="r2"  value="   "  name="OFF" class="qoffbutton">
+                    <label for="r2">OFF</label>
                 </form>
                 <!--背景設定ボタン-->
                  <button id="modalOpen" class="button">背景設定</button>
@@ -125,15 +127,15 @@
                         <div class="mark-select cp_sl01">
                         <form action="/kumano_onigiri/MarkServlet" method="post">
                           <select required>
-                            <option value="" hidden>マ-クを選択してください</option>
+                            <option value="" hidden>マークを選択してください</option>
                             <c:forEach var="e" items="${markList}" >
  								 <option name="chenge_mark">${e.gachaid}</option>
   							</c:forEach>
-                          </select>
-                        </div>
-                        <div class="button-parent">
-                          <input type="submit" value="OK" class="bg-mark-changebutton">
-                          </form>
+	                      </select>
+	                        </div>
+	                    <div class="button-parent">
+	                          <input type="submit" value="OK" class="bg-mark-changebutton">
+                        </form>
                         </div>
 
                       </div>
