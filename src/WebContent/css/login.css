@@ -65,7 +65,7 @@ header {
 .wrapper {
   margin: 10px auto;	/* 中央揃え */
   height: 150px;
-  text-indent: -15.0rem; /* 挨拶文字位置の微調整*/
+  text-indent: -10.0rem; /* 挨拶文字位置の微調整 */
   text-align: center
 }
 body {
@@ -83,7 +83,6 @@ body {
   background-color: #b0c4de;
   text-align: center;
 }
-
 form h1,form p {
   color: white;
   font-weight: 500;
@@ -93,7 +92,7 @@ form p {
   font-size: 10px;
 }
 
-form input[type = "id"],form input[type = "password"] {
+form input[type = "text"],form input[type = "password"] {
   border: 0;
   background: none;
   display: block;
@@ -107,7 +106,7 @@ form input[type = "id"],form input[type = "password"] {
   text-align: center;
 }
 
-form input[type = "id"]:focus,form input[type = "password"]:focus {
+form input[type = "text"]:focus,form input[type = "password"]:focus {
   width: 280px;
   background-color: #808080;
 }
@@ -154,11 +153,11 @@ input {
 }
 
 /* エラーメッセージ */
-#error_message {
+.error {
   color: red;
 }
 
-/* 画面のスクロール無くす */
+/* 画rgb(255, 0, 128)(255, 0, 128)クロール無くす */
 html,body{
   overflow: hidden
 }
