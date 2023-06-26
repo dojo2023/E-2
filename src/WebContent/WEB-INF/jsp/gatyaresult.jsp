@@ -51,15 +51,15 @@
                     <div class="nx-box">
                     <form id="gacha" action="/kumano_onigiri/GachaServlet" method="post">
                      <div class="nx-btn">足軽ガチャ
-                     <div class="asgr-ticket">チケット数:<span>${asi_tkt}</span>枚</div>
+                     <div class="asgr-ticket">チケット数:<span id="asgr-ticket">${asi_tkt}</span>枚</div>
                         <input type="submit" name="asigaru" value="はい" class="asgr_result-btn">
                         </div>
                          <div class="nx-btn">侍ガチャ
-                         <div class="smri-ticket">チケット数:<span>${samu_tkt}</span>枚</div>
+                         <div class="smri-ticket">チケット数:<span id="smri-ticket">${samu_tkt}</span>枚</div>
                         <input type="submit" name="samurai" value="はい" class="smri_result-btn">
                         </div>
                          <div class="nx-btn">総大将ガチャ
-                         <div class="sds-ticket">チケット数:<span>${tai_tkt}</span>枚</div>
+                         <div class="sds-ticket">チケット数:<span id="sds-ticket">${tai_tkt}</span>枚</div>
                         <input type="submit" name="taisyou" value="はい" class="sds_result-btn">
                         </div>
                     </form>
@@ -67,6 +67,26 @@
                 </div>
     </main>
 </body>
+<!-- このリンクを書くことでjqueryが使用できる -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="./js/common.js"></script>
-<script src="./js/gacha.js"></script>
+<script>
+$(function() {
+	  if($('#asgr-ticket').text() == "0"){
+	  $('.asgr_result-btn').prop('disabled',true);
+	  $('.asgr_result-btn').css('background-color','rgb(116, 166, 216)');
+	  $('.asgr_result-btn').css('box-shadow','rgb(49, 71, 198) 0px 10px 0px 0px');
+	  }
+	  if($('#smri-ticket').text() == "0"){
+	  $('.smri_result-btn').prop('disabled',true);
+	  $('.smri_result-btn').css('background-color','rgb(116, 166, 216)');
+	  $('.smri_result-btn').css('box-shadow','rgb(49, 71, 198) 0px 10px 0px 0px');
+	  }
+	  if($('#sds-ticket').text() == "0"){
+	  $('.sds_result-btn').prop('disabled',true);
+	  $('.sds_result-btn').css('background-color','rgb(116, 166, 216)');
+	  $('.sds_result-btn').css('box-shadow','rgb(49, 71, 198) 0px 10px 0px 0px');
+	  }
+	});
+</script>
 </html>

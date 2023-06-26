@@ -10,7 +10,7 @@ public class CommunityDAOTest {
 		CommunityDAO dao = new CommunityDAO();
 
 	//select()のテスト
-		dao.goodupdate("10" ,"3");
+//		dao.goodupdate("10" ,"3");
 			List<Communityjoin> commList = dao.allselect();
 			for (Communityjoin card : commList) {
 				System.out.println("WRITING_ID：" + card.getWritingid());
