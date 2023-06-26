@@ -28,7 +28,6 @@ public class MarkServlet extends HttpServlet {
 			else {
 				System.out.println("更新失敗！");
 			}
-
 	}
 
 	}

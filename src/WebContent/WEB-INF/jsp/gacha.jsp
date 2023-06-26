@@ -15,7 +15,7 @@
         </div>
         <div class="word_box">
             <div class="word">
-                <div>今日の用語:SQLインジェクション</div>
+                <div>今日の用語:${word}</div>
             </div>
             <div class="word_button">
                 <div>解説</div>
@@ -42,9 +42,9 @@
             <div class="top-box">
                 <div class="gacha-title">ガチャ</div>
                 <div class="gacha-ticket-box">
-                    <div class="asgr-ticket">足軽チケット　　:　${asi_tkt}枚</div>
-                    <div class="smri-ticket">侍チケット　　　:　${samu_tkt}枚</div>
-                    <div class="sds-ticket">総大将チケット　:　${tai_tkt}枚</div>
+                    <div class="asgr-ticket">足軽チケット　　:　<span id="asgr-ticket">${asi_tkt}</span>枚</div>
+                    <div class="smri-ticket">侍チケット　　　:　<span id="smri-ticket">${samu_tkt}</span>枚</div>
+                    <div class="sds-ticket">総大将チケット　:　<span id="sds-ticket">${tai_tkt}</span>枚</div>
                 </div>
             </div>
             <div class="gacha-ex">チケットを一枚使ってガチャを引くことができます</div>

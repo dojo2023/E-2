@@ -51,15 +51,15 @@
                     <div class="nx-box">
                     <form id="gacha" action="/kumano_onigiri/GachaServlet" method="post">
                      <div class="nx-btn">足軽ガチャ
-                     <div class="asgr-ticket">チケット数:${asi_tkt}枚</div>
+                     <div class="asgr-ticket">チケット数:<span id="asgr-ticket">${asi_tkt}</span>枚</div>
                         <input type="submit" name="asigaru" value="はい" class="asgr_result-btn">
                         </div>
                          <div class="nx-btn">侍ガチャ
-                         <div class="smri-ticket">チケット数:${samu_tkt}枚</div>
+                         <div class="smri-ticket">チケット数:<span id="smri-ticket">${samu_tkt}</span>枚</div>
                         <input type="submit" name="samurai" value="はい" class="smri_result-btn">
                         </div>
                          <div class="nx-btn">総大将ガチャ
-                         <div class="sds-ticket">チケット数:${tai_tkt}枚</div>
+                         <div class="sds-ticket">チケット数:<span id="sds-ticket">${tai_tkt}</span>枚</div>
                         <input type="submit" name="taisyou" value="はい" class="sds_result-btn">
                         </div>
                     </form>
@@ -68,5 +68,28 @@
     </main>
 </body>
 <script src="./js/common.js"></script>
-<script src="./js/gacha.js"></script>
+<script>
+$(function() {
+	  if($('#asgr-ticket').text() == "0"){
+	   $('.asigaru_pop').prop('disabled',true);
+	  $('.asgr_result-btn').prop('disabled',true);
+	  $('.asigaru_pop').css('background-color','rgb(116, 166, 216)');
+	  $('.asigaru_pop').css('box-shadow','rgb(49, 71, 198) 0px 10px 0px 0px');
+	  }
+	  if($('#smri-ticket').text() == "0"){
+	  $('.samurai_pop').prop('disabled',true);
+	  $('.smri_result-btn').prop('disabled',true);
+	  $('.samurai_pop').css('background-color','rgb(116, 166, 216)');
+	  $('.samurai_pop').css('box-shadow','rgb(49, 71, 198) 0px 10px 0px 0px');
+	  }
+	  if($('#sds-ticket').text() == "0"){
+	  $('.taisyou_pop').prop('disabled',true);
+	  $('.sds_result-btn').prop('disabled',true);
+	  $('.taisyou_pop').css('background-color','rgb(116, 166, 216)');
+	  $('.taisyou_pop').css('box-shadow','rgb(49, 71, 198) 0px 10px 0px 0px');
+	  $('.sds_result-btn').css('background-color','rgb(116, 166, 216)');
+	  $('.sds_result-btn').css('box-shadow','rgb(49, 71, 198) 0px 10px 0px 0px');
+	  }
+	});
+</script>
 </html>

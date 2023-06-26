@@ -1,5 +1,8 @@
 package Test;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import dao.Login_timeDAO;
@@ -7,11 +10,24 @@ import model.Login_time;
 
 public class Login_timeTest {
 	public static void main(String[] args) {
-	Login_timeDAO dao = new Login_timeDAO();
-	List<Login_time> timeList = dao.login_timeget("6");
 
-	for (Login_time str : timeList) {
-		System.out.println(str.getAnswer_time());
+	Login_timeDAO timeDAO = new Login_timeDAO();
+	//ANSWER_TIMEを取得
+	List<Login_time> timeList = timeDAO.login_timeget("1");
+	Login_time time = timeList.get(0);
+	//指定のタイムゾーンで現在時刻を取得
+	Calendar cal = Calendar.getInstance();
+	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+	String newlogintime = sdf.format(cal.getTime());
+
+	Date logintime = time.getAnswer_time();
+	String nowtime = new SimpleDateFormat("yyyy-MM-dd").format(logintime);
+
+
+	if(newlogintime.compareTo(nowtime) == 1) {
+		System.out.println("用語を再取得");
+	}else {
+		System.out.println("用語は変更しない");
 	}
 }
 }

@@ -41,6 +41,10 @@ public class GachaServlet extends HttpServlet {
     	int asi = ticketlist.getAsgrticket();
     	int smri = ticketlist.getSmriticket();
     	int sds = ticketlist.getSdsticket();
+    	System.out.println(asi);
+    	System.out.println(smri);
+    	System.out.println(sds);
+
 
 		request.setAttribute("asi_tkt", asi);
 		request.setAttribute("samu_tkt", smri);
@@ -157,5 +161,5 @@ public class GachaServlet extends HttpServlet {
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/gatyaresult.jsp");
 		dispatcher.forward(request, response);
 	}
-
 }
+

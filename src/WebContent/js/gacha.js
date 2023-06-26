@@ -29,21 +29,27 @@ $('.modal_pop_main2').hide();
     $('.modal_pop').fadeOut();
   })
 
-  if($('.asgr-ticket').val("0")){
-  $('.asigaru_pop').prop('disabled',true);
+
+$(function() {
+  if($('#asgr-ticket').text() == "0"){
+   $('.asigaru_pop').prop('disabled',true);
   $('.asgr_result-btn').prop('disabled',true);
   $('.asigaru_pop').css('background-color','rgb(116, 166, 216)');
   $('.asigaru_pop').css('box-shadow','rgb(49, 71, 198) 0px 10px 0px 0px');
   }
-    if($('.smri-ticket').val("0")){
+  if($('#smri-ticket').text() == "0"){
   $('.samurai_pop').prop('disabled',true);
   $('.smri_result-btn').prop('disabled',true);
   $('.samurai_pop').css('background-color','rgb(116, 166, 216)');
   $('.samurai_pop').css('box-shadow','rgb(49, 71, 198) 0px 10px 0px 0px');
   }
-    if($('.sds-ticket').val("0")){
+  if($('#sds-ticket').text() == "0"){
   $('.taisyou_pop').prop('disabled',true);
   $('.sds_result-btn').prop('disabled',true);
   $('.taisyou_pop').css('background-color','rgb(116, 166, 216)');
   $('.taisyou_pop').css('box-shadow','rgb(49, 71, 198) 0px 10px 0px 0px');
+  $('.sds_result-btn').css('background-color','rgb(116, 166, 216)');
+  $('.sds_result-btn').css('box-shadow','rgb(49, 71, 198) 0px 10px 0px 0px');
   }
+});
+

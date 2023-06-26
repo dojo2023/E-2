@@ -10,7 +10,7 @@ public class CommunityDAOTest {
 		CommunityDAO dao = new CommunityDAO();
 
 	//select()のテスト
-		dao.goodupdate("10" ,"3");
+//		dao.goodupdate("10" ,"3");
 			List<Communityjoin> commList = dao.allselect();
 			for (Communityjoin card : commList) {
 				System.out.println("WRITING_ID：" + card.getWritingid());
@@ -19,7 +19,7 @@ public class CommunityDAOTest {
 				System.out.println("GOOD：" + card.getGood());
 				System.out.println("NAME：" + card.getName());
 				System.out.println("Q_POINT：" + card.getQpoint());
-				System.out.println("GATYA_ID：" + card.getGatyaid());
+				System.out.println("MARK_ID：" + card.getGatyaid());
 				System.out.println("STAFF_ID：" + card.getStaffid());
 				System.out.println();
 			}
