@@ -10,11 +10,13 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.ChoiceDAO;
 import dao.PointDAO;
 import dao.QuizDAO;
 import model.Choice;
+import model.Ticket_get;
 
 /**
  * Servlet implementation class QuizServlet
@@ -56,12 +58,12 @@ public class QuizServlet extends HttpServlet {
 
 
 	    //ポイント取得
-	    /*HttpSession session = req.getSession();
-	    int staff_id = (int)session.getAttribute("staff_id");*/
+	    HttpSession session = req.getSession();
+	    int staff_id = (int)session.getAttribute("staff_id");
 
 		PointDAO pdao = new PointDAO();
 		pdao.connect();
-		int quiz_point = pdao.select_point(6);//セッションに格納されているスタッフIDを引数に入れる
+		int quiz_point = pdao.select_point(staff_id);//セッションに格納されているスタッフIDを引数に入れる
 		pdao.disconnect();
 
 		//検索結果をリクエストスコープに格納
@@ -71,15 +73,6 @@ public class QuizServlet extends HttpServlet {
 	    RequestDispatcher rd_choice = req.getRequestDispatcher("/WEB-INF/jsp/quiz.jsp");
 	    rd_choice.forward(req, res);
 
-/*	    boolean selectedAnswer = Boolean.parseBoolean(req.getParameter("radio"));
-	    if (selectedAnswer == true) {
-	        String ans = "正解";
-	        hoge++;
-	      } else if (quiz_ans.radio.value == 'false') {
-	        var str = "不正解";
-	        document.getElementById('edit_area').innerHTML = str ;
-	      }
-*/
 	  }
 
 
@@ -92,7 +85,33 @@ public class QuizServlet extends HttpServlet {
 		//jspから値を取得
 		req.setCharacterEncoding("utf-8");
 		int point_pram = Integer.parseInt(req.getParameter("quiz_point")); // JSPのvalue属性を設定した入力値を取得する。
-		System.out.println(point_pram);
+
+
+
+		// クイズする前
+		// 画面ロード時、画面遷移時
+		  int qpoint = point_pram;//クイズポイント
+		  int i = 50;//何の倍数でチケットがもらえるか
+		  for( ; i <= qpoint;  i=i+50){
+		    System.out.println(i);
+		    //50の倍数を探すだけ
+		  }
+		// -----------------------------------
+
+		 Ticket_get dao = new Ticket_get();
+		//クイズの後
+		qpoint = qpoint + 3;//TOPのクイズは１０点
+		HttpSession session = req.getSession();
+		int staff_id = (int)session.getAttribute("staff_id");
+
+	    if(qpoint%50 == 0 || qpoint > i){
+			 dao.addticket(staff_id,qpoint);
+		  }else{
+		    System.out.println("もらえない");
+		  }
+		  //qpointをDBに格納
+		  // チケットをDBに格納
+
 
 		//ポイントを更新
 		PointDAO pdao = new PointDAO();
@@ -102,11 +121,7 @@ public class QuizServlet extends HttpServlet {
 
 		doGet(req, res);
 
-/*
-	    //JSPにフォワード
-	    RequestDispatcher rd_choice = req.getRequestDispatcher("/WEB-INF/jsp/quiz.jsp");
-	    rd_choice.forward(req, res);
-*/
+
 	  }
 
 }
