@@ -21,9 +21,13 @@ import model.Choice;
  */
 @WebServlet("/QuizServlet")
 public class QuizServlet extends HttpServlet {
-	  public void doPost(HttpServletRequest req, HttpServletResponse res)
+
+
+	  public void doGet(HttpServletRequest req, HttpServletResponse res)
 	      throws IOException, ServletException {
-		  Random random = new Random();
+
+
+	    Random random = new Random();
 		  int rd = random.nextInt(4)+1;
 
 		//問題取得
@@ -63,29 +67,48 @@ public class QuizServlet extends HttpServlet {
 		//検索結果をリクエストスコープに格納
 		req.setAttribute("quiz_point", quiz_point);
 
-/*
-		//jspから値を取得
+		//JSPにフォワード
+	    RequestDispatcher rd_choice = req.getRequestDispatcher("/WEB-INF/jsp/quiz.jsp");
+	    rd_choice.forward(req, res);
 
+/*	    boolean selectedAnswer = Boolean.parseBoolean(req.getParameter("radio"));
+	    if (selectedAnswer == true) {
+	        String ans = "正解";
+	        hoge++;
+	      } else if (quiz_ans.radio.value == 'false') {
+	        var str = "不正解";
+	        document.getElementById('edit_area').innerHTML = str ;
+	      }
+*/
+	  }
+
+
+
+
+
+	public void doPost(HttpServletRequest req, HttpServletResponse res)
+	      throws IOException, ServletException {
+
+		//jspから値を取得
+		req.setCharacterEncoding("utf-8");
 		int point_pram = Integer.parseInt(req.getParameter("quiz_point")); // JSPのvalue属性を設定した入力値を取得する。
+		System.out.println(point_pram);
 
 		//ポイントを更新
+		PointDAO pdao = new PointDAO();
 		pdao.connect();
 		int point = pdao.update_point(point_pram,6);//セッションに格納されているスタッフIDを引数に入れる
 		pdao.disconnect();
 
-		//更新結果をリクエストスコープに格納
-		req.setAttribute("point_z", point);
-*/
+		doGet(req, res);
 
+/*
 	    //JSPにフォワード
 	    RequestDispatcher rd_choice = req.getRequestDispatcher("/WEB-INF/jsp/quiz.jsp");
 	    rd_choice.forward(req, res);
+*/
 	  }
 
+}
 
-	  public void doGet(HttpServletRequest req, HttpServletResponse res)
-	      throws IOException, ServletException {
-	    doPost(req, res);
 
-	  }
-	}
