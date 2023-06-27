@@ -27,9 +27,9 @@
           <ul>
             <li><a href="/kumano_onigiri/MypageServlet">拙者</a></li>
             <li><a href="/kumano_onigiri/WorkingServlet">勤怠</a></li>
-            <li><a href="/kumano_onigiri/WorkingServlet">勉強</a></li>
-            <li><a href="CommunityServlet">コミュニティ</a></li><br><br><br>
-            <li><a href="">ログアウト</a></li>
+            <li><a href="/kumano_onigiri/StudyServlet">勉強</a></li>
+            <li><a href="/kumano_onigiri/CommunityServlet">コミュニティ</a></li><br><br><br>
+            <li><a href="/kumano_onigiri/LogoutServlet">ログアウト</a></li>
           </ul>
         </nav>
         <div id="hamburger">

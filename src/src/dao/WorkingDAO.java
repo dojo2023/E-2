@@ -102,43 +102,11 @@ public class WorkingDAO {
 				conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6/db/GardenDB", "sa", "password");
 
 				// SQL文を準備する
-				String sql = "select * from WORKING WHERE STAFF_ID = \" + STAFF_ID";
+				String sql = "select * from WORKING WHERE STAFF_ID = ?";
 				PreparedStatement pStmt = conn.prepareStatement(sql);
 
 				// SQL文を完成させる
-				if (param.getWORK_ID() != null) {
-					pStmt.setString(1, "%" + param.getWORK_ID() + "%");
-				}
-				else {
-					pStmt.setString(1, "%");
-				}
-				if (param.getWORK_START() != null) {
-					pStmt.setString(2, "%" + param.getWORK_START() + "%");
-				}
-				else {
-					pStmt.setString(2, "%");
-				}
-				if (param.getWORK_END() != null) {
-					pStmt.setString(3, "%" + param.getWORK_END() + "%");
-				}
-				else {
-					pStmt.setString(3, "%");
-				}
-				if (param.getWORK_STYLE() != null) {
-					pStmt.setString(4, "%" + param.getWORK_STYLE() + "%");
-				}
-				else {
-					pStmt.setString(4, "%");
-				}
-				if (param.getSTAFF_ID() > 0) {
-					pStmt.setInt(5, + param.getSTAFF_ID() );
-				}
-				if (param.getWORK_DATE() != null) {
-					pStmt.setString(6, "%" + param.getWORK_DATE() + "%");
-				}
-				else {
-					pStmt.setString(6, "%");
-				}
+				pStmt.setInt(1, param.getSTAFF_ID());
 
 				// SQL文を実行し、結果表を取得する
 				ResultSet rs = pStmt.executeQuery();
