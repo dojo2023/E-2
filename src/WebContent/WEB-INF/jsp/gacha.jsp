@@ -37,7 +37,7 @@
             <span class="inner_line" id="line3"></span>
         </div>
     </header>
-    <main>
+    <main style="background-image: url('img/${bgid}.png'); background-attachment: fixed;">
         <div class="gacha-view" style="background-image: url('img/gacha_bg.jpg')">
             <div class="top-box">
                 <div class="gacha-title">ガチャ</div>

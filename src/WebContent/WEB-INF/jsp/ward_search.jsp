@@ -40,7 +40,7 @@
     </div>
 </header>
 
-<main>
+<main style="background-image: url('img/${bgid}.png'); background-attachment: fixed;">
 	<h3>検索</h3>
 		<form method="POST" action="/kumano_onigiri/SearchServlet">
 			<div class="search">
@@ -55,7 +55,7 @@
 	    		<li><a href="/kumano_onigiri/LatestServlet"><input type="button" name="n_sort" value="新着順"></a></li>
 	    	</ul>
 	    </nav>
-	<form method="POST" action="/kumano_onigiri/SearchServlet">
+	<form method="POST" action="/kumano_onigiri/WardServlet">
     <div id="result_table">
     	<c:choose>
 	    	<c:when test="${empty cardList}">

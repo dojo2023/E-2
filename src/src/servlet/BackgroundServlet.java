@@ -23,11 +23,13 @@ public class BackgroundServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
 		//ログインIDを取得
 		HttpSession session = request.getSession();
 		String staff_id = (String)session.getAttribute("staff_id");
 
 		Gatya_getDAO dao = new Gatya_getDAO();
+		request.setCharacterEncoding("UTF-8");
 		String chenge_bg = request.getParameter("chenge_bg");
 			if (dao.backupdate(chenge_bg, staff_id)) {
 				System.out.println("更新成功！");}
@@ -35,7 +37,7 @@ public class BackgroundServlet extends HttpServlet {
 				System.out.println("更新失敗！");
 			}
 			// マイページにフォワードする
-						RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/mypage.jsp");
+						RequestDispatcher dispatcher = request.getRequestDispatcher("/MypageServlet");
 					dispatcher.forward(request, response);
 	}
 
