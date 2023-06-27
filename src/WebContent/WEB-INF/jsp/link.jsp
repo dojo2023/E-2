@@ -38,7 +38,7 @@
           <span class="inner_line" id="line3"></span>
         </div>
       </header>
-      <main>
+      <main style="background-image: url('img/${bgid}.png'); background-attachment: fixed;">
         <h1>リンク集</h1>
         <table border="5" cellpadding="7">
           <tr>

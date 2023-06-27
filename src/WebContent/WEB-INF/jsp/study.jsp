@@ -40,7 +40,7 @@
         </div>
 
       </header>
-      <main>
+      <main style="background-image: url('img/${bgid}.png'); background-attachment: fixed;">
         <br>
         <br>
         <br>
