@@ -61,7 +61,7 @@ import model.Choice;
 		    protected void doPost(HttpServletRequest request, HttpServletResponse response)
 					throws ServletException, IOException {
 
-			//ログインIDを取得
+			//IDを取得
 			HttpSession session = request.getSession();
 			int staff_id = (int)session.getAttribute("staff_id");
 
