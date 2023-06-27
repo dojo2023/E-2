@@ -210,7 +210,7 @@ body {
 .profile-image img {
     width: 150px;
     height: auto;
-    border-radius: 50%;
+    border-radius: 10%;
 }
 
 a {
@@ -227,6 +227,10 @@ a:hover {
     padding: 0;
     margin: 0;
     text-align: center;
+}
+
+.quizpoint_view{
+	color:#ff0000;
 }
 
 .gacha-btn{
