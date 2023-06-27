@@ -28,11 +28,11 @@
         </div>
         <nav id="nav">
           <ul>
-            <li><a href="">拙者</a></li>
-            <li><a href="">勤怠</a></li>
-            <li><a href="">勉強</a></li>
-            <li><a href="">コミュニティ</a></li><br><br><br>
-            <li><a href="">ログアウト</a></li>
+            <li><a href="/kumano_onigiri/MypageServlet">拙者</a></li>
+            <li><a href="/kumano_onigiri/Work_listServlet">勤怠</a></li>
+            <li><a href="/kumano_onigiri/StudyServlet">勉強</a></li>
+            <li><a href="/kumano_onigiri/CommunityServlet">コミュニティ</a></li><br><br><br>
+            <li><a href="/kumano_onigiri/LogoutServlet">ログアウト</a></li>
           </ul>
         </nav>
 
@@ -49,7 +49,7 @@
                 <div class="pop">クイズ</div><br>
                 <div class="pop"><%= request.getAttribute("quiz") %></div>
 
-				<input type="hidden" id="hoge" value = "<%= request.getAttribute("quiz_point") %>">
+				<div id="hoge"><%= request.getAttribute("quiz_point") %></div>
 
                 <form id="quiz" action="/kumano_onigiri/QuizServlet">
                 <c:forEach var="e" items="${ChoiceList}">
@@ -68,11 +68,11 @@
 		            <div class="content">
 		                <div class="pop" id = "edit_area"></div><br>
 		                <div class="pop"><%= request.getAttribute("quiz_ex") %></div>
-						現在のポイント:<div class="pop" id = "quiz_point"></div><br>
+						<div class="pop" id = "quiz_point"></div><br>
 						<form action="/kumano_onigiri/QuizServlet" method="post">
 			  				<input type="image" src="./img/mark_batsu.png" class="js-modal-close" width="50">
-							<!-- <input type="hidden" value = "800" name="quiz_point"> -->
-							<input type="text" id = "get_point" name="quiz_point">
+
+							<input type="text" value="${quiz_point}" id = "get_point" name="quiz_point"><!-- サーブレットへ渡す -->
 						</form>
 
 		                <a href="/servlet/WardServlet/" class="btn-flat-simple"><i class="fa fa-caret-right"></i> 用語解説</a><!-- 用語ページに飛ばす -->
