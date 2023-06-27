@@ -46,11 +46,8 @@ public class TaskDAO {
 			else {
 				pStmt.setString(3, "%");
 			}
-			if (card.getSTAFF_ID() != null) {
-				pStmt.setString(4, "%" + card.getSTAFF_ID() + "%");
-			}
-			else {
-				pStmt.setString(4, "%");
+			if (card.getSTAFF_ID() > 0) {
+				pStmt.setInt(4, 0 + card.getSTAFF_ID());
 			}
 
 			// SQL文を実行する
@@ -115,12 +112,10 @@ public class TaskDAO {
 					else {
 						pStmt.setString(3, null);
 					}
-					if (param.getSTAFF_ID() != null && !param.getSTAFF_ID().equals("")) {
-						pStmt.setString(4, param.getSTAFF_ID());
+					if (param.getSTAFF_ID() > 0) {
+						pStmt.setInt(4, param.getSTAFF_ID());
 					}
-					else {
-						pStmt.setString(4, null);
-					}
+
 
 					// SQL文を実行し、結果表を取得する
 					ResultSet rs = pStmt.executeQuery();
@@ -131,7 +126,7 @@ public class TaskDAO {
 							rs.getString("TASK_ID"),
 							rs.getString("TASK_THREAD"),
 							rs.getString("CALENDAR"),
-							rs.getString("STAFF_ID")
+							rs.getInt("STAFF_ID")
 							);
 						cardList.add(card);
 					}
