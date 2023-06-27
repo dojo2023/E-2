@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import dao.Back_groundDAO;
 import dao.GachaDAO;
 import dao.GachaTicketDAO;
 import dao.Gatya_getDAO;
@@ -33,6 +34,13 @@ public class GachaServlet extends HttpServlet {
 		//ログインIDを取得
 		HttpSession session = request.getSession();
 		String staff_id = (String)session.getAttribute("staff_id");
+
+		//背景を取得する処理
+				Back_groundDAO bgdao = new Back_groundDAO();
+				bgdao.connect();
+				String bgid = bgdao.select(staff_id);//numのところにstaff_idを入れる
+				bgdao.disconnect();
+				request.setAttribute("bgid", bgid);
 
 		//DBからチケットの枚数を取得
 		GachaTicketDAO dao = new GachaTicketDAO();
@@ -73,6 +81,13 @@ public class GachaServlet extends HttpServlet {
 		    	int smri = ticketlist.getSmriticket();
 		    	int sds = ticketlist.getSdsticket();
 
+		    	//背景を取得する処理
+				Back_groundDAO bgdao = new Back_groundDAO();
+				bgdao.connect();
+				String bgid = bgdao.select(staff_id);//numのところにstaff_idを入れる
+				bgdao.disconnect();
+				request.setAttribute("bgid", bgid);
+
 		// ガチャ処理
 		request.setCharacterEncoding("UTF-8");
 		String asi_btn = request.getParameter("asigaru");
@@ -85,7 +100,7 @@ public class GachaServlet extends HttpServlet {
         	System.out.println("足軽ボタンは押されていない");
         }else if(asi_btn.equals("はい")){
         	List<Gacha> gachaList1 = dao.asigaruselect();
-        	Gacha gacha = gachaList1.get(random.nextInt(5));
+        	Gacha gacha = gachaList1.get(random.nextInt(10));
         	String asiname = gacha.getGachaname();
 			String asiimg = gacha.getGachapath();
 			String asiid = gacha.getGachaid();
@@ -109,7 +124,7 @@ public class GachaServlet extends HttpServlet {
         }else if(samu_btn.equals("はい")) {
             //侍ボタンが押されたとき
         	List<Gacha> gachaList1 = dao.samuraiselect();
-        	Gacha gacha = gachaList1.get(random.nextInt(5));
+        	Gacha gacha = gachaList1.get(random.nextInt(10));
         	String samuname = gacha.getGachaname();
 			String samuimg = gacha.getGachapath();
 			String samuid = gacha.getGachaid();
@@ -133,7 +148,7 @@ public class GachaServlet extends HttpServlet {
         }else if(tai_btn.equals("はい")) {
         	//総大将ボタンが押されたとき
         	List<Gacha> gachaList1 = dao.taisyouselect();
-        	Gacha gacha = gachaList1.get(random.nextInt(5));
+        	Gacha gacha = gachaList1.get(random.nextInt(10));
         	String tainame = gacha.getGachaname();
 			String taiimg = gacha.getGachapath();
 			String sdsid = gacha.getGachaid();

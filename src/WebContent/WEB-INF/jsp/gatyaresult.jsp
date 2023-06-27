@@ -37,14 +37,14 @@
             <span class="inner_line" id="line3"></span>
         </div>
     </header>
-    <main>
+    <main style="background-image: url('img/${bgid}.png'); background-attachment: fixed;">
           <div class="gacha-result-view">
                     <div class="top-result-box">
                 <div class="gacha-result-title">ガチャ結果</div>
                  <a href="/kumano_onigiri/GachaServlet"><img src="./img/mark_batsu.png" width="50" class="batsu"></a>
                  </div>
                  <div class="gacha-result">
-                 <img src="${gachapath}" width="150" class="gacha-img">
+                 <img src="${gachapath}" width="140" class="gacha-img">
                     <div class="gachaname">「${gachaname}」が当たりました!</div><br>
                     </div>
                     <div class="nx-text">もう一度ガチャしますか？</div><br>
