@@ -49,7 +49,7 @@ public class WorkingServlet extends HttpServlet {
 
 		// 登録処理を行う
      	WorkingDAO iDao = new WorkingDAO();
-	    if (iDao.insert(work_id,work_start,work_end,work_style,staff_id,work_date)) {
+	    if (iDao.insert(new Working (work_id,work_start,work_end,work_style,staff_id,work_date))) {
 
 		// 結果ページにフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/working.jsp");
