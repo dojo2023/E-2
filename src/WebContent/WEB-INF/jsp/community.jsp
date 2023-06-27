@@ -36,9 +36,9 @@
       </ul>
     </nav>
   </header>
-  <main>
+  <main style="background-image: url('img/${bgid}.png'); background-attachment: fixed;">
     <div class="search_box">
-      <form method="POST" action="/kumano_onigiri/CommunitySearchServlet"class="search_form">
+      <form method="GET" action="/kumano_onigiri/CommunitySearchServlet"class="search_form">
         <input type="text" placeholder="コミュニティ内を検索" class="search" name="TEXT">
         <input type="submit" value="検索" class="search_btn">
       </form>

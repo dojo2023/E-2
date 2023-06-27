@@ -37,7 +37,7 @@
           <span class="inner_line" id="line3"></span>
         </div>
       </header>
-      <div class="wrap" style="background-image: url('img/${bgid}.png');">
+      <div class="wrap" style="background-image: url('img/${bgid}.png'); background-attachment: fixed;">
         <div class="content">
           <br> <br><br><br>
           <h1 class="heading-lv1 text-center">拙者のページ</h1>
