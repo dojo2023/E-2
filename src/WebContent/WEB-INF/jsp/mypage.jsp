@@ -6,6 +6,11 @@
 <head>
     <meta charset="UTF=8">
     <link href="./css/mypage.css" rel="stylesheet">
+    <style>
+    .wrap {
+    padding: 32px 0 64px;
+}
+    </style>
     <title>拙者のページ</title>
 </head>
 
@@ -37,7 +42,7 @@
           <span class="inner_line" id="line3"></span>
         </div>
       </header>
-      <div class="wrap">
+      <div class="wrap" style = "background-image: url('img/${bgid}.png')">
         <div class="content">
           <br> <br><br><br>
           <h1 class="heading-lv1 text-center">拙者のページ</h1>
@@ -153,6 +158,7 @@
 
 
         </div>
+      </div>
       </div>
     </body>
 
