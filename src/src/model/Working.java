@@ -6,11 +6,11 @@ public class Working implements Serializable {
 	private String WORK_START;
 	private String WORK_END;
 	private String WORK_STYLE;
-	private String STAFF_ID;
+	private int STAFF_ID;
 	private String WORK_DATE;
 
 	public Working(String WORK_ID, String WORK_START, String WORK_END, String WORK_STYLE
-			,String STAFF_ID,String WORK_DATE){
+			,int STAFF_ID,String WORK_DATE){
 		super();
 		this.WORK_ID = WORK_ID;
 		this.WORK_START = WORK_START;
@@ -26,7 +26,7 @@ public class Working implements Serializable {
 		this.WORK_START = "";
 		this.WORK_END = "";
 		this.WORK_STYLE = "";
-		this.STAFF_ID = "";
+		this.STAFF_ID = 0;
 		this.WORK_DATE = "";
 	}
 
@@ -62,11 +62,11 @@ public class Working implements Serializable {
 		this.WORK_STYLE = WORK_STYLE;
 	}
 
-	public String getSTAFF_ID() {
+	public int getSTAFF_ID() {
 		return STAFF_ID;
 	}
 
-	public void setSTAFF_ID(String STAFF_ID) {
+	public void setSTAFF_ID(int STAFF_ID) {
 		this.STAFF_ID = STAFF_ID;
 	}
 
