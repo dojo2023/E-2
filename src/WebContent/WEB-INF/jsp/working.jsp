@@ -41,19 +41,24 @@
       </header>
 <form method="POST" action="/kumano_onigiri/WorkingServlet">
 <div class="table">
-    <table class="work_list" align="right" border="1" width="65%">
+<table class="work_list" align="right" border="1" width="65%">
+
+<c:forEach var="" items="${cardList}">
+   	<tr class="data_row">
         <tr>
         <br><br><br><br>
-        <th>日付</th><th>出勤時間</th><th>退勤時間</th><th>勤務形態</th><th>実働時間</th>
+        <th>日付</th><th>出勤時間</th><th>退勤時間</th><th>勤務形態</th>
         </tr>
-        <tr class="data_row"><td><name=WORK_DATE></td><td><name=WORK_START></td><td>18:00</td><td>出社</td><td>8時間</td></tr>
-        <tr class="data_row"><td></td><td></td><td></td><td></td><td></td></tr>
-        <tr class="data_row"><td>6月3日</td><td>9:00</td><td>18:00</td><td>在宅</td><td>8時間</td></tr>
-        <tr class="data_row"><td>6月4日</td><td>9:00</td><td>18:00</td><td>出社</td><td>8時間</td></tr>
-        <tr class="data_row"><td>6月5日</td><td>9:00</td><td>18:00</td><td>出社</td><td>8時間</td></tr>
-        <tr class="data_row"><td>6月6日</td><td>9:00</td><td>18:00</td><td>在宅</td><td>8時間</td></tr>
-        <tr class="data_row"><td>6月7日</td><td>9:00</td><td>18:00</td><td>出社</td><td>8時間</td></tr>
-    </table>
+        <tr class="data_row"><td>${e.work_date}</td><td>${e.work_start}</td><td>${e.work_end}</td><td>${e.work_style}</td></tr>
+<tr class="data_row"><td>${e.work_date}</td><td>${e.work_start}</td><td>${e.work_end}</td><td>${e.work_style}</td></tr>
+<tr class="data_row"><td>${e.work_date}</td><td>${e.work_start}</td><td>${e.work_end}</td><td>${e.work_style}</td></tr>
+<tr class="data_row"><td>${e.work_date}</td><td>${e.work_start}</td><td>${e.work_end}</td><td>${e.work_style}</td></tr>
+<tr class="data_row"><td>${e.work_date}</td><td>${e.work_start}</td><td>${e.work_end}</td><td>${e.work_style}</td></tr>
+<tr class="data_row"><td>${e.work_date}</td><td>${e.work_start}</td><td>${e.work_end}</td><td>${e.work_style}</td></tr>
+<tr class="data_row"><td>${e.work_date}</td><td>${e.work_start}</td><td>${e.work_end}</td><td>${e.work_style}</td></tr>
+</c:forEach>
+</table>
+
 </div>
 <h2>　　　　　　　　　　　 出勤時間</h2>
 　　　　　　　　　　　　　　　<input type="text" name="WORK_START"style="width: 160px; height: 20px;">
