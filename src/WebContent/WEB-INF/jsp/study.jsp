@@ -15,13 +15,11 @@
           <img src="./img/apricon01.png" width="180">
         </div>
         <div class="word_box">
-        <div class="word">
-            <div>今日の用語:SQLインジェクション</div>
-          </div>
-          <div class="word_button">
-            <div>解説</div>
-          </div>
+	        <div class="word">
+	        今日の用語:SQLインジェクション
+	            <a href="/kumano_onigiri/WardServlet" class="word_button">解説</a>
 
+	        </div>
         </div>
         <nav id="nav">
           <ul>
