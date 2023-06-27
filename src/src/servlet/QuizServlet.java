@@ -52,18 +52,19 @@ public class QuizServlet extends HttpServlet {
 	    cdao.connect();
 	    ArrayList<Choice> ChoiceList = cdao.select_2(rd);
 	    cdao.disconnect();
-	    System.out.println();
+
 	    // 検索結果をリクエストスコープに格納する
 	    req.setAttribute("ChoiceList", ChoiceList);
 
 
 	    //ポイント取得
 	    HttpSession session = req.getSession();
-	    int staff_id = (int)session.getAttribute("staff_id");
+	    String staff_id = (String)session.getAttribute("staff_id");
+	    int st_id = Integer.parseInt(staff_id);
 
 		PointDAO pdao = new PointDAO();
 		pdao.connect();
-		int quiz_point = pdao.select_point(staff_id);//セッションに格納されているスタッフIDを引数に入れる
+		int quiz_point = pdao.select_point(st_id);//セッションに格納されているスタッフIDを引数に入れる
 		pdao.disconnect();
 
 		//検索結果をリクエストスコープに格納
@@ -85,8 +86,7 @@ public class QuizServlet extends HttpServlet {
 		//jspから値を取得
 		req.setCharacterEncoding("utf-8");
 		int point_pram = Integer.parseInt(req.getParameter("quiz_point")); // JSPのvalue属性を設定した入力値を取得する。
-
-
+		System.out.println(point_pram);
 
 		// クイズする前
 		// 画面ロード時、画面遷移時
@@ -101,11 +101,14 @@ public class QuizServlet extends HttpServlet {
 		 Ticket_get dao = new Ticket_get();
 		//クイズの後
 		qpoint = qpoint + 3;//TOPのクイズは１０点
+
 		HttpSession session = req.getSession();
-		int staff_id = (int)session.getAttribute("staff_id");
+		String staff_id = (String)session.getAttribute("staff_id");
+		int st_id = Integer.parseInt(staff_id);
+
 
 	    if(qpoint%50 == 0 || qpoint > i){
-			 dao.addticket(staff_id,qpoint);
+			 dao.addticket(st_id,qpoint);
 		  }else{
 		    System.out.println("もらえない");
 		  }
