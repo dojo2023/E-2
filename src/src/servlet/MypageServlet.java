@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import dao.Back_groundDAO;
 import dao.Gatya_getDAO;
 import dao.MypageDAO;
 import model.Gatya_get;
@@ -34,15 +35,24 @@ public class MypageServlet extends HttpServlet {
 //		}
 
 		//ログインIDを取得
-				HttpSession session = request.getSession();
-				String staff_id = (String)session.getAttribute("staff_id");
+		HttpSession session = request.getSession();
+		String staff_id = (String)session.getAttribute("staff_id");
 
+		//MypageDAOとGatya_getDAOをインスタンス化
 		MypageDAO dao = new MypageDAO();
 		Gatya_getDAO gachadao = new Gatya_getDAO();
+		Back_groundDAO bgdao = new Back_groundDAO();
+
+		//マークと背景、ユーザ情報をリスト型で取得
 		List<Gatya_get> markList = gachadao.gachapull(staff_id,"Mk");
 		List<Gatya_get> bgList = gachadao.gachapull(staff_id,"Bg");
 		List<Mypage> commList = dao.mypageselect(staff_id);
 
+		bgdao.connect();
+		String bgid = bgdao.select(staff_id);
+		bgdao.disconnect();
+
+		//ユーザ情報をリストから取得
 		Mypage banana = commList.get(0);
     	String id = banana.getStaff_id();
     	String name = banana.getName();
@@ -63,7 +73,7 @@ public class MypageServlet extends HttpServlet {
     	}else {
     		role = "管理者";
     	}
-
+    	//リクエストスコープに格納
 		request.setAttribute("staff_id", id);
 		request.setAttribute("name", name);
 		request.setAttribute("q_point", point);
@@ -71,10 +81,11 @@ public class MypageServlet extends HttpServlet {
 		request.setAttribute("task", task);
 		request.setAttribute("mark_id", mark_id);
 		request.setAttribute("quiz", quiz);
-		// 検索結果をリクエストスコープに格納す�?
-				request.setAttribute("markList", markList);
-				request.setAttribute("bgList", bgList);
-		// マイペ�?�ジにフォワードす�?
+		request.setAttribute("markList", markList);
+		request.setAttribute("bgList", bgList);
+		request.setAttribute("bgid", bgid);
+
+		// マイページにフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/mypage.jsp");
 		dispatcher.forward(request, response);
 	}
@@ -135,8 +146,9 @@ public class MypageServlet extends HttpServlet {
 				request.setAttribute("markList", markList);
 				request.setAttribute("bgList", bgList);
 
-			// マイペ�?�ジにフォワードす�?
+			// マイページにフォワードする
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/mypage.jsp");
 		dispatcher.forward(request, response);
 		}
-    }
+
+}

@@ -82,7 +82,7 @@
         </div>
         <div class="text_und">
           <img src="./img/reply.svg" class="reply" id="${e.writingid}" onclick="replyfun(this.id)">
-          <form method="POST" action="/kumano_onigiri/CommunityGoodServlet">
+          <form method="GET" action="/kumano_onigiri/CommunityGoodServlet">
           	<textarea class="editid"name="GOOD" readonly>${e.good}</textarea>
           	<textarea class="editid"name="WRITING_ID" readonly>${e.writingid}</textarea>
           	<input type="image" src="./img/good.svg" class="good" width="30" >
@@ -95,7 +95,7 @@
       </c:forEach>
       </div>
     <div class="writing_form">
-      <form method="POST" action="/kumano_onigiri/CommunityServlet">
+      <form method="GET" action="/kumano_onigiri/CommuntiyInsert">
         <textarea class="textarea" placeholder="メッセージを書き込む" name="WRITING_FORM" required></textarea>
         <input type="image" src="./img/send.svg" class="submit" width="30" >
       </form>
@@ -110,12 +110,12 @@
               <div class="pop">編集/削除</div>
               <img alt="削除" src="./img/batsu.png"class="js-modal-close"width="40">
             </div>
-               <form method="POST" id="edit" action="/kumano_onigiri/CommuntiyeditServlet">
+               <form method="GET" id="edit" action="/kumano_onigiri/CommuntiyeditServlet">
                    <textarea class="editid"name="WRITING_ID" readonly></textarea>
                 <textarea class="editarea"name="WRITING_FORM">${writingform}</textarea>
               <input type="submit" value="確定" class="edit_btn" name="SUBMIT">
           </form>
-          <form method="POST" id="edit" action="/kumano_onigiri/CommuntiydeleteServlet">
+          <form method="GET" id="edit" action="/kumano_onigiri/CommuntiydeleteServlet">
           <textarea class="editid"name="WRITING_ID" readonly></textarea>
           <input type="image" src="./img/delete.svg" class="delete" width="30" name="SUBMIT"value="削除">
           </form>

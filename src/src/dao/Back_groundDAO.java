@@ -23,7 +23,7 @@ public class Back_groundDAO{
 	  }
 
 	//社員IDと背景IDを取得
-	  public String select(int id) {
+	  public String select(String id) {
 	    Statement stmt = null;
 	    ResultSet rs = null;
 	    String result = null;
@@ -35,7 +35,7 @@ public class Back_groundDAO{
 	      rs = stmt.executeQuery(sql);
 	      //④検索結果の処理
 	      rs.next();
-	      result = rs.getString("mark_id");
+	      result = rs.getString("BACKGROUND_ID");
 	    } catch(Exception e){
 	      e.printStackTrace();
 	    } finally {
