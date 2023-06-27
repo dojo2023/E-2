@@ -31,7 +31,6 @@ public class MarkServlet extends HttpServlet {
 		Gatya_getDAO dao = new Gatya_getDAO();
 		request.setCharacterEncoding("UTF-8");
 		String chenge_mark = request.getParameter("chenge_mark");
-		System.out.println(chenge_mark);
 			if (dao.markupdate(chenge_mark, staff_id)) {
 				System.out.println("更新成功！");}
 			else {

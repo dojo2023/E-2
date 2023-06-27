@@ -109,8 +109,11 @@ public class MypageServlet extends HttpServlet {
 				dao.onoffupdate(true, staff_id);
 			}
 
-
+		Back_groundDAO bgdao = new Back_groundDAO();
 		Gatya_getDAO gachadao = new Gatya_getDAO();
+		bgdao.connect();
+		String bgid = bgdao.select(staff_id);
+		bgdao.disconnect();
 		List<Gatya_get> markList = gachadao.gachapull(staff_id,"Mk");
 		List<Gatya_get> bgList = gachadao.gachapull(staff_id,"Bg");
 		List<Mypage> commList = dao.mypageselect(staff_id);
@@ -123,6 +126,7 @@ public class MypageServlet extends HttpServlet {
     	String task = banana.getTask_thread();
     	String mark_id = banana.getMark_id();
     	String quiz = banana.getQuiz();
+
 
     	if(quiz == "TRUE") {
     		quiz = "ON";
@@ -142,6 +146,7 @@ public class MypageServlet extends HttpServlet {
 		request.setAttribute("task", task);
 		request.setAttribute("mark_id", mark_id);
 		request.setAttribute("quiz", quiz);
+		request.setAttribute("bgid", bgid);
 		// 検索結果をリクエストスコープに格納す�?
 				request.setAttribute("markList", markList);
 				request.setAttribute("bgList", bgList);
