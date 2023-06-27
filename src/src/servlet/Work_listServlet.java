@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import dao.Back_groundDAO;
 import dao.WorkingDAO;
 import model.Working;
 
@@ -36,12 +37,6 @@ public class Work_listServlet extends HttpServlet {
 //			return;
 //		}
 		
-		
-//		HttpSession session = request.getSession();
-//		WorkingDAO bDao = new WorkingDAO();
-//		List<Study> cardList = bDao.WorkingAllList();
-//		session.setAttribute("cardList", cardList);
-		
 		// 勤怠一覧ページにフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/work_list.jsp");
 		dispatcher.forward(request, response);
@@ -60,15 +55,20 @@ public class Work_listServlet extends HttpServlet {
 //			return;
 //		}
 		
+		//ログインIDを取得
 		HttpSession session = request.getSession();
-		int staff_id = (int)session.getAttribute("staff_id");
+		String staff_id = (String)session.getAttribute("staff_id");
 		
-		//リクエストパラメータ取得
-		request.setCharacterEncoding("UTF-8");
-		String work_date = request.getParameter("WORK_DATE");
+		Back_groundDAO bgdao = new Back_groundDAO();
+		bgdao.connect();
+		String bgid = bgdao.select(staff_id);//numのところにstaff_idを入れる
+		bgdao.disconnect();
+		request.setAttribute("bgid", bgid);
 		
+		//HttpSession session = request.getSession();
 		WorkingDAO bDao = new WorkingDAO();
-		List<Working> cardList = bDao.select(new Working());
+		List<Working> w_cardList = bDao.WorkingAllList();
+		session.setAttribute("w_cardList", w_cardList);
 		
 		// 勤怠一覧ページにフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/work_list.jsp");

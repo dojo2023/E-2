@@ -7,7 +7,7 @@
 <%@ page import="java.util.List"%>
 
 <%
-List<Study> cardList = (List<Study>)session.getAttribute("cardlist");
+List<Study> cardList = (List<Study>)session.getAttribute("cardList");
 %>
 <!-- ここまで -->
 <!DOCTYPE html>
@@ -49,7 +49,7 @@ List<Study> cardList = (List<Study>)session.getAttribute("cardlist");
     </div>
 </header>
 
-<main>
+<main style="background-image: url('img/${bgid}.png'); background-attachment: fixed;">
 	<h3>検索</h3>
 		<form method="POST" action="/kumano_onigiri/SearchServlet">
 			<div class="search">
