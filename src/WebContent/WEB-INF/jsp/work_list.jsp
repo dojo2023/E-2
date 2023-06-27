@@ -2,12 +2,12 @@
     pageEncoding="UTF-8"%>
 <!-- 追加部分 -->
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page import="model.Study"%>
+<%@ page import="model.Working" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="java.util.List"%>
 
 <%
-List<Study> cardList = (List<Study>)session.getAttribute("cardlist");
+List<Working> w_cardList = (List<Working>)session.getAttribute("w_cardList");
 %>
 <!-- ここまで -->
 <!DOCTYPE html>
@@ -54,62 +54,55 @@ List<Study> cardList = (List<Study>)session.getAttribute("cardlist");
       <th>社員を選択</th><th>年月を選択</th>
     </tr>
     <tr class="select">
-	    <form method="POST" action="/kumano_onigiri/WorkServlet">
+	    <form method="POST" action="/kumano_onigiri/Work_listServlet">
 	      <th><select id="STAFF_ID" name="STAFF_ID">
-		      		<c:forEach var="e" items="${cardList}">
+		      		<c:forEach var="e" items="${w_cardList}">
 		      			<option>${e.staff_id}</option>
 		      		</c:forEach>
 	          </select>
 	      </th>
 	      <th><select id="WORK_DATE" name="WORK_DATE">
-		      		<c:forEach var="e" items="${cardList}">
+		      		<c:forEach var="e" items="${w_cardList}">
 		      			<option>${e.work_date}</option>
 		      		</c:forEach>
 	          </select>
 	      </th>
-	    </form>   
+	    </form>
       <!-- <th><select id="month" name="month">
             <option value="hokkaido">1月</option>
             <option value="aomori">2月</option>
             <option value="iwate">3月</option>
           </select>
       </th> -->
-	    <form method="POST" action="/kumano_onigiri/Work_listServlet">
+	    <form method="POST" action="/kumano_onigiri/work_listSearchServlet">
 	      <th>
 	       <input type="submit" name="REGIST" value="検索">
 	      </th>
 	    </form>
     </tr>
   </table>
-  
 </div>
+<form method="POST" action="/kumano_onigiri/Work_listServlet">
 <div id="table">
-    
-        <!-- <tr class="data_row"><td>6月1日</td><td>9:00</td><td>18:00</td><td>出社</td><td>9時間</td></tr>
-        <tr class="data_row"><td>6月2日</td><td>9:00</td><td>18:00</td><td>出社</td><td>9時間</td></tr>
-        <tr class="data_row"><td>6月3日</td><td>9:00</td><td>18:00</td><td>在宅</td><td>9時間</td></tr>
-        <tr class="data_row"><td>6月4日</td><td>9:00</td><td>18:00</td><td>出社</td><td>9時間</td></tr>
-        <tr class="data_row"><td>6月5日</td><td>9:00</td><td>18:00</td><td>出社</td><td>9時間</td></tr>
-        <tr class="data_row"><td>6月6日</td><td>9:00</td><td>18:00</td><td>在宅</td><td>9時間</td></tr>
-        <tr class="data_row"><td>6月7日</td><td>9:00</td><td>18:00</td><td>出社</td><td>9時間</td></tr> -->
-	<c:choose>
-  		<c:when test="${empty cardList}">
-			<p class = "error">一致する用語がありません。</p>
+  <c:choose>
+  		<c:when test="${empty w_cardList}">
+			<p class = "error">勤怠情報が登録されていません。</p>
 		</c:when>
 	<c:otherwise>
 		<table class="work_list">
 			<tr class="work_header">
       			<th>日付</th><th>出勤時間</th><th>退勤時間</th><th>勤務形態</th><th>実働時間</th>
   			</tr>
-			<c:forEach var="e" items="${cardList}">
+			<c:forEach var="e" items="${w_cardList}">
    				<tr class="data_row">
    					<td>${e.work_date}</td><td>${e.work_start}</td><td>${e.work_end}</td><td>${e.work_style}</td><td>9時間</td></tr>
    				</tr>
   			</c:forEach>
   		</table>
 	</c:otherwise>
-  	</c:choose>
+  </c:choose>
 </div>
+</form>
 <h2 id="work_msg">合計実働時間</h2>
 
 <h2 id="work_time"></h2>

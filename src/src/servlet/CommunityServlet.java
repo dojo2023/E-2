@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import dao.Back_groundDAO;
 import dao.CommunityDAO;
 import model.Communityjoin;
 
@@ -33,6 +34,14 @@ public class CommunityServlet extends HttpServlet {
 
 		// リクエストパラメータを取得する
 		request.setCharacterEncoding("UTF-8");
+
+		//背景を取得する処理
+		Back_groundDAO bgdao = new Back_groundDAO();
+		bgdao.connect();
+		String bgid = bgdao.select(num);//numのところにstaff_idを入れる
+		bgdao.disconnect();
+		request.setAttribute("bgid", bgid);
+
 
 		// 全件表示処理を行う
 		CommunityDAO cDao = new CommunityDAO();

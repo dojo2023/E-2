@@ -36,9 +36,9 @@
       </ul>
     </nav>
   </header>
-  <main>
+  <main style="background-image: url('img/${bgid}.png'); background-attachment: fixed;">
     <div class="search_box">
-      <form method="POST" action="/kumano_onigiri/CommunitySearchServlet"class="search_form">
+      <form method="GET" action="/kumano_onigiri/CommunitySearchServlet"class="search_form">
         <input type="text" placeholder="コミュニティ内を検索" class="search" name="TEXT">
         <input type="submit" value="検索" class="search_btn">
       </form>
@@ -82,7 +82,7 @@
         </div>
         <div class="text_und">
           <img src="./img/reply.svg" class="reply" id="${e.writingid}" onclick="replyfun(this.id)">
-          <form method="GET" action="/kumano_onigiri/CommunityGoodServlet">
+          <form method="GET" action="/kumano_onigiri/CommunityGoodServlet" class="gd">
           	<textarea class="editid"name="GOOD" readonly>${e.good}</textarea>
           	<textarea class="editid"name="WRITING_ID" readonly>${e.writingid}</textarea>
           	<input type="image" src="./img/good.svg" class="good" width="30" >
@@ -117,7 +117,7 @@
           </form>
           <form method="GET" id="edit" action="/kumano_onigiri/CommuntiydeleteServlet">
           <textarea class="editid"name="WRITING_ID" readonly></textarea>
-          <input type="image" src="./img/delete.svg" class="delete" width="30" name="SUBMIT"value="削除">
+          <input type="image" src="./img/delete.svg" class="delete" width="50" name="SUBMIT"value="削除">
           </form>
           </div>
       </div>
@@ -128,6 +128,4 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="./js/common.js"></script>
 <script src="./js/community.js"></script>
-
-
 </html>
