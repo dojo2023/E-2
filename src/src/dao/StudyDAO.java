@@ -73,20 +73,35 @@ public class StudyDAO {
 			Class.forName("org.h2.Driver");
 			
 			//DB接続
-			conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6/db/GardenDB\", \"sa\", \"password");
+			conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6/db/GardenDB", "sa", "password");
 			
 			//DBからデータを取得
-			String sql = "select * from WORD WHERE WORD_ITEM LIKE ? ORDER BY WORD_ID";
+			String sql = "select * from WORD"
+					+ " WHERE WORD_ITEM LIKE ? ORDER BY WORD_ID";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
+
 			
 			// SQL文を完成させる
 			//あいまい検索に対応
+//			if (param.getWord_id() > 0) {
+//				pStmt.setInt(1, param.getWord_id());
+//			}
+//			else {
+//				pStmt.setInt(1, 1);
+//			}
 			if (param.getWord_item() != null) {
 				pStmt.setString(1, "%" + param.getWord_item() + "%");
 			}
 			else {
 				pStmt.setString(1, "%");
 			}
+//			if (param.getWord_ex() != null) {
+//				pStmt.setString(2, "%" + param.getWord_ex() + "%");
+//			}
+//			else {
+//				pStmt.setString(2, "%");
+//			}
+//			
 			
 			// SQL文を実行し結果表を取得する
 			ResultSet rs = pStmt.executeQuery();

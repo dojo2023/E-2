@@ -36,11 +36,11 @@ public class LoginServlet extends HttpServlet {
 		String role = request.getParameter("ROLE");
 		String quiz = request.getParameter("QUIZ");
 		String answer_time = request.getParameter("ANSWER_TIME");
-		String gatya_id = request.getParameter("GATYA_ID");
-
+		String mark_id = request.getParameter("MARK_ID");
+		String background_id = request.getParameter("BACKGROUND_ID");
 		// ログイン処理を行う
 		UsersDAO iDao = new UsersDAO();
-		if (iDao.isLoginOK(new Users(staff_id,password,name,role,quiz,answer_time,gatya_id))) {	// ログイン成功
+		if (iDao.isLoginOK(new Users(staff_id,password,name,role,quiz,answer_time,mark_id,background_id))) {	// ログイン成功
 			String banana = iDao.adceak(staff_id);
 			// セッションスコープにID,password等を格納する
 			HttpSession session = request.getSession();

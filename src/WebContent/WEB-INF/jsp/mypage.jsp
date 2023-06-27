@@ -42,7 +42,7 @@
           <br> <br><br><br>
           <h1 class="heading-lv1 text-center">拙者のページ</h1>
             <figure class="profile-image">
-                <img src="./img/Mk03.png"  width="300" height="300">
+                <img src="./img/${mark_id}.png"  width="300" height="300">
             </figure>
 
             <h3 class="heading-lv3 heading-margin text-center">社員情報</h3>
@@ -52,6 +52,7 @@
               <li>氏名:${name}</li>
               <li>社員区分:${role}</li>
               <li>クイズポイント:${q_point}</li>
+               <li>ログイン時クイズ機能:${quiz}</li>
               </ul>
               <br>
             </article>
@@ -68,7 +69,7 @@
             </div>
             &nbsp;&nbsp;
             <div class="option-box">
-              <h3 style="text-align:center">オプション</h3><br>
+              <h3 style="text-align:center">設定</h3><br>
 
 
               <div class="radioArea" id="makeImg">
@@ -92,13 +93,12 @@
                       <div class="modal-body">
                         <br><br><br><br><br><br><br><br>
                         <!--背景モーダルウィンドウのプルダウンメニュー-->
-                        <div class="mark-select cp_sl01">
                         <form action="/kumano_onigiri/BackgroundServlet" method="post">
-
-                          <select required >
+                        <div class="mark-select cp_sl01">
+                          <select required name="chenge_bg">
                             <option value="" hidden>背景を選択してください</option>
                             <c:forEach var="e" items="${bgList}" >
- 								 <option name="chenge_bg">${e.gachaid}</option>
+ 								 <option value = "${e.stuffid}">${e.gachaid}</option>
   							</c:forEach>
                           </select>
                         </div>
@@ -124,19 +124,19 @@
                       <div class="modal-body2">
                        <br><br><br><br><br><br><br><br>
                        <!--マーク設定モーダルウィンドウ�?のプルダウンメニュー-->
+                        <form action="/kumano_onigiri/MarkServlet" method="post" >
                         <div class="mark-select cp_sl01">
-                        <form action="/kumano_onigiri/MarkServlet" method="post">
-                          <select required>
+                          <select required name="chenge_mark">
                             <option value="" hidden>マークを選択してください</option>
                             <c:forEach var="e" items="${markList}" >
- 								 <option name="chenge_mark">${e.gachaid}</option>
+ 								 <option value = "${e.stuffid}" >${e.gachaid}</option>
   							</c:forEach>
 	                      </select>
 	                        </div>
 	                    <div class="button-parent">
 	                          <input type="submit" value="OK" class="bg-mark-changebutton">
-                        </form>
                         </div>
+                         </form>
 
                       </div>
                     </div>

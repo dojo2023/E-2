@@ -23,7 +23,7 @@ public class MypageDAO{
 					conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6/db/GardenDB", "sa", "password");
 
 					// SQL文を準備する
-					String sql = "SELECT  USER .STAFF_ID ,NAME ,ROLE ,QUIZ ,TASK_THREAD ,Q_POINT FROM USER  INNER JOIN QPOINT   ON USER .STAFF_ID = QPOINT  .STAFF_ID INNER JOIN TASK    ON USER .STAFF_ID = TASK   .STAFF_ID WHERE USER .STAFF_ID = ?";
+					String sql = "SELECT  USER .STAFF_ID ,NAME ,ROLE ,QUIZ ,TASK_THREAD ,Q_POINT,MARK_ID  FROM USER  INNER JOIN QPOINT ON USER .STAFF_ID = QPOINT  .STAFF_ID INNER JOIN TASK ON USER .STAFF_ID = TASK .STAFF_ID WHERE USER .STAFF_ID = ?";
 					PreparedStatement pStmt = conn.prepareStatement(sql);
 
 					// SQL文を実行し、結果表を取得する
@@ -38,7 +38,8 @@ public class MypageDAO{
 								rs.getString("ROLE"),
 								rs.getString("QUIZ"),
 								rs.getString("Q_POINT"),
-								rs.getString("TASK_THREAD")
+								rs.getString("TASK_THREAD"),
+								rs.getString("MARK_ID")
 						);
 						mypageList.add(card);
 					}
