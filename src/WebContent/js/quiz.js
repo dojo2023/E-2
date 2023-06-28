@@ -11,18 +11,27 @@ $('.modal_pop').hide();
 
 
 const func = () => {
- var hoge = document.getElementById( 'hoge' ).value;
+ var hoge = document.getElementById( 'hoge' ).title; //現在のポイント
+
+ console.log('現在の点数:'+ hoge);
  var allocation = 3;
+ let result = 0;
  const quiz_ans = document.getElementById('quiz');
   if (quiz_ans.radio.value == 'true') {
     var str = "正解";
     document.getElementById('edit_area').innerHTML = str ;
-     hoge = hoge + allocation;
+     result = parseInt(hoge) + parseInt(allocation);
   } else if (quiz_ans.radio.value == 'false') {
     var str = "不正解";
     document.getElementById('edit_area').innerHTML = str ;
+    result = parseInt(hoge);
   }
- var qpoint = hoge;
+
+  if (result == 0){
+  	result = parseInt(hoge);
+  }
+
+ var qpoint = result;
 console.log('現在の点数:'+ qpoint);
 document.getElementById('quiz_point').innerHTML = qpoint ;
 

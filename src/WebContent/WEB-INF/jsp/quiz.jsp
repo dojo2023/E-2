@@ -16,7 +16,8 @@
 
  <header class="header">
         <div class="login_select">
-          <img src="./img/apricon01.png" width="180">
+          <a href="/kumano_onigiri/TopServlet">
+          <img src="./img/apricon01.png" width="180"> </a>
         </div>
         <div class="word_box">
         <div class="word">
@@ -43,14 +44,19 @@
         </div>
       </header>
 
+    <!-- jspで背景を適応する -->
+	<main style="background-image: url('img/${bgid}.png'); background-attachment: fixed;">
 
 	<!-- クイズコンテンツ -->
 	<div class="box">
                 <div class="pop">クイズ</div><br>
-                <div class="pop"><%= request.getAttribute("quiz") %></div>
+                <div class="pop"><%= request.getAttribute("quiz") %></div><br>
 
-				<div id="hoge"><%= request.getAttribute("quiz_point") %></div>
+				<!-- 現在の点数 -->
+				現在のポイント:<div class="pop"><%= request.getAttribute("quiz_point") %></div>
+				<div id="hoge" title="<%= request.getAttribute("quiz_point") %>"></div>
 
+				<div class="choice_box">
                 <form id="quiz" action="/kumano_onigiri/QuizServlet">
                 <c:forEach var="e" items="${ChoiceList}">
                 <div><label><input type="radio" name="radio" value = "${e.is_answer}">${e.choices}</label>
@@ -59,6 +65,7 @@
 				</c:forEach>
                 <input type="button"  class="show_pop" value="回答" onclick="func()">
             	</form>
+            	</div>
 	</div>
 
 		    <!-- ポップアップ用の画面 -->
@@ -67,8 +74,9 @@
 		        <div class="modal_pop_main">
 		            <div class="content">
 		                <div class="pop" id = "edit_area"></div><br>
-		                <div class="pop"><%= request.getAttribute("quiz_ex") %></div>
-						<div class="pop" id = "quiz_point"></div><br>
+		                <div class="pop"><%= request.getAttribute("quiz_ex") %></div><br>
+
+						現在のポイント:<div class="pop" id = "quiz_point"></div>
 						<form action="/kumano_onigiri/QuizServlet" method="post">
 			  				<input type="image" src="./img/mark_batsu.png" class="js-modal-close" width="50">
 
@@ -84,7 +92,7 @@
 		    	</div>
     		</div>
 
-
+ 	</main>
 
 
 

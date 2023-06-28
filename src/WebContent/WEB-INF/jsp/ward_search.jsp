@@ -12,7 +12,8 @@
 <body>
 <header>
 	<div class="login_select">
-		<img src="img/apricon01.png" width="180">
+		<a href="/kumano_onigiri/TopServlet">
+          <img src="./img/apricon01.png" width="180">    </a>
     </div>
     <div class="word_box">
     	<div class="word">

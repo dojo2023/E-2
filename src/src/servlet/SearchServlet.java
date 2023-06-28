@@ -42,7 +42,7 @@ public class SearchServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//		HttpSession session = request.getSession();
+		HttpSession session = request.getSession();
 //		if (session.getAttribute("id") == null) {
 //			response.sendRedirect("/simpleBC/LoginServlet");
 //			return;
@@ -50,15 +50,13 @@ public class SearchServlet extends HttpServlet {
 		
 		//リクエストパラメータを取得
 		request.setCharacterEncoding("UTF-8");
-//		int word_id = Integer.parseInt(request.getParameter("WORD_ID"));
 		String word_item = request.getParameter("WORD_ITEM");
-//		String word_ex = request.getParameter("WORD_EX");
 		//検索処理
 		StudyDAO S_sd = new StudyDAO();
 		List<Study> cardList = S_sd.select(new Study(0, word_item, null));
 		
 		//ログインIDを取得
-		HttpSession session = request.getSession();
+		//HttpSession session = request.getSession();
 		String staff_id = (String)session.getAttribute("staff_id");
 		
 		Back_groundDAO bgdao = new Back_groundDAO();
