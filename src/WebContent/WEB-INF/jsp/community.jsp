@@ -57,8 +57,8 @@
           </div>
           <div class="time">${e.writingtime}</div>
         </div>
-        <div class="text_word">
-          <textarea class="text" readonly id="textid${e.writingid}">${e.writingform}</textarea>
+        <div class="text_word-main">
+          <textarea class="text-main" readonly id="textid${e.writingid}">${e.writingform}</textarea>
         </div>
         <div class="text_und">
         <img src="./img/edit.svg" class="edit" id="${e.writingid}"onclick="editfun(this.id)">
@@ -128,4 +128,15 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="./js/common.js"></script>
 <script src="./js/community.js"></script>
+<script type="text/javascript">
+var bgid = '<%=request.getAttribute("bgid") %>';
+console.log(bgid);
+console.log('Bg12' === bgid);
+if('Bg12' === bgid){
+	const box= document.querySelector('.text_box');
+	box.style.backgroundColor = 'rgb(128, 255, 255)';
+}
+</script>
+
+
 </html>

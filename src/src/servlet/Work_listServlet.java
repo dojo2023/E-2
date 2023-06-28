@@ -33,7 +33,7 @@ public class Work_listServlet extends HttpServlet {
 		// もしもログインしていなかったらログインサーブレットにリダイレクトする
 //		HttpSession session = request.getSession();
 //		if (session.getAttribute("id") == null) {
-//			response.sendRedirect("/simpleBC/LoginServlet");
+//			response.sendRedirect("/kumano_onigiri/LoginServlet");
 //			return;
 //		}
 		
@@ -49,14 +49,14 @@ public class Work_listServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// もしもログインしていなかったらログインサーブレットにリダイレクトする
-//		HttpSession session = request.getSession();
+		HttpSession session = request.getSession();
 //		if (session.getAttribute("id") == null) {
-//			response.sendRedirect("/simpleBC/LoginServlet");
+//			response.sendRedirect("/kumano_onigiri/LoginServlet");
 //			return;
 //		}
 		
 		//ログインIDを取得
-		HttpSession session = request.getSession();
+		//HttpSession session = request.getSession();
 		String staff_id = (String)session.getAttribute("staff_id");
 		
 		Back_groundDAO bgdao = new Back_groundDAO();
