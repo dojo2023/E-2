@@ -12,11 +12,12 @@
     <header class="header">
 
         <div class="login_select">
-          <img src="./img/apricon01.png" width="180">
+           <a href="/kumano_onigiri/TopServlet">
+          <img src="./img/apricon01.png" width="180">   </a>
         </div>
         <div class="word_box">
 	        <div class="word">
-	        今日の用語:SQLインジェクション
+	        <div>今日の用語:${word}</div>
 	            <a href="/kumano_onigiri/WardServlet" class="word_button">解説</a>
 
 	        </div>
@@ -50,8 +51,8 @@
           <div><a href="/kumano_onigiri/WardServlet" class="button">用語</a></div>
           <div><a href="/kumano_onigiri/QuizServlet" class="button">クイズ</a></div>
           <div><a href="/kumano_onigiri/LinkServlet" class="button">リンク</a></div>
-      </div>
-
+        </div>
+<br><br><br><br><br><br><br><br><br><br><br>
       </main>
 </body>
 <script  src="./js/study.js"></script>

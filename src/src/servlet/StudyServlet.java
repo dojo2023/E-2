@@ -27,6 +27,7 @@ public class StudyServlet extends HttpServlet {
 		//ログインIDを取得
 		HttpSession session = request.getSession();
 		String staff_id = (String)session.getAttribute("staff_id");
+		String word = (String)session.getAttribute("word)");
 
 		Back_groundDAO bgdao = new Back_groundDAO();
 		bgdao.connect();
@@ -38,4 +39,5 @@ public class StudyServlet extends HttpServlet {
 				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/study.jsp");
 				dispatcher.forward(request,response);
 }
+
 }
