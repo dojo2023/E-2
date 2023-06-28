@@ -12,12 +12,12 @@ $('.modal_pop').hide();
 
 const func = () => {
  var hoge = document.getElementById( 'hoge' ).value;
-
+ var allocation = 3;
  const quiz_ans = document.getElementById('quiz');
   if (quiz_ans.radio.value == 'true') {
     var str = "正解";
     document.getElementById('edit_area').innerHTML = str ;
-    hoge++;
+     hoge = hoge + allocation;
   } else if (quiz_ans.radio.value == 'false') {
     var str = "不正解";
     document.getElementById('edit_area').innerHTML = str ;
