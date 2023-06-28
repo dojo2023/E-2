@@ -55,7 +55,7 @@ public class QuizServlet extends HttpServlet {
 
 	    // 検索結果をリクエストスコープに格納する
 	    req.setAttribute("ChoiceList", ChoiceList);
-
+	    //テスト
 
 	    //ポイント取得
 	    HttpSession session = req.getSession();
