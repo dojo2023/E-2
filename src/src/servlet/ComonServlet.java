@@ -43,12 +43,10 @@ public class ComonServlet extends HttpServlet {
 			System.out.println("日付が変わったときの処理");
 
 			//ランダムで用語と解説を取得する
-			Random random = new Random();
+			Random wordrd = new Random();
 			List<Study> wordList = studyDAO.StudyAllList();
-			Study todayword = wordList.get(random.nextInt(wordList.size()));
+			Study todayword = wordList.get(wordrd.nextInt(wordList.size()));
 			String word = todayword.getWord_item();
-			String wordex = todayword.getWord_ex();
-
 			//用語をスコープに格納
 			HttpSession session = request.getSession();
 			session.setAttribute("word", word);
