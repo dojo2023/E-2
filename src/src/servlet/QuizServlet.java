@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import dao.Back_groundDAO;
 import dao.ChoiceDAO;
 import dao.PointDAO;
 import dao.QuizDAO;
@@ -70,6 +71,13 @@ public class QuizServlet extends HttpServlet {
 		//検索結果をリクエストスコープに格納
 		req.setAttribute("quiz_point", quiz_point);
 
+		//背景を取得する処理
+		Back_groundDAO bgdao = new Back_groundDAO();
+		bgdao.connect();
+		String bgid = bgdao.select(staff_id);//numのところにstaff_idを入れる
+		bgdao.disconnect();
+		req.setAttribute("bgid", bgid);
+
 		//JSPにフォワード
 	    RequestDispatcher rd_choice = req.getRequestDispatcher("/WEB-INF/jsp/quiz.jsp");
 	    rd_choice.forward(req, res);
@@ -82,6 +90,7 @@ public class QuizServlet extends HttpServlet {
 
 	public void doPost(HttpServletRequest req, HttpServletResponse res)
 	      throws IOException, ServletException {
+
 
 		//jspから値を取得
 		req.setCharacterEncoding("utf-8");
