@@ -1,57 +1,51 @@
 package model;
+
 import java.io.Serializable;
+import java.util.Date;
 
 public class Task implements Serializable {
-	private String TASK_ID;
-	private String TASK_THREAD;
-	private String CALENDAR;
-	private int STAFF_ID;
+	private int task_id;
+	private String task_thread;
+	private Date calendar;
+	private int staff_id;
 
-	public Task(String TASK_ID, String TASK_THREAD,String CALENDAR, int STAFF_ID){
+	public Task(int task_id, String task_thread, Date calendar, int staff_if) {
 		super();
-		this.TASK_ID = TASK_ID;
-		this.TASK_THREAD = TASK_THREAD;
-		this.CALENDAR = CALENDAR;
-		this.STAFF_ID = STAFF_ID;
+		this.task_id = task_id;
+		this.task_thread = task_thread;
+		this.calendar = calendar;
+		this.staff_id = staff_if;
 	}
 
-	public Task() {
-		super();
-		this.TASK_ID = "";
-		this.TASK_THREAD = "";
-		this.CALENDAR = "";
-		this.STAFF_ID = 0;
+	public int getTask_id() {
+		return task_id;
 	}
 
-	public String getTASK_ID() {
-		return TASK_ID;
+	public void setTask_id(int task_id) {
+		this.task_id = task_id;
 	}
 
-	public void setTASK_ID(String TASK_ID) {
-		this.TASK_ID = TASK_ID;
+	public String getTask_thread() {
+		return task_thread;
 	}
 
-	public String getTASK_THREAD() {
-		return TASK_THREAD;
+	public void setTask_thread(String task_thread) {
+		this.task_thread = task_thread;
 	}
 
-	public void setTASK_THREAD(String TASK_THREAD) {
-		this.TASK_THREAD = TASK_THREAD;
+	public Date getCalendar() {
+		return calendar;
 	}
 
-	public String getCALENDAR() {
-		return CALENDAR;
+	public void setCalendar(Date calendar) {
+		this.calendar = calendar;
 	}
 
-	public void setCALENDAR(String CALENDAR) {
-		this.CALENDAR = CALENDAR;
+	public int getStaff_id() {
+		return staff_id;
 	}
 
-	public int getSTAFF_ID() {
-		return STAFF_ID;
-	}
-
-	public void setSTAFF_ID(int STAFF_ID) {
-		this.STAFF_ID = STAFF_ID;
+	public void setStaff_id(int staff_if) {
+		this.staff_id = staff_if;
 	}
 }

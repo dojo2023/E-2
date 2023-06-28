@@ -2,7 +2,8 @@ package servlet;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
 import java.util.Random;
 
 import javax.servlet.RequestDispatcher;
@@ -15,75 +16,99 @@ import javax.servlet.http.HttpSession;
 
 import dao.ChoiceDAO;
 import dao.QuizDAO;
+import dao.StudyDAO;
 import dao.TaskDAO;
 import model.Choice;
+import model.Study;
+import model.Task;
+import model.TodayDate;
 
-	@WebServlet("/TopServlet")
-	public class TopServlet extends HttpServlet {
-		private static final long serialVersionUID = 1L;
+@WebServlet("/TopServlet")
+public class TopServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
 
-		protected void doGet(HttpServletRequest req ,HttpServletResponse res)
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
+		HttpSession session = request.getSession();
+		int staff_id = Integer.parseInt((String) session.getAttribute("staff_id"));
+
+		TodayDate date = new TodayDate();
+		if (date.datecheck(staff_id)) {
+
+			//ランダムで用語と解説を取得する
+			StudyDAO studyDAO = new StudyDAO();
+			Random random1 = new Random();
+			List<Study> wordList = studyDAO.StudyAllList();
+			Study todayword = wordList.get(random1.nextInt(wordList.size()));
+			String word = todayword.getWord_item();
+			String wordex = todayword.getWord_ex();
+
+			//用語をスコープに格納
+			session.setAttribute("word", word);
+
 			Random random = new Random();
-			int rd = random.nextInt(2)+1;
-		    QuizDAO qdao = new QuizDAO();
-		    qdao.connect();
-		    String quiz = qdao.select(rd);
-		    qdao.disconnect();
-		    //検索結果をリクエストスコープに格納
-		    req.setAttribute("quiz", quiz);
+			int rd = random.nextInt(2) + 1;
+			QuizDAO qdao = new QuizDAO();
+			qdao.connect();
+			String quiz = qdao.select(rd);
+			qdao.disconnect();
 
-		    System.out.println(quiz);
+			//検索結果をリクエストスコープに格納
+			request.setAttribute("quiz", quiz);
 
-		    //解説
-		    qdao.connect();
-		    String quiz_ex = qdao.select_3(rd);
-		    qdao.disconnect();
-		    //検索結果をリクエストスコープに格納
-		    req.setAttribute("quiz_ex", quiz_ex);
+			System.out.println(quiz);
 
-		    //解答群
-		    ChoiceDAO cdao = new ChoiceDAO();
-		    cdao.connect();
-		    ArrayList<Choice> ChoiceList = cdao.select_2(rd);
-		    cdao.disconnect();
-		    System.out.println();
-		 // 検索結果をリクエストスコープに格納する
-		    req.setAttribute("ChoiceList", ChoiceList);
+			//解説
+			qdao.connect();
+			String quiz_ex = qdao.select_3(rd);
+			qdao.disconnect();
 
-		    //JSPにフォワード
-		    RequestDispatcher rd_choice = req.getRequestDispatcher("/WEB-INF/jsp/top.jsp");
-		    rd_choice.forward(req, res );
+			//検索結果をリクエストスコープに格納
+			request.setAttribute("quiz_ex", quiz_ex);
+
+			//解答群
+			ChoiceDAO cdao = new ChoiceDAO();
+			cdao.connect();
+			ArrayList<Choice> ChoiceList = cdao.select_2(rd);
+			cdao.disconnect();
+			System.out.println();
+
+			// 検索結果をリクエストスコープに格納する
+			request.setAttribute("ChoiceList", ChoiceList);
+			request.setAttribute("isDateCheck", true);
+
+		}else {
+			request.setAttribute("isDateCheck", false);
 
 		}
 
-		    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-					throws ServletException, IOException {
+		//JSPにフォワード
+		RequestDispatcher rd_choice = request.getRequestDispatcher("/WEB-INF/jsp/top.jsp");
+		rd_choice.forward(request, response);
+	}
 
-			//IDを取得
-			HttpSession session = request.getSession();
-			int staff_id = (int)session.getAttribute("staff_id");
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 
-		    // リクエストパラメータを取得する
-			request.setCharacterEncoding("UTF-8");
-			String task_id = request.getParameter("TASK_ID");
-			String task_thread = request.getParameter("TASK_THREAD");
-		    String calendar = request.getParameter("CALENDAR");Calendar CALENDAR = Calendar.getInstance();
+		//IDを取得
+		HttpSession session = request.getSession();
+		int staff_id = Integer.parseInt((String) session.getAttribute("staff_id"));
 
+		// リクエストパラメータを取得する
+		request.setCharacterEncoding("UTF-8");
+		String task_thread = request.getParameter("TASK_THREAD");
 
-			// 登録処理を行う
-	        TaskDAO bDao = new TaskDAO();
-		    if (bDao.insert(task_id,task_thread,calendar,staff_id)) {
-			}
-
-			// 結果ページにフォワードする
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/top.jsp");
-			dispatcher.forward(request, response);
-			}
+		// 登録処理を行う
+		TaskDAO bDao = new TaskDAO();
+		if (bDao.insert(new Task(0, task_thread, new Date(), staff_id))) {
+			request.setAttribute("isTaskRegistError", true);
+		}else {
+			request.setAttribute("isTaskRegistError", false);
 		}
 
-
-
-
-
+		// トップページにフォワードする（再表示）
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/top.jsp");
+		dispatcher.forward(request, response);
+	}
+}
