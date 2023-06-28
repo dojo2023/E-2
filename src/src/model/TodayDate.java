@@ -9,7 +9,7 @@ import dao.Login_timeDAO;
 
 public class TodayDate {
 
-	public boolean datecheck(String staffid) {
+	public boolean datecheck(int staffid) {
 		boolean result = false;
 		Login_timeDAO timeDAO = new Login_timeDAO();
 		//ANSWER_TIMEを取得
