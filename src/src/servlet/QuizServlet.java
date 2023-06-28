@@ -29,7 +29,6 @@ public class QuizServlet extends HttpServlet {
 	  public void doGet(HttpServletRequest req, HttpServletResponse res)
 	      throws IOException, ServletException {
 
-
 	    Random random = new Random();
 		  int rd = random.nextInt(4)+1;
 
@@ -56,7 +55,7 @@ public class QuizServlet extends HttpServlet {
 
 	    // 検索結果をリクエストスコープに格納する
 	    req.setAttribute("ChoiceList", ChoiceList);
-
+	    //テスト
 
 	    //ポイント取得
 	    HttpSession session = req.getSession();

@@ -53,7 +53,7 @@
                 <div class="pop"><%= request.getAttribute("quiz") %></div><br>
 
 				<!-- 現在の点数 -->
-				現在のポイント:<div class="pop"><%= request.getAttribute("quiz_point") %></div>
+				<div class="pop">現在のポイント:<%= request.getAttribute("quiz_point") %></div>
 				<div id="hoge" title="<%= request.getAttribute("quiz_point") %>"></div>
 
 				<div class="choice_box">
@@ -83,7 +83,7 @@
 							<input type="text" value="${quiz_point}" id = "get_point" name="quiz_point"><!-- サーブレットへ渡す -->
 						</form>
 
-		                <a href="/servlet/WardServlet/" class="btn-flat-simple"><i class="fa fa-caret-right"></i> 用語解説</a><!-- 用語ページに飛ばす -->
+		                <a href="/kumano_onigiri/WardServlet" class="btn-flat-simple"><i class="fa fa-caret-right"></i> 用語解説</a><!-- 用語ページに飛ばす -->
 		                <a href="#" id ="btn" class="btn-flat-simple" class="js-modal-close" onclick="window.location.reload();">
 		                <i class="fa fa-caret-right" onclick="func_reload()"></i> 次の問題</a>
 
