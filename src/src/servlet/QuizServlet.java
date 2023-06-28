@@ -29,7 +29,6 @@ public class QuizServlet extends HttpServlet {
 	  public void doGet(HttpServletRequest req, HttpServletResponse res)
 	      throws IOException, ServletException {
 
-
 	    Random random = new Random();
 		  int rd = random.nextInt(4)+1;
 
