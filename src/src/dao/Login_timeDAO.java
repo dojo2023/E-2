@@ -14,7 +14,7 @@ public class Login_timeDAO {
 
 
 		  //ログイン時の時間を取得するメソッド
-		public List<Login_time> login_timeget(String staffid) {
+		public List<Login_time> login_timeget(int staffid) {
 			Connection conn = null;
 			List<Login_time> timeList = new ArrayList<Login_time>();
 
@@ -30,7 +30,7 @@ public class Login_timeDAO {
 				PreparedStatement pStmt = conn.prepareStatement(sql);
 
 				// SQL文を実行し、結果表を取得する
-				pStmt.setString(1,staffid);
+				pStmt.setInt(1,staffid);
 				ResultSet rs = pStmt.executeQuery();
 
 				// 結果表をコレクションにコピーする
@@ -68,7 +68,7 @@ public class Login_timeDAO {
 		}
 
 		//時間を更新するメソッド
-		public boolean timeupdate(String nowtime,String id) {
+		public boolean timeupdate(String nowtime,int id) {
 			Connection conn = null;
 			boolean result = false;
 
@@ -85,7 +85,7 @@ public class Login_timeDAO {
 
 				// SQL文を完成させる
 				pStmt.setString(1, nowtime);
-				pStmt.setString(2, id);
+				pStmt.setInt(2, id);
 
 				// SQL文を実行する
 				if (pStmt.executeUpdate() == 1) {

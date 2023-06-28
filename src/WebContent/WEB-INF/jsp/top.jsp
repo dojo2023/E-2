@@ -13,7 +13,8 @@
 <body>
     <header class="header">
         <div class="login_select">
-          <img src="./img/apricon01.png" width="180">
+          <a href="/kumano_onigiri/TopServlet">
+          <img src="./img/apricon01.png" width="180">    </a>
         </div>
         <div class="word_box">
         <div class="word">
@@ -73,7 +74,16 @@
 <!-- このリンクを書くことでjqueryが使用できる -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="./js/common.js"></script>
-<script src="./js/quizpopup.js"></script>
+
+<c:if test="${isDateCheck}">
+	<script src="./js/quizpopup.js"></script>
+</c:if>
+
+<c:choose>
+	<c:when test="${isTaskRegistError}">
+		<script>window.alert("タスクを登録しました")</script>
+	</c:when>
+</c:choose>
 
 <br><br><br>
 <div class="time" align="center">

@@ -24,50 +24,39 @@ public class TaskDAO {
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6/db/GardenDB", "sa", "password");
 
 			// SQL文を準備する
-			String sql = "insert into TASK values (?,?,?,?)";
+			String sql = "insert into TASK values (null, ?, ?, ?)";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			// SQL文を完成させる
-			if (card.getTASK_ID() != null) {
-				pStmt.setString(1, "%" + card.getTASK_ID() + "%");
+			if (card.getTask_thread() != null) {
+				pStmt.setString(1, card.getTask_thread());
+			} else {
+				pStmt.setString(1, null);
 			}
-			else {
-				pStmt.setString(1, "%");
+
+			if (card.getCalendar() != null) {
+				long timeInMilliSeconds = card.getCalendar().getTime();
+				pStmt.setDate(2, new java.sql.Date(timeInMilliSeconds));
 			}
-			if (card.getTASK_THREAD() != null) {
-				pStmt.setString(2, "%" + card.getTASK_THREAD() + "%");
-			}
-			else {
-				pStmt.setString(2, "%");
-			}
-			if (card.getCALENDAR() != null) {
-				pStmt.setString(3, "%" + card.getCALENDAR() + "%");
-			}
-			else {
-				pStmt.setString(3, "%");
-			}
-			if (card.getSTAFF_ID() > 0) {
-				pStmt.setInt(4, 0 + card.getSTAFF_ID());
+
+			if (card.getStaff_id() > 0) {
+				pStmt.setInt(3, card.getStaff_id());
 			}
 
 			// SQL文を実行する
 			if (pStmt.executeUpdate() == 1) {
 				result = true;
 			}
-		}
-		catch (SQLException e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
-		}
-		catch (ClassNotFoundException e) {
+		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
-		}
-		finally {
+		} finally {
 			// データベースを切断
 			if (conn != null) {
 				try {
 					conn.close();
-				}
-				catch (SQLException e) {
+				} catch (SQLException e) {
 					e.printStackTrace();
 				}
 			}
@@ -78,81 +67,76 @@ public class TaskDAO {
 	}
 
 	// 引数paramで検索項目を指定し、検索結果のリストを返す
-			public List<Task> select(Task param) {
-				Connection conn = null;
-				List<Task> cardList = new ArrayList<Task>();
+	public List<Task> select(Task param) {
+		Connection conn = null;
+		List<Task> cardList = new ArrayList<Task>();
 
-				try {
-					// JDBCドライバを読み込む
-					Class.forName("org.h2.Driver");
+		try {
+			// JDBCドライバを読み込む
+			Class.forName("org.h2.Driver");
 
-					// データベースに接続する
-					conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6/db/GardenDB", "sa", "password");
+			// データベースに接続する
+			conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6/db/GardenDB", "sa", "password");
 
-					// SQL文を準備する
-					String sql = "select * from TASK WHERE STAFF_ID = \" + STAFF_ID";
-					PreparedStatement pStmt = conn.prepareStatement(sql);
+			// SQL文を準備する
+			String sql = "select * from TASK WHERE STAFF_ID = ?";
+			PreparedStatement pStmt = conn.prepareStatement(sql);
 
-					// SQL文を完成させる
-					if (param.getTASK_ID() != null) {
-						pStmt.setString(1, "%" + param.getTASK_ID() + "%");
-					}
-					else {
-						pStmt.setString(1, "%");
-					}
-					if (param.getTASK_THREAD() != null && !param.getTASK_THREAD().equals("")) {
-						pStmt.setString(2, param.getTASK_THREAD());
-					}
-					else {
-						pStmt.setString(2, null);
-					}
-					if (param.getCALENDAR() != null && !param.getCALENDAR().equals("")) {
-						pStmt.setString(3, param.getCALENDAR());
-					}
-					else {
-						pStmt.setString(3, null);
-					}
-					if (param.getSTAFF_ID() > 0) {
-						pStmt.setInt(4, param.getSTAFF_ID());
-					}
+			// SQL文を完成させる
+//			if (param.getTask_id() > 0) {
+//				pStmt.setInt(1, param.getTask_id());
+//			}
+//
+//			if (param.getTask_thread() != null && !param.getTask_thread().equals("")) {
+//				pStmt.setString(2, param.getTask_thread());
+//			} else {
+//				pStmt.setString(2, null);
+//			}
+//
+//			if (param.getCalendar() != null && !param.getCalendar().equals("")) {
+//				pStmt.setDate(3, (java.sql.Date) param.getCalendar());
+//			} else {
+//				pStmt.setString(3, null);
+//			}
 
-
-					// SQL文を実行し、結果表を取得する
-					ResultSet rs = pStmt.executeQuery();
-
-					// 結果表をコレクションにコピーする
-						while (rs.next()) {
-							Task card = new Task(
-							rs.getString("TASK_ID"),
-							rs.getString("TASK_THREAD"),
-							rs.getString("CALENDAR"),
-							rs.getInt("STAFF_ID")
-							);
-						cardList.add(card);
-					}
-				}
-				catch (SQLException e) {
-					e.printStackTrace();
-					cardList = null;
-				}
-				catch (ClassNotFoundException e) {
-					e.printStackTrace();
-					cardList = null;
-				}
-				finally {
-					// データベースを切断
-					if (conn != null) {
-						try {
-							conn.close();
-						}
-						catch (SQLException e) {
-							e.printStackTrace();
-							cardList = null;
-						}
-					}
-				}
-
-				// 結果を返す
-				return cardList;
+			if (param.getStaff_id() > 0) {
+				pStmt.setInt(1, param.getStaff_id());
 			}
+
+			// SQL文を実行し、結果表を取得する
+			ResultSet rs = pStmt.executeQuery();
+
+			// 結果表をコレクションにコピーする
+			while (rs.next()) {
+				Task card = new Task(
+						rs.getInt("TASK_ID"),
+						rs.getString("TASK_THREAD"),
+						rs.getDate("CALENDAR"),
+						rs.getInt("STAFF_ID"));
+				cardList.add(card);
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+			cardList = null;
+
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+			cardList = null;
+
+		} finally {
+			// データベースを切断
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+					cardList = null;
+				}
+			}
+		}
+
+		// 結果を返す
+		return cardList;
+	}
 }
