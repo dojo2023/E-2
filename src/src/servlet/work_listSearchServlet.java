@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import dao.Back_groundDAO;
 import dao.WorkingDAO;
 import model.Working;
 
@@ -32,7 +31,7 @@ public class work_listSearchServlet extends HttpServlet {
 //			return;
 //		}
 		// 検索結果ページにフォワードする
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/work_list.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/work_listSearch.jsp");
 		dispatcher.forward(request, response);
 				
 		doPost(request, response);	
@@ -42,33 +41,38 @@ public class work_listSearchServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//		HttpSession session = request.getSession();
+		//HttpSession session = request.getSession();
 //		if (session.getAttribute("id") == null) {
-//			response.sendRedirect("/simpleBC/LoginServlet");
+//			response.sendRedirect("/kumano_onigiri/LoginServlet");
 //			return;
 //		}
 		
-		HttpSession session = request.getSession();
-		int staff_id = (int)session.getAttribute("staff_id");
+        //ログインIDを取得
+        HttpSession session = request.getSession();
+        //int staff_id = Integer.parseInt((String)session.getAttribute("STAFF_ID"));
+        
+        // リクエストパラメータを取得する
 		request.setCharacterEncoding("UTF-8");
-		String work_date = request.getParameter("WORK_DATE");
+		int staff_id = Integer.parseInt(request.getParameter("STAFF_ID"));
+		// 検索処理を行う
 		WorkingDAO bDao = new WorkingDAO();
-		List<Working> cardList = bDao.select(new Working());
+     	List<Working> cardList = bDao.select(new Working(null, null, null, null, staff_id, null));
+		// 検索結果をリクエストスコープに格納する
+		request.setAttribute("cardList", cardList);
 		
 		//ログインIDを取得
 		//HttpSession session = request.getSession();
-		//String staff_id = (String)session.getAttribute("staff_id");
-		
-		Back_groundDAO bgdao = new Back_groundDAO();
-		bgdao.connect();
-		String bgid = bgdao.select(staff_id);//numのところにstaff_idを入れる
-		bgdao.disconnect();
-		request.setAttribute("bgid", bgid);
+//		String staff_id = (String)session.getAttribute("staff_id");
+//		
+//		Back_groundDAO bgdao = new Back_groundDAO();
+//		bgdao.connect();
+//		String bgid = bgdao.select(staff_id);//numのところにstaff_idを入れる
+//		bgdao.disconnect();
+//		request.setAttribute("bgid", bgid);
 
-		// 検索結果をリクエストスコープに格納する
-		request.setAttribute("cardList", cardList);		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/work_list.jsp");
+
+		// 結果ページにフォワードする
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/work_listSearch.jsp");
 		dispatcher.forward(request, response);
 	}
-
 }
