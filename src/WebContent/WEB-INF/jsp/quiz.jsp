@@ -53,7 +53,7 @@
                 <div class="pop"><%= request.getAttribute("quiz") %></div><br>
 
 				<!-- 現在の点数 -->
-				現在のポイント:<div class="pop"><%= request.getAttribute("quiz_point") %></div>
+				<div class="pop">現在のポイント:<%= request.getAttribute("quiz_point") %></div>
 				<div id="hoge" title="<%= request.getAttribute("quiz_point") %>"></div>
 
 				<div class="choice_box">
