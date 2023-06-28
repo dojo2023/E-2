@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import dao.ChoiceDAO;
+import dao.PointDAO;
 import dao.QuizDAO;
 import dao.StudyDAO;
 import dao.TaskDAO;
@@ -31,7 +32,10 @@ public class TopServlet extends HttpServlet {
 			throws ServletException, IOException {
 
 		HttpSession session = request.getSession();
+		String word1 = (String) session.getAttribute("word1");
 		int staff_id = Integer.parseInt((String) session.getAttribute("staff_id"));
+
+
 
 		TodayDate date = new TodayDate();
 		if (date.datecheck(staff_id)) {
@@ -74,14 +78,22 @@ public class TopServlet extends HttpServlet {
 			cdao.disconnect();
 			System.out.println();
 
+			PointDAO pdao = new PointDAO();
+			pdao.connect();
+			int quiz_point = pdao.select_point(staff_id);//セッションに格納されているスタッフIDを引数に入れる
+			pdao.disconnect();
+
+			request.setAttribute("quiz_point", quiz_point);
+
 			// 検索結果をリクエストスコープに格納する
 			request.setAttribute("ChoiceList", ChoiceList);
 			request.setAttribute("isDateCheck", true);
 
-		}else {
+		} else {
 			request.setAttribute("isDateCheck", false);
 
 		}
+
 
 		//JSPにフォワード
 		RequestDispatcher rd_choice = request.getRequestDispatcher("/WEB-INF/jsp/top.jsp");
@@ -91,9 +103,20 @@ public class TopServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
+		//jspから値を取得
+		request.setCharacterEncoding("utf-8");
+		int point_pram = Integer.parseInt(request.getParameter("quiz_point")); // JSPのvalue属性を設定した入力値を取得する。
+		System.out.println(point_pram);
+
 		//IDを取得
 		HttpSession session = request.getSession();
 		int staff_id = Integer.parseInt((String) session.getAttribute("staff_id"));
+
+		//ポイントを更新
+		PointDAO pdao = new PointDAO();
+		pdao.connect();
+		int point = pdao.update_point(point_pram, staff_id);//セッションに格納されているスタッフIDを引数に入れる
+		pdao.disconnect();
 
 		// リクエストパラメータを取得する
 		request.setCharacterEncoding("UTF-8");
@@ -103,7 +126,7 @@ public class TopServlet extends HttpServlet {
 		TaskDAO bDao = new TaskDAO();
 		if (bDao.insert(new Task(0, task_thread, new Date(), staff_id))) {
 			request.setAttribute("isTaskRegistError", true);
-		}else {
+		} else {
 			request.setAttribute("isTaskRegistError", false);
 		}
 

@@ -21,6 +21,7 @@
 <div class="word_box">
 <div class="word">
 <div>今日の用語:SQLインジェクション</div>
+<button class="word_button" onclick="location.href='/kumano_onigiri/WardServlet'">解説</button>
 </div>
 <div class="word_button">
 <div>解説</div>
@@ -71,7 +72,7 @@
 <script src="./js/timehello.js"></script>
 <div class="task" align="center">
 <div class="btm" align="right">
-<a href=""><h1>勤怠一覧</h1></a>
+<a href="/kumano_onigiri/Work_listServlet"><h1>勤怠一覧</h1></a>
 </div>
 <img src="./img/kuma.png" width="500">
 <br><h1>タスク登録</h1><br>

@@ -1,80 +1,71 @@
 package model;
 import java.io.Serializable;
+import java.util.Date;
 
 public class Working implements Serializable {
-	private String WORK_ID;
-	private String WORK_START;
-	private String WORK_END;
-	private String WORK_STYLE;
-	private int STAFF_ID;
-	private String WORK_DATE;
+	private int work_id;
+	private String work_start;
+	private String work_end;
+	private String work_style;
+	private int staff_id;
+	private Date work_date;
 
-	public Working(String WORK_ID, String WORK_START, String WORK_END, String WORK_STYLE
-			,int STAFF_ID,String WORK_DATE){
+	public Working(int work_id, String work_start, String work_end, String work_style, int staff_id, Date work_date) {
 		super();
-		this.WORK_ID = WORK_ID;
-		this.WORK_START = WORK_START;
-		this.WORK_END = WORK_END;
-		this.WORK_STYLE = WORK_STYLE;
-		this.STAFF_ID = STAFF_ID;
-		this.WORK_DATE = WORK_DATE;
+		this.work_id = work_id;
+		this.work_start = work_start;
+		this.work_end = work_end;
+		this.work_style = work_style;
+		this.staff_id = staff_id;
+		this.work_date = work_date;
 	}
 
-	public Working() {
-		super();
-		this.WORK_ID = "";
-		this.WORK_START = "";
-		this.WORK_END = "";
-		this.WORK_STYLE = "";
-		this.STAFF_ID = 0;
-		this.WORK_DATE = "";
+	public int getWork_id() {
+		return work_id;
 	}
 
-	public String getWORK_ID() {
-		return WORK_ID;
+	public void setWork_id(int work_id) {
+		this.work_id = work_id;
 	}
 
-	public void setWORK_ID(String WORK_ID) {
-		this.WORK_ID = WORK_ID;
+	public String getWork_start() {
+		return work_start;
 	}
 
-	public String getWORK_START() {
-		return WORK_START;
+	public void setWork_start(String work_start) {
+		this.work_start = work_start;
 	}
 
-	public void setCompany(String WORK_START) {
-		this.WORK_START = WORK_START;
+	public String getWork_end() {
+		return work_end;
 	}
 
-	public String getWORK_END() {
-		return WORK_END;
+	public void setWork_end(String work_end) {
+		this.work_end = work_end;
 	}
 
-	public void setDepartment(String WORK_END) {
-		this.WORK_END = WORK_END;
+	public String getWork_style() {
+		return work_style;
 	}
 
-	public String getWORK_STYLE() {
-		return WORK_STYLE;
+	public void setWork_style(String work_style) {
+		this.work_style = work_style;
 	}
 
-	public void setWORK_STYLE(String WORK_STYLE) {
-		this.WORK_STYLE = WORK_STYLE;
+	public int getStaff_id() {
+		return staff_id;
 	}
 
-	public int getSTAFF_ID() {
-		return STAFF_ID;
+	public void setStaff_id(int staff_id) {
+		this.staff_id = staff_id;
 	}
 
-	public void setSTAFF_ID(int STAFF_ID) {
-		this.STAFF_ID = STAFF_ID;
+	public Date getWork_date() {
+		return work_date;
 	}
 
-	public String getWORK_DATE() {
-		return WORK_DATE;
+	public void setWork_date(Date work_date) {
+		this.work_date = work_date;
 	}
 
-	public void setWORK_DATE(String WORK_DATE) {
-		this.WORK_DATE = WORK_DATE;
-	}
 }

@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -27,16 +28,14 @@ public class WorkingServlet extends HttpServlet {
 
 		// リクエストパラメータを取得する
 		request.setCharacterEncoding("UTF-8");
-		String work_id = request.getParameter("WORK_ID");
 		String work_start = request.getParameter("WORK_START");
 		String work_end = request.getParameter("WORK_END");
 		String work_style = request.getParameter("WORK_STYLE");
-		String work_date = request.getParameter("WORK_DATE");
 
 		// 検索処理を行う
 		WorkingDAO bDao = new WorkingDAO();
 		List<Working> cardList = bDao
-				.select(new Working(work_date, work_start, work_end, work_style, staff_id, work_date));
+				.select(new Working(0, work_start, work_end, work_style, staff_id, new Date()));
 
 		// 検索結果をリクエストスコープに格納する
 		request.setAttribute("cardList", cardList);
@@ -55,19 +54,20 @@ public class WorkingServlet extends HttpServlet {
 
 		// リクエストパラメータを取得する
 		request.setCharacterEncoding("UTF-8");
-		String work_id = request.getParameter("WORK_ID");
 		String work_start = request.getParameter("WORK_START");
 		String work_end = request.getParameter("WORK_END");
 		String work_style = request.getParameter("WORK_STYLE");
-		String work_date = request.getParameter("WORK_DATE");
 
 		// 登録処理を行う
 		WorkingDAO iDao = new WorkingDAO();
-		if (iDao.insert(new Working(work_id, work_start, work_end, work_style, staff_id, work_date))) {
+		if (iDao.insert(new Working(0, work_start, work_end, work_style, staff_id, new Date()))) {
+			request.setAttribute("isWorkingRegistError", true);
+		}else {
+			request.setAttribute("isWorkingRegistError", false);
+		}
 
-			// 結果ページにフォワードする
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/working.jsp");
-			dispatcher.forward(request, response);
+		// 結果ページにフォワードする
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/top.jsp");
+		dispatcher.forward(request, response);
 		}
 	}
-}

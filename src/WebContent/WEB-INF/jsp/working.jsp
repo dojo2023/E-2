@@ -19,7 +19,7 @@
         </div>
         <div class="word_box">
         <div class="word">
-            <div>今日の用語:SQLインジェクション</div>
+            <div>今日の用語:${word1}</div>
           </div>
           <div class="word_button">
             <div>解説</div>
@@ -30,8 +30,8 @@
             <li><a href="/kumano_onigiri/MypageServlet">拙者</a></li>
             <li><a href="/kumano_onigiri/WorkingServlet">勤怠</a></li>
             <li><a href="/kumano_onigiri/WorkingServlet">勉強</a></li>
-            <li><a href="CommunityServlet">コミュニティ</a></li><br><br><br>
-            <li><a href="">ログアウト</a></li>
+            <li><a href="/kumano_onigiriCommunityServlet">コミュニティ</a></li><br><br><br>
+            <li><a href="/kumano_onigiri/LogoutServlet">ログアウト</a></li>
           </ul>
         </nav>
 
@@ -49,7 +49,7 @@
 <th>日付</th><th>出勤時間</th><th>退勤時間</th><th>勤務形態</th>
 </tr>
 <c:forEach var="e" items="${cardList}">
-	<tr class="data_row"><td>${e.WORK_DATE}</td><td>${e.WORK_START}</td><td>${e.WORK_END}</td><td>${e.WORK_STYLE}</td></tr>
+	<tr class="data_row"><td>${e.work_date}</td><td>${e.work_start}</td><td>${e.work_end}</td><td>${e.work_style}</td></tr>
 </c:forEach>
 </table>
 </div>
@@ -82,10 +82,20 @@ font-size: 20px;
 </div>
 <div class="btm">
 <br><br>
-　　　　　　　　　　　　　　　　<input type="submit" name="regist" value="登録">
+　　　　　　　　　　　　　　　　<input type="submit" name="regist" value="登録" >
  <input type="reset" name="reset" value="リセット" >
 </div>
 </form>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="./js/common.js"></script>
+<script src="./js/working.js"></script>
+<c:choose>
+	<c:when test="${isWorkRegistError}">
+		<script>
+			window.alert("勤怠登録しました")
+		</script>
+	</c:when>
+</c:choose>
 </body>
 </html>
