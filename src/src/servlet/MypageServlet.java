@@ -37,6 +37,7 @@ public class MypageServlet extends HttpServlet {
 		//ログインIDを取得
 		HttpSession session = request.getSession();
 		String staff_id = (String)session.getAttribute("staff_id");
+		String word = (String)session.getAttribute("word)");
 
 		//MypageDAOとGatya_getDAOをインスタンス化
 		MypageDAO dao = new MypageDAO();
@@ -154,6 +155,8 @@ public class MypageServlet extends HttpServlet {
 			// マイページにフォワードする
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/mypage.jsp");
 		dispatcher.forward(request, response);
+
+
 		}
 
 }
