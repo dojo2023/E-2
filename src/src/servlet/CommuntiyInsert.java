@@ -56,7 +56,7 @@ public class CommuntiyInsert extends HttpServlet {
 				request.setAttribute("commList", commList);
 				request.setAttribute("num", num);
 				// 結果ページにフォワードする
-				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/community.jsp");
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/CommunityServlet");
 				dispatcher.forward(request, response);
 	}
 }

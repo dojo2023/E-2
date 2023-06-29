@@ -9,7 +9,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import dao.CommunityDAO;
 import model.Communityjoin;
@@ -28,10 +27,6 @@ public class CommunitySearchServlet extends HttpServlet {
 		// リクエストパラメータを取得する
 		request.setCharacterEncoding("UTF-8");
 		String text = request.getParameter("TEXT");
-		//ログインIDを取得
-		HttpSession session = request.getSession();
-		String num = (String)session.getAttribute("staff_id");
-		request.setAttribute("num", num);
 
 		// 検索処理を行う
 		CommunityDAO bDao = new CommunityDAO();
@@ -40,7 +35,7 @@ public class CommunitySearchServlet extends HttpServlet {
 		request.setAttribute("commList", cardList);
 
 		// 結果ページにフォワードする
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/community.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/CommunityServlet");
 		dispatcher.forward(request, response);
 	}
 }
