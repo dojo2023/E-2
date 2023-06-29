@@ -26,7 +26,7 @@ List<Working> w_cardList = (List<Working>)session.getAttribute("w_cardList");
     </div>
     <div class="word_box">
     	<div class="word">
-			<div>今日の用語:SQLインジェクション</div>
+			<div>今日の用語:${word}</div>
         </div>
         <button class="word_button" onclick="location.href='/kumano_onigiri/WardServlet'">解説</button>
     </div>
@@ -40,7 +40,7 @@ List<Working> w_cardList = (List<Working>)session.getAttribute("w_cardList");
 
         </ul>
    	</nav>
-          
+
     <div id="hamburger">
       <span class="inner_line" id="line1"></span>
       <span class="inner_line" id="line2"></span>
@@ -79,7 +79,12 @@ List<Working> w_cardList = (List<Working>)session.getAttribute("w_cardList");
   			</tr>
 			<c:forEach var="e" items="${w_cardList}">
    				<tr class="data_row">
-   					<td>${e.WORK_DATE}</td><td>${e.STAFF_ID}</td><td>${e.WORK_START}</td><td>${e.WORK_END}</td><td>${e.WORK_STYLE}</td></tr>
+   					<td>${e.work_date}</td>
+   					<td>${e.staff_id}</td>
+   					<td>${e.work_start}</td>
+   					<td>${e.work_end}</td>
+   					<td>${e.work_style}</td>
+   					</tr>
    				</tr>
   			</c:forEach>
   		</table>

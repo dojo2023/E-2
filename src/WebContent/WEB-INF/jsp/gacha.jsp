@@ -15,9 +15,9 @@
         </div>
         <div class="word_box">
             <div class="word">
-                <div>今日の用語:<%= request.getAttribute("word") %></div>
+                <div>今日の用語:${word}</div>
             </div>
-            <button class="word_button" onclick="location.href='/kumano_onigiri/WardServlet'">解説</button>
+            <div class="word_button" onclick="location.href='/kumano_onigiri/WardServlet'">解説</div>
             </div>
         <nav id="nav">
             <ul>

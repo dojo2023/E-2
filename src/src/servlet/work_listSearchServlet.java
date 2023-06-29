@@ -1,7 +1,6 @@
 package servlet;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -12,7 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import dao.WorkingDAO;
-import model.Working;
 
 /**
  * Servlet implementation class work_listSearchServlet
@@ -33,8 +31,8 @@ public class work_listSearchServlet extends HttpServlet {
 		// 検索結果ページにフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/work_listSearch.jsp");
 		dispatcher.forward(request, response);
-				
-		doPost(request, response);	
+
+		doPost(request, response);
 	}
 
 	/**
@@ -46,24 +44,24 @@ public class work_listSearchServlet extends HttpServlet {
 //			response.sendRedirect("/kumano_onigiri/LoginServlet");
 //			return;
 //		}
-		
+
         //ログインIDを取得
         HttpSession session = request.getSession();
         //int staff_id = Integer.parseInt((String)session.getAttribute("STAFF_ID"));
-        
+
         // リクエストパラメータを取得する
 		request.setCharacterEncoding("UTF-8");
 		int staff_id = Integer.parseInt(request.getParameter("STAFF_ID"));
 		// 検索処理を行う
 		WorkingDAO bDao = new WorkingDAO();
-     	List<Working> cardList = bDao.select(new Working(null, null, null, null, staff_id, null));
+//     	List<Working> cardList = bDao.select(new Working(null, null, null, null, staff_id, null));
 		// 検索結果をリクエストスコープに格納する
-		request.setAttribute("cardList", cardList);
-		
+//		request.setAttribute("cardList", cardList);
+
 		//ログインIDを取得
 		//HttpSession session = request.getSession();
 //		String staff_id = (String)session.getAttribute("staff_id");
-//		
+//
 //		Back_groundDAO bgdao = new Back_groundDAO();
 //		bgdao.connect();
 //		String bgid = bgdao.select(staff_id);//numのところにstaff_idを入れる

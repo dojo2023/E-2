@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>クイズページ</title>
 <link rel="stylesheet" href ="/kumano_onigiri/css/common.css">
 <link rel="stylesheet" href="/kumano_onigiri/css/quiz.css" >
 <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
@@ -21,7 +21,7 @@
         </div>
         <div class="word_box">
         <div class="word">
-            <div>今日の用語:SQLインジェクション</div>
+            <div>今日の用語:${word}</div>
           </div>
           <div class="word_button">
             <div>解説</div>
@@ -30,7 +30,7 @@
         <nav id="nav">
           <ul>
             <li><a href="/kumano_onigiri/MypageServlet">拙者</a></li>
-            <li><a href="/kumano_onigiri/Work_listServlet">勤怠</a></li>
+            <li><a href="/kumano_onigiri/WorkingServlet">勤怠</a></li>
             <li><a href="/kumano_onigiri/StudyServlet">勉強</a></li>
             <li><a href="/kumano_onigiri/CommunityServlet">コミュニティ</a></li><br><br><br>
             <li><a href="/kumano_onigiri/LogoutServlet">ログアウト</a></li>
@@ -45,10 +45,10 @@
       </header>
 
     <!-- jspで背景を適応する -->
-	<main style="background-image: url('img/${bgid}.png'); background-attachment: fixed;">
+	<div class="wrap" style="background-image: url('img/${bgid}.png'); background-attachment: fixed;">
 
 	<!-- クイズコンテンツ -->
-	<div class="box">
+	<div class="box" style="background-image: url('img/${bgid}.png'); background-attachment: fixed;">
                 <div class="pop">クイズ</div><br>
                 <div class="pop"><%= request.getAttribute("quiz") %></div><br>
 
@@ -92,7 +92,7 @@
 		    	</div>
     		</div>
 
- 	</main>
+ 	</div>
 
 
 

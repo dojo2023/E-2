@@ -17,7 +17,7 @@
     </div>
     <div class="word_box">
     	<div class="word">
-			<div>今日の用語:SQLインジェクション</div>
+			<div>今日の用語:${word}</div>
         </div>
         <button class="word_button" onclick="location.href='/kumano_onigiri/WardServlet'">解説</button>
     </div>
@@ -31,7 +31,7 @@
 
         </ul>
    	</nav>
-          
+
     <div id="hamburger">
       <span class="inner_line" id="line1"></span>
       <span class="inner_line" id="line2"></span>

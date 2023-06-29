@@ -17,7 +17,7 @@
     </div>
     <div class="word_box">
     	<div class="word">
-			<div>今日の用語:SQLインジェクション</div>
+			<div>今日の用語:${word}</div>
         </div>
       	<!-- <div class="word_button">
 			<button onclick="location.href='/kumano_onigiri/Work_listServlet'">解説</button></div>
@@ -33,7 +33,7 @@
             <li><a href="/kumano_onigiri/LoginServlet">ログアウト</a></li>
         </ul>
    	</nav>
-          
+
     <div id="hamburger">
       <span class="inner_line" id="line1"></span>
       <span class="inner_line" id="line2"></span>
@@ -72,8 +72,12 @@
 		        </table>
 		   	</c:otherwise>
 	   	</c:choose>
-	</div>    
+	</div>
 	</form>
+	<br>
+	<br>
+	<br>
+	<br>
 </main>
 </body>
 <script src="js/common.js"></script>

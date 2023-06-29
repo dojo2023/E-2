@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import dao.Back_groundDAO;
 import dao.WorkingDAO;
 import model.Working;
 
@@ -26,6 +27,13 @@ public class WorkingServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		int staff_id = Integer.parseInt((String) session.getAttribute("staff_id"));
 
+		//背景を取得する処理
+		String num = (String)session.getAttribute("staff_id");
+				Back_groundDAO bgdao = new Back_groundDAO();
+				bgdao.connect();
+				String bgid = bgdao.select(num);//numのところにstaff_idを入れる
+				bgdao.disconnect();
+				request.setAttribute("bgid", bgid);
 		// リクエストパラメータを取得する
 		request.setCharacterEncoding("UTF-8");
 		String work_start = request.getParameter("WORK_START");

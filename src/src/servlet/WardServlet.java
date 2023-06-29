@@ -21,7 +21,7 @@ import model.Study;
 @WebServlet("/WardServlet")
 public class WardServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	
+
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
@@ -31,14 +31,23 @@ public class WardServlet extends HttpServlet {
 //			response.sendRedirect("/simpleBC/LoginServlet");
 //			return;
 //		}
-		
+
+		HttpSession session = request.getSession();
+		String staff_id = (String)session.getAttribute("staff_id");
+
+				Back_groundDAO bgdao = new Back_groundDAO();
+				bgdao.connect();
+				String bgid = bgdao.select(staff_id);//numのところにstaff_idを入れる
+				bgdao.disconnect();
+				request.setAttribute("bgid", bgid);
+
 		// 用語ページにフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/ward.jsp");
 		dispatcher.forward(request, response);
-				
+
 		doPost(request, response);
 	}
-	
+
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
@@ -48,23 +57,23 @@ public class WardServlet extends HttpServlet {
 //			response.sendRedirect("/simpleBC/LoginServlet");
 //			return;
 //		}
-		
+
 		HttpSession session = request.getSession();
 		StudyDAO sd = new StudyDAO();
 		//一覧表示
 		List<Study> cardList = sd.StudyAllList();
 		session.setAttribute("cardList", cardList);
-		
+
 		//ログインIDを取得
 		//HttpSession session = request.getSession();
 		String staff_id = (String)session.getAttribute("staff_id");
-		
+
 		Back_groundDAO bgdao = new Back_groundDAO();
 		bgdao.connect();
 		String bgid = bgdao.select(staff_id);//numのところにstaff_idを入れる
 		bgdao.disconnect();
 		request.setAttribute("bgid", bgid);
-		
+
 		// 用語ページにフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/ward.jsp");
 		dispatcher.forward(request, response);

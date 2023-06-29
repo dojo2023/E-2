@@ -1,14 +1,5 @@
 @charset "UTF-8";
 
-.main {
-  padding-top:60px;
-}
-
-.body {
-  margin: 0;
-  padding: 0;
-}
-
 .modal_pop {
     width: 100vw;
     height: 100vh;

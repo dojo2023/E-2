@@ -26,7 +26,7 @@ List<Study> cardList = (List<Study>)session.getAttribute("cardList");
     </div>
     <div class="word_box">
     	<div class="word">
-			<div>今日の用語:SQLインジェクション</div>
+			<div>今日の用語:${word}</div>
         </div>
         <button class="word_button" onclick="location.href='/kumano_onigiri/WardServlet'">解説</button>
     </div>
@@ -39,7 +39,7 @@ List<Study> cardList = (List<Study>)session.getAttribute("cardList");
             <li><a href="/kumano_onigiri/LoginServlet">ログアウト</a></li>
         </ul>
    	</nav>
-          
+
     <div id="hamburger">
       <span class="inner_line" id="line1"></span>
       <span class="inner_line" id="line2"></span>
@@ -71,8 +71,12 @@ List<Study> cardList = (List<Study>)session.getAttribute("cardList");
 	    		</tr>
 			</c:forEach>
         </table>
-	</div>    
+	</div>
 	</form>
+	<br>
+	<br>
+	<br>
+	<br>
 </main>
 </body>
 <script src="js/common.js"></script>
