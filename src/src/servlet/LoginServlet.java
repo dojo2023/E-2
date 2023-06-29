@@ -45,9 +45,17 @@ public class LoginServlet extends HttpServlet {
 			// セッションスコープにID,password等を格納する
 			HttpSession session = request.getSession();
 			session.setAttribute("staff_id",staff_id);
-			session.setAttribute("banana",banana);
-			// トップサーブレットにリダイレクトする
-			response.sendRedirect("/kumano_onigiri/TopServlet");
+//			session.setAttribute("banana",banana);
+			if(banana.equals("1")) {
+				System.out.println("一般");
+				// トップサーブレットにリダイレクトする
+				response.sendRedirect("/kumano_onigiri/TopServlet");
+			}else if(banana.equals("2")) {
+				// adominサーブレットにリダイレクトする
+				System.out.println("管理者");
+				response.sendRedirect("/kumano_onigiri/AdminServlet");
+			}
+
 		}
 		else {									// ログイン失敗
 			// リクエストスコープに、タイトル、メッセージ、戻り先を格納する
