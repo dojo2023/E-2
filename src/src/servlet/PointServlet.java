@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import dao.Back_groundDAO;
 import dao.PointDAO;
 import dao.UsersDAO;
 
@@ -31,6 +32,13 @@ public class PointServlet extends HttpServlet {
 
 		UsersDAO iDao = new UsersDAO();
 		String banana = iDao.adceak(staff_id1);
+		//背景を取得する処理
+		String num = (String)session.getAttribute("staff_id");
+				Back_groundDAO bgdao = new Back_groundDAO();
+				bgdao.connect();
+				String bgid = bgdao.select(num);//numのところにstaff_idを入れる
+				bgdao.disconnect();
+				request.setAttribute("bgid", bgid);
 
 		        //jspから値を取得
 				request.setCharacterEncoding("utf-8");

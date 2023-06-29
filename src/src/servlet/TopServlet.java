@@ -33,7 +33,6 @@ public class TopServlet extends HttpServlet {
 			throws ServletException, IOException {
 
 		HttpSession session = request.getSession();
-		String word = (String) session.getAttribute("word");
 		int staff_id = Integer.parseInt((String) session.getAttribute("staff_id"));
 
 
@@ -52,7 +51,7 @@ public class TopServlet extends HttpServlet {
 			Random random1 = new Random();
 			List<Study> wordList = studyDAO.StudyAllList();
 			Study todayword = wordList.get(random1.nextInt(wordList.size()));
-			String word1 = todayword.getWord_item();
+			String word = todayword.getWord_item();
 			String wordex = todayword.getWord_ex();
 
 			//用語をスコープに格納

@@ -2,7 +2,8 @@
 .main {
     display: flex;
 }
-.table {
+.work_list {
     justify-content: space-between;
     text-align: right;
+     background-color: #ffffff;
 }
