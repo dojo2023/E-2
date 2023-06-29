@@ -12,7 +12,6 @@
 <meta charset="UTF-8">
 <title>拙者の!Garden</title>
 <body>
-<style="background-image: url('img/${bgid}.png'); background-attachment: fixed;">
 	<header class="header">
 		<div class="login_select">
 			<a href="/kumano_onigiri/TopServlet"> <img
@@ -80,7 +79,7 @@
 				<%=request.getAttribute("quiz_ex")%></div>
 			現在のポイント:
 			<div class="pop" id="quiz_point"></div>
-			<form action="/kumano_onigiri/TopServlet" method="post">
+			<form action="/kumano_onigiri/PointServlet" method="post">
 				<input type="text" value="${quiz_point}" id="get_point"
 					name="quiz_point">
 			<input type="image" src="./img/mark_batsu.png" class="js-modal-close" width="50">

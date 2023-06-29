@@ -32,10 +32,8 @@ public class TopServlet extends HttpServlet {
 			throws ServletException, IOException {
 
 		HttpSession session = request.getSession();
-		String word1 = (String) session.getAttribute("word1");
+		String word = (String) session.getAttribute("word");
 		int staff_id = Integer.parseInt((String) session.getAttribute("staff_id"));
-
-
 
 		TodayDate date = new TodayDate();
 		if (date.datecheck(staff_id)) {
@@ -45,7 +43,7 @@ public class TopServlet extends HttpServlet {
 			Random random1 = new Random();
 			List<Study> wordList = studyDAO.StudyAllList();
 			Study todayword = wordList.get(random1.nextInt(wordList.size()));
-			String word = todayword.getWord_item();
+			String word1 = todayword.getWord_item();
 			String wordex = todayword.getWord_ex();
 
 			//用語をスコープに格納
@@ -103,20 +101,9 @@ public class TopServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		//jspから値を取得
-		request.setCharacterEncoding("utf-8");
-		int point_pram = Integer.parseInt(request.getParameter("quiz_point")); // JSPのvalue属性を設定した入力値を取得する。
-		System.out.println(point_pram);
-
 		//IDを取得
 		HttpSession session = request.getSession();
 		int staff_id = Integer.parseInt((String) session.getAttribute("staff_id"));
-
-		//ポイントを更新
-		PointDAO pdao = new PointDAO();
-		pdao.connect();
-		int point = pdao.update_point(point_pram, staff_id);//セッションに格納されているスタッフIDを引数に入れる
-		pdao.disconnect();
 
 		// リクエストパラメータを取得する
 		request.setCharacterEncoding("UTF-8");
@@ -124,7 +111,7 @@ public class TopServlet extends HttpServlet {
 
 		// 登録処理を行う
 		TaskDAO bDao = new TaskDAO();
-		if (bDao.insert(new Task(0, task_thread, new Date(), staff_id))) {
+		if (bDao.insert(new Task(1, task_thread, new Date(), staff_id))) {
 			request.setAttribute("isTaskRegistError", true);
 		} else {
 			request.setAttribute("isTaskRegistError", false);
