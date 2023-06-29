@@ -10,8 +10,7 @@
     padding: 10px;
     border: 1px solid #4e4e4e;
     border-radius: 10px;
-    background-color: rgb(255, 255, 128);
-    background-color: hsl(137, 87%, 88%);
+    background-color: #dddddd;
     margin-left: 200px;
     box-shadow: 0 0 5px rgb(189, 189, 189);
 }
@@ -112,6 +111,7 @@ font-size: 14px;
 	height: 90px;
     font-size: 17px;
     font-weight:bold;
+    outline: 0;
 }
 .text{
 	border: none;
@@ -120,7 +120,8 @@ font-size: 14px;
 	height: 90px;
     font-size: 17px;
     font-weight:bold;
-    background-color: hsl(137, 87%, 88%);
+    background-color: #dddddd;
+    outline: 0;
 }
 .user{
 	width: 200px;

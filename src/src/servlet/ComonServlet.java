@@ -39,7 +39,7 @@ public class ComonServlet extends HttpServlet {
 		get.addticket(6,800);
 
 
-		if(todaydate.datecheck("6")) {
+		if(todaydate.datecheck(6)) {
 			System.out.println("日付が変わったときの処理");
 
 			//ランダムで用語と解説を取得する

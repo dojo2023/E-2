@@ -11,16 +11,14 @@
 <body>
 <header class="header">
         <div class="login_select">
-            <img src="./img/apricon01.png" width="180">
+            <a href="/kumano_onigiri/TopServlet"><img src="./img/apricon01.png" width="180"></a>
         </div>
         <div class="word_box">
             <div class="word">
-                <div>今日の用語:SQLインジェクション</div>
+                <div>今日の用語:${word}</div>
             </div>
-            <div class="word_button">
-                <div>解説</div>
+            <button class="word_button" onclick="location.href='/kumano_onigiri/WardServlet'">解説</button>
             </div>
-        </div>
         <nav id="nav">
             <ul>
                 <li><a href="/kumano_onigiri/MypageServlet">拙者</a></li>
