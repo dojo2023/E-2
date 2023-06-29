@@ -1,0 +1,193 @@
+USERテーブル:インサート
+INSERT INTO USER (PASSWORD,NAME,ROLE,QUIZ,ANSWER_TIME,MARK_ID ,BACKGROUND_ID )VALUES ('password','村上宙', '1','TRUE','2023-6-13','Mk06','Bg13');
+INSERT INTO USER (PASSWORD,NAME,ROLE,QUIZ,ANSWER_TIME,MARK_ID ,BACKGROUND_ID )VALUES ('password','定永叶夢', '1','TRUE','2023-6-13','Mk03','Bg13');
+INSERT INTO USER (PASSWORD,NAME,ROLE,QUIZ,ANSWER_TIME,MARK_ID ,BACKGROUND_ID )VALUES ('password','渡辺瑠彩朱', '1','TRUE','2023-6-13','Mk13','Bg13');
+INSERT INTO USER (PASSWORD,NAME,ROLE,QUIZ,ANSWER_TIME,MARK_ID ,BACKGROUND_ID )VALUES ('password','内田優生', '1','TRUE','2023-6-13','Mk04','Bg13');
+INSERT INTO USER (PASSWORD,NAME,ROLE,QUIZ,ANSWER_TIME,MARK_ID ,BACKGROUND_ID )VALUES ('password','星野秀人', '1','TRUE','2023-6-13','Mk10','Bg13');
+INSERT INTO USER (PASSWORD,NAME,ROLE,QUIZ,ANSWER_TIME,MARK_ID ,BACKGROUND_ID )VALUES ('password','日高みゆ奈', '1','TRUE','2023-6-13','Mk15','Bg13');
+
+TICKETテーブル:インサート
+INSERT INTO TICKET (STAFF_ID ,ASGR_TICKET ,SMRI_TICKET ,SDS_TICKET ) VALUES ('1','999','999','999');
+INSERT INTO TICKET (STAFF_ID ,ASGR_TICKET ,SMRI_TICKET ,SDS_TICKET ) VALUES ('2','100','100','100');
+INSERT INTO TICKET (STAFF_ID ,ASGR_TICKET ,SMRI_TICKET ,SDS_TICKET ) VALUES ('3','999','999','999');
+INSERT INTO TICKET (STAFF_ID ,ASGR_TICKET ,SMRI_TICKET ,SDS_TICKET ) VALUES ('4','100','100','100');
+INSERT INTO TICKET (STAFF_ID ,ASGR_TICKET ,SMRI_TICKET ,SDS_TICKET ) VALUES ('5','999','999','999');
+INSERT INTO TICKET (STAFF_ID ,ASGR_TICKET ,SMRI_TICKET ,SDS_TICKET ) VALUES ('6','100','100','100');
+
+タスク
+INSERT INTO TASK  (TASK_THREAD ,CALENDAR ,STAFF_ID  ) VALUES ('14:00会議','2023-06-27','1');
+INSERT INTO TASK  (TASK_THREAD ,CALENDAR ,STAFF_ID  ) VALUES ('14:00会議','2023-06-27','2');
+INSERT INTO TASK  (TASK_THREAD ,CALENDAR ,STAFF_ID  ) VALUES ('14:00会議','2023-06-27','3');
+INSERT INTO TASK  (TASK_THREAD ,CALENDAR ,STAFF_ID  ) VALUES ('14:00会議','2023-06-27','4');
+INSERT INTO TASK  (TASK_THREAD ,CALENDAR ,STAFF_ID  ) VALUES ('14:00会議','2023-06-27','5');
+INSERT INTO TASK  (TASK_THREAD ,CALENDAR ,STAFF_ID  ) VALUES ('14:00会議','2023-06-27','6');
+
+
+ガチャテーブル:インサート
+INSERT INTO GATYA (GATYA_ID,GATYA_PATH,GATYA_NAME,TICKET_CLASS) VALUES ('Mk01','./img/Mk01.png', '初心者マーク','0');
+INSERT INTO GATYA (GATYA_ID,GATYA_PATH,GATYA_NAME,TICKET_CLASS) VALUES ('Mk02','./img/Mk02.png', '高齢者マーク','0');
+INSERT INTO GATYA (GATYA_ID,GATYA_PATH,GATYA_NAME,TICKET_CLASS) VALUES ('Mk03','./img/Mk03.png', '小判','0');
+INSERT INTO GATYA (GATYA_ID,GATYA_PATH,GATYA_NAME,TICKET_CLASS) VALUES ('Mk04','./img/Mk04.png', '米俵','0');
+INSERT INTO GATYA (GATYA_ID,GATYA_PATH,GATYA_NAME,TICKET_CLASS) VALUES ('Mk05','./img/Mk05.png', '草鞋','0');
+INSERT INTO GATYA (GATYA_ID,GATYA_PATH,GATYA_NAME,TICKET_CLASS) VALUES ('Mk06','./img/Mk06.png', '侍','1');
+INSERT INTO GATYA (GATYA_ID,GATYA_PATH,GATYA_NAME,TICKET_CLASS) VALUES ('Mk07','./img/Mk07.png', '犬','1');
+INSERT INTO GATYA (GATYA_ID,GATYA_PATH,GATYA_NAME,TICKET_CLASS) VALUES ('Mk08','./img/Mk08.png', 'ブロッコリー','1');
+INSERT INTO GATYA (GATYA_ID,GATYA_PATH,GATYA_NAME,TICKET_CLASS) VALUES ('Mk09','./img/Mk09.png', '刀','1');
+INSERT INTO GATYA (GATYA_ID,GATYA_PATH,GATYA_NAME,TICKET_CLASS) VALUES ('Mk10','./img/Mk10.png', '兜','1');
+INSERT INTO GATYA (GATYA_ID,GATYA_PATH,GATYA_NAME,TICKET_CLASS) VALUES ('Mk11','./img/Mk11.png', '家紋','2');
+INSERT INTO GATYA (GATYA_ID,GATYA_PATH,GATYA_NAME,TICKET_CLASS) VALUES ('Mk12','./img/Mk12.png', '鬼','2');
+INSERT INTO GATYA (GATYA_ID,GATYA_PATH,GATYA_NAME,TICKET_CLASS) VALUES ('Mk13','./img/Mk13.png', '鎧','2');
+INSERT INTO GATYA (GATYA_ID,GATYA_PATH,GATYA_NAME,TICKET_CLASS) VALUES ('Mk14','./img/Mk14.png', '銃','2');
+INSERT INTO GATYA (GATYA_ID,GATYA_PATH,GATYA_NAME,TICKET_CLASS) VALUES ('Mk15','./img/Mk15.png', 'ガーデン','2');
+INSERT INTO GATYA (GATYA_ID,GATYA_PATH,GATYA_NAME,TICKET_CLASS) VALUES ('Bg01','./img/Bg01.png', 'おにぎり','0');
+INSERT INTO GATYA (GATYA_ID,GATYA_PATH,GATYA_NAME,TICKET_CLASS) VALUES ('Bg02','./img/Bg02.png', '明太子','0');
+INSERT INTO GATYA (GATYA_ID,GATYA_PATH,GATYA_NAME,TICKET_CLASS) VALUES ('Bg03','./img/Bg03.png', '熊','0');
+INSERT INTO GATYA (GATYA_ID,GATYA_PATH,GATYA_NAME,TICKET_CLASS) VALUES ('Bg04','./img/Bg04.png', '人参','0');
+INSERT INTO GATYA (GATYA_ID,GATYA_PATH,GATYA_NAME,TICKET_CLASS) VALUES ('Bg05','./img/Bg05.png', 'どんぐり','0');
+INSERT INTO GATYA (GATYA_ID,GATYA_PATH,GATYA_NAME,TICKET_CLASS) VALUES ('Bg06','./img/Bg06.png', '畳柄','1');
+INSERT INTO GATYA (GATYA_ID,GATYA_PATH,GATYA_NAME,TICKET_CLASS) VALUES ('Bg07','./img/Bg07.png', '鳥','1');
+INSERT INTO GATYA (GATYA_ID,GATYA_PATH,GATYA_NAME,TICKET_CLASS) VALUES ('Bg08','./img/Bg08.png', '笹かまぼこ','1');
+INSERT INTO GATYA (GATYA_ID,GATYA_PATH,GATYA_NAME,TICKET_CLASS) VALUES ('Bg09','./img/Bg09.png', '山','1');
+INSERT INTO GATYA (GATYA_ID,GATYA_PATH,GATYA_NAME,TICKET_CLASS) VALUES ('Bg10','./img/Bg10.png', '波','1');
+INSERT INTO GATYA (GATYA_ID,GATYA_PATH,GATYA_NAME,TICKET_CLASS) VALUES ('Bg11','./img/Bg11.png', '金箔','2');
+INSERT INTO GATYA (GATYA_ID,GATYA_PATH,GATYA_NAME,TICKET_CLASS) VALUES ('Bg12','./img/Bg12.png', 'にぼし','2');
+INSERT INTO GATYA (GATYA_ID,GATYA_PATH,GATYA_NAME,TICKET_CLASS) VALUES ('Bg13','./img/Bg13.png', 'フライドポテト','2');
+INSERT INTO GATYA (GATYA_ID,GATYA_PATH,GATYA_NAME,TICKET_CLASS) VALUES ('Bg14','./img/Bg14.png', '飴','2');
+INSERT INTO GATYA (GATYA_ID,GATYA_PATH,GATYA_NAME,TICKET_CLASS) VALUES ('Bg15','./img/Bg15.png', '桜','2')
+
+GATYAGETテーブル:インサート
+INSERT INTO GATYAGET (GATYA_ID,STAFF_ID) VALUES ('Mk01','1');
+INSERT INTO GATYAGET (GATYA_ID,STAFF_ID) VALUES ('Mk02','1');
+INSERT INTO GATYAGET (GATYA_ID,STAFF_ID) VALUES ('Mk03','1');
+INSERT INTO GATYAGET (GATYA_ID,STAFF_ID) VALUES ('Mk04','1');
+INSERT INTO GATYAGET (GATYA_ID,STAFF_ID) VALUES ('Mk05','1');
+INSERT INTO GATYAGET (GATYA_ID,STAFF_ID) VALUES ('Mk06','1');
+INSERT INTO GATYAGET (GATYA_ID,STAFF_ID) VALUES ('Mk07','1');
+INSERT INTO GATYAGET (GATYA_ID,STAFF_ID) VALUES ('Mk08','1');
+INSERT INTO GATYAGET (GATYA_ID,STAFF_ID) VALUES ('Mk09','1');
+INSERT INTO GATYAGET (GATYA_ID,STAFF_ID) VALUES ('Mk10','1');
+INSERT INTO GATYAGET (GATYA_ID,STAFF_ID) VALUES ('Mk11','1');
+INSERT INTO GATYAGET (GATYA_ID,STAFF_ID) VALUES ('Mk12','1');
+INSERT INTO GATYAGET (GATYA_ID,STAFF_ID) VALUES ('Mk13','1');
+INSERT INTO GATYAGET (GATYA_ID,STAFF_ID) VALUES ('Mk14','1');
+INSERT INTO GATYAGET (GATYA_ID,STAFF_ID) VALUES ('Mk15','1');
+INSERT INTO GATYAGET (GATYA_ID,STAFF_ID) VALUES ('Bg01','1');
+INSERT INTO GATYAGET (GATYA_ID,STAFF_ID) VALUES ('Bg02','1');
+INSERT INTO GATYAGET (GATYA_ID,STAFF_ID) VALUES ('Bg03','1');
+INSERT INTO GATYAGET (GATYA_ID,STAFF_ID) VALUES ('Bg04','1');
+INSERT INTO GATYAGET (GATYA_ID,STAFF_ID) VALUES ('Bg05','1');
+INSERT INTO GATYAGET (GATYA_ID,STAFF_ID) VALUES ('Bg06','1');
+INSERT INTO GATYAGET (GATYA_ID,STAFF_ID) VALUES ('Bg07','1');
+INSERT INTO GATYAGET (GATYA_ID,STAFF_ID) VALUES ('Bg08','1');
+INSERT INTO GATYAGET (GATYA_ID,STAFF_ID) VALUES ('Bg09','1');
+INSERT INTO GATYAGET (GATYA_ID,STAFF_ID) VALUES ('Bg10','1');
+INSERT INTO GATYAGET (GATYA_ID,STAFF_ID) VALUES ('Bg11','1');
+INSERT INTO GATYAGET (GATYA_ID,STAFF_ID) VALUES ('Bg12','1');
+INSERT INTO GATYAGET (GATYA_ID,STAFF_ID) VALUES ('Bg13','1');
+INSERT INTO GATYAGET (GATYA_ID,STAFF_ID) VALUES ('Bg14','1');
+INSERT INTO GATYAGET (GATYA_ID,STAFF_ID) VALUES ('Bg15','1');
+
+Qpoinnt
+INSERT INTO QPOINT  (STAFF_ID,Q_POINT ) VALUES ('1','100');
+INSERT INTO QPOINT  (STAFF_ID,Q_POINT ) VALUES ('2','1000');
+INSERT INTO QPOINT  (STAFF_ID,Q_POINT ) VALUES ('3','500');
+INSERT INTO QPOINT  (STAFF_ID,Q_POINT ) VALUES ('4','200');
+INSERT INTO QPOINT  (STAFF_ID,Q_POINT ) VALUES ('5','10000');
+INSERT INTO QPOINT  (STAFF_ID,Q_POINT ) VALUES ('6','567');
+
+
+INSERT INTO COMMUNITY (WRITING_FORM,WRITING_TIME,GOOD,STAFF_ID) VALUES ('おはようございます。','2023-06-13 09:00:00', '12','1');
+INSERT INTO COMMUNITY (WRITING_FORM,WRITING_TIME,GOOD,STAFF_ID) VALUES ('足軽ガチャをコンプリートしました！','2023-06-13 09:20:00', '0','2');
+INSERT INTO COMMUNITY (WRITING_FORM,WRITING_TIME,GOOD,STAFF_ID) VALUES ('凄い！','2023-06-13 15:00:00', '1','3');
+INSERT INTO COMMUNITY (WRITING_FORM,WRITING_TIME,GOOD,STAFF_ID) VALUES ('今日は暑いから気をつけてください','2023-06-13 17:00:00', '30','1');
+INSERT INTO COMMUNITY (WRITING_FORM,WRITING_TIME,GOOD,STAFF_ID) VALUES ('お疲れ様でした。','2023-06-13 20:2:00', '0','3');
+INSERT INTO COMMUNITY (WRITING_FORM,WRITING_TIME,GOOD,STAFF_ID) VALUES ('おはようございます。','2023-06-13 09:00:00', '12','1');
+INSERT INTO COMMUNITY (WRITING_FORM,WRITING_TIME,GOOD,STAFF_ID) VALUES ('おはようございます','2023-06-13 09:20:00', '0','3');
+INSERT INTO COMMUNITY (WRITING_FORM,WRITING_TIME,GOOD,STAFF_ID) VALUES ('今日は14時から会議室で会議があります','2023-06-13 15:00:00', '1','4');
+INSERT INTO COMMUNITY (WRITING_FORM,WRITING_TIME,GOOD,STAFF_ID) VALUES ('私も参加します','2023-06-13 17:00:00', '3','2');
+INSERT INTO COMMUNITY (WRITING_FORM,WRITING_TIME,GOOD,STAFF_ID) VALUES ('しかし、フリーが方針を得る主従について、その例外の性質が短い成立扱わせるといる対象のすべてを発揮さたり、プロジェクト版で財団がし原則として、その著者性の適法引用のすべてに剽窃しや満たさ月ます。','2023-06-13 20:2:00', '0','2');
+INSERT INTO COMMUNITY (WRITING_FORM,WRITING_TIME,GOOD,STAFF_ID) VALUES ('おはようございます。','2023-06-13 09:00:00', '12','6');
+INSERT INTO COMMUNITY (WRITING_FORM,WRITING_TIME,GOOD,STAFF_ID) VALUES ('クイズで10問連続正解しました！','2023-06-13 09:20:00', '0','6');
+INSERT INTO COMMUNITY (WRITING_FORM,WRITING_TIME,GOOD,STAFF_ID) VALUES ('凄い！！','2023-06-13 15:00:00', '1','2');
+INSERT INTO COMMUNITY (WRITING_FORM,WRITING_TIME,GOOD,STAFF_ID) VALUES ('主題は複数文で執筆なっ記事ませますため、記載させる文を許諾号有力の引用権利をされるばもよれある、記事のライセンスは、追加書かwhereが著作することについて:適法ないでのでなりなん。','2023-06-13 17:00:00', '3','1');
+INSERT INTO COMMUNITY (WRITING_FORM,WRITING_TIME,GOOD,STAFF_ID) VALUES ('ドメインの目的に表示しれるために自由あっ意ずてとするて、対象が反映なるな短歌に一つないを著作行うば、さらにするないたか。削除法を引用するれなけれ記事ますますて問題もないかもしませり。','2023-06-13 20:2:00', '0','5');
+INSERT INTO COMMUNITY (WRITING_FORM,WRITING_TIME,GOOD,STAFF_ID) VALUES ('おはようございます。','2023-06-13 09:00:00', '12','2');
+INSERT INTO COMMUNITY (WRITING_FORM,WRITING_TIME,GOOD,STAFF_ID) VALUES ('明日の16時から報告会があるので出席者は準備をお願いします。','2023-06-13 09:20:00', '0','1');
+INSERT INTO COMMUNITY (WRITING_FORM,WRITING_TIME,GOOD,STAFF_ID) VALUES ('今日の予定を教えてください。','2023-06-13 15:00:00', '1','2');
+INSERT INTO COMMUNITY (WRITING_FORM,WRITING_TIME,GOOD,STAFF_ID) VALUES ('今日の予定は特にないです。','2023-06-13 17:00:00', '3','1');
+INSERT INTO COMMUNITY (WRITING_FORM,WRITING_TIME,GOOD,STAFF_ID) VALUES ('私は10時から会議があります','2023-06-13 20:2:00', '0','6');
+INSERT INTO COMMUNITY (WRITING_FORM,WRITING_TIME,GOOD,STAFF_ID) VALUES ('おはようございます。','2023-06-13 09:00:00', '12','3');
+INSERT INTO COMMUNITY (WRITING_FORM,WRITING_TIME,GOOD,STAFF_ID) VALUES ('ダミーテキスト1','2023-06-13 09:20:00', '0','3');
+INSERT INTO COMMUNITY (WRITING_FORM,WRITING_TIME,GOOD,STAFF_ID) VALUES ('クイズポイントが1000ポイントを超えました！','2023-06-13 15:00:00', '1','4');
+INSERT INTO COMMUNITY (WRITING_FORM,WRITING_TIME,GOOD,STAFF_ID) VALUES ('私は1200ポイントを超えました！','2023-06-13 17:00:00', '3','4');
+INSERT INTO COMMUNITY (WRITING_FORM,WRITING_TIME,GOOD,STAFF_ID) VALUES ('凄い！','2023-06-13 20:2:00', '0','6');
+INSERT INTO COMMUNITY (WRITING_FORM,WRITING_TIME,GOOD,STAFF_ID) VALUES ('おはようございます。','2023-06-13 09:00:00', '12','5');
+INSERT INTO COMMUNITY (WRITING_FORM,WRITING_TIME,GOOD,STAFF_ID) VALUES ('両立者物上の判断が説明さます「目的内容」の投稿も適法ある。「各手段の他にする利用日」を「投稿のページ」とさの強く著作しれます場合、転載するせるで要件は要件について引用従をするませ','2023-06-13 09:20:00', '0','2');
+INSERT INTO COMMUNITY (WRITING_FORM,WRITING_TIME,GOOD,STAFF_ID) VALUES ('俳句者、しかしcontent法が、本方針を参照満たすなことが制度として、著作における公式ペディアで基づくことをするませ。','2023-06-13 15:00:00', '1','4');
+INSERT INTO COMMUNITY (WRITING_FORM,WRITING_TIME,GOOD,STAFF_ID) VALUES ('「被記事の方針となっ著作物」の場合の利用と公表さ記事の剽窃も重要ます。また、許諾するない方針を利用満たすてくださいて、被方針では提供するていん場合の該当も、括弧にはな、著作における定義にするがいる。','2023-06-13 17:00:00', '3','4');
+INSERT INTO COMMUNITY (WRITING_FORM,WRITING_TIME,GOOD,STAFF_ID) VALUES ('総大将チケットを遂に獲得しました！','2023-06-13 20:2:00', '0','4');
+INSERT INTO COMMUNITY (WRITING_FORM,WRITING_TIME,GOOD,STAFF_ID) VALUES ('おはようございます。','2023-06-13 09:00:00', '12','2');
+INSERT INTO COMMUNITY (WRITING_FORM,WRITING_TIME,GOOD,STAFF_ID) VALUES ('総大将ガチャをコンプリートしました！','2023-06-13 09:20:00', '0','5');
+INSERT INTO COMMUNITY (WRITING_FORM,WRITING_TIME,GOOD,STAFF_ID) VALUES ('凄い！','2023-06-13 15:00:00', '1','3');
+INSERT INTO COMMUNITY (WRITING_FORM,WRITING_TIME,GOOD,STAFF_ID) VALUES ('お疲れ様でした','2023-06-13 17:00:00', '3','4');
+INSERT INTO COMMUNITY (WRITING_FORM,WRITING_TIME,GOOD,STAFF_ID) VALUES ('そこで、文章の制限物は、文の著作よれ明記明瞭ある主体性と誤認さ、その理事がするて目的を検証するのを存在含むれん。','2023-06-13 20:2:00', '0','1');
+
+WORDテーブル
+INSERT INTO WORD (WORD_ITEM, WORD_EX) VALUES('SQLインジェクション', 'アプリケーションのセキュリティ上の不備を意図的に利用し、アプリケーションが想定しないSQL文を実行させることにより、データベースシステムを不正に操作する攻撃方法。');
+INSERT INTO WORD (WORD_ITEM, WORD_EX) VALUES('ディレクトリトラバーサル攻撃', 'ファイルやディレクトリを操作する際に、不正なパスを挿入されることによって意図しないディレクトリやファイルを参照、操作されてしまう問題。');
+INSERT INTO WORD (WORD_ITEM, WORD_EX) VALUES('イーサネット', '室内や建物内でコンピュータや電子機器をケーブルでつないで通信する有線LANの一つで、最も普及している規格。');
+INSERT INTO WORD (WORD_ITEM, WORD_EX) VALUES('サブネットマスク', 'IPアドレスの先端から何ビットをネットワークアドレスに使うかを定義する32ビットの数値。');
+INSERT INTO WORD (WORD_ITEM, WORD_EX) VALUES('FIFO', '別名「先入先出法」。複数の対象を取り扱う順序を表した用語で、最初に入れたものを最初に取り出す方法のこと。');
+INSERT INTO WORD (WORD_ITEM, WORD_EX) VALUES('ストアドプロシージャ ', 'データベース管理システム（DBMS）の機能の一つで、データベースに対する連続した複数の処理を一つのプログラムにまとめ、データと共に保存できるようにしたもの。');
+INSERT INTO WORD (WORD_ITEM, WORD_EX) VALUES('一意制約', '別名「ユニークキー制約」。リレーショナルデータベースでテーブルにデータを追加・更新する際の制約の一つで、その列の中でデータが一意（他と重複しない）でなければならないという制約。');
+INSERT INTO WORD (WORD_ITEM, WORD_EX) VALUES('仮想回線', '別名「バーチャルチャネル」。通信回線・ネットワークなどを通じて構築された、ある地点から別の地点へ直結する一本の論理的な通信回線。');
+INSERT INTO WORD (WORD_ITEM, WORD_EX) VALUES('クリティカルパス', 'プロジェクトの各工程を、プロジェクト開始から終了まで「前の工程が終わらないと次の工程が始まらない」という依存関係に従って結んでいったときに、所要時間が最長となるような経路のこと。');
+INSERT INTO WORD (WORD_ITEM, WORD_EX) VALUES('インテリジェントハブ', 'イーサネット（Ethernet）の集線装置（ハブ）のうち、SNMPエージェントの機能を内蔵し、遠隔からの管理に対応している製品のこと。');
+INSERT INTO WORD (WORD_ITEM, WORD_EX) VALUES('ノンインテリジェントハブ', '別名「ダムハブ」。SNMPによる管理に対応していない製品のこと。');
+INSERT INTO WORD (WORD_ITEM, WORD_EX) VALUES('メモリスロット', 'コンピュータの主基板（マザーボード）などにある、主記憶装置（メインメモリ/RAM）を装着するための細長い差込口。');
+INSERT INTO WORD (WORD_ITEM, WORD_EX) VALUES('JISコード', '国際的な文字コード規格の一つであるISO/IEC 2022の枠組みに沿って定義された日本語の文字コードの一つ。');
+INSERT INTO WORD (WORD_ITEM, WORD_EX) VALUES('BAN', '「禁止（する）」という意味の英単語。IT分野では、俗に、ネットサービスなどの運営元が登録利用者に対して何らかの理由により実施する利用停止措置やアクセス禁止措置をこのように呼ぶ。');
+
+【質問テーブル】
+
+INSERT INTO question (quiz_id,quiz,quiz_ex) VALUES ('1', 'JavaScriptの非同期通信の機能を使うことによって，動的なユーザインタフェースを画面遷移を伴わずに実現する技術はどれか。','Ajax(エイジャックス、アジャックス)とは、Asynchronous JavaScript + XMLの略で、ウェブブラウザ内で非同期通信とインターフェイスの構築などを行う技術の総称です。画面遷移を伴わない動的なWebアプリケーションの製作を実現可能にします。');
+
+INSERT INTO question (quiz_id,quiz,quiz_ex) VALUES ('2', 'TCP/IPを利用している環境で，電子メールに画像データなどを添付するための規格はどれか。','MIME(Multipurpose Internet Mail Extension：マイム)は、本来アスキー文字(0～9、A～Z、a～zと制御文字で構成される128文字)しか使用できないSMTPを利用したメールで、日本語などのマルチバイト文字や画像データなどを送信できるようにする仕組みです。');
+
+INSERT INTO question (quiz_id,quiz,quiz_ex) VALUES ('3', 'オブジェクト指向プログラムにおいて，データとメソッドを一つにまとめ，オブジェクトの実装の詳細をユーザから見えなくすることを何と呼ぶか。','カプセル化とは、オブジェクト指向プログラミングにおいて、互いに関連するデータの集合とそれらに対する操作をオブジェクトとして一つの単位にまとめ、外部に対して必要な情報や手続きのみを提供すること。外から直に参照や操作をする必要のない内部の状態や構造は秘匿される。');
+
+INSERT INTO question (quiz_id,quiz,quiz_ex) VALUES ('4', 'サブルーチンへの引数の渡し方のうち，変数を引数として渡しても，サブルーチンの実行後に変数の値が変更されないことが保証されているものはどれか。','値呼出し(call by value)、引数に変数が保持する値のコピーを入れて渡す方法。渡された値は関数内でのみアクセスができ、関数内で値を保持する変数は新しいメモリ領域に作成されるため、上書きしても元の変数の値には反映されない。');
+
+INSERT INTO question (quiz_id,quiz,quiz_ex) VALUES ('5', '階層構造のモジュール群から成るソフトウェアの結合テストを，上位のモジュールから行う。この場合に使用する，下位モジュールの代替となるテスト用のモジュールはどれか。','トップダウンテストにおいて未完成の下位モジュールの代わりに結合されるテスト用モジュール。上位モジュールからの呼び出しに対して適切な値を返す役割をもつ。');
+
+
+【選択テーブル】
+
+INSERT INTO CHOICE (choices, is_answer,quiz_id) VALUES('Ajax', 'true','1');
+INSERT INTO CHOICE (choices, is_answer,quiz_id) VALUES('CSS', 'false','1');
+INSERT INTO CHOICE (choices, is_answer,quiz_id) VALUES('RSS', 'false','1');
+INSERT INTO CHOICE (choices, is_answer,quiz_id) VALUES('SNS', 'false','1');
+
+INSERT INTO CHOICE (choices, is_answer,quiz_id) VALUES('JPEG', 'false','2');
+INSERT INTO CHOICE (choices, is_answer,quiz_id) VALUES('MIME', 'true','2');
+INSERT INTO CHOICE (choices, is_answer,quiz_id) VALUES('MPEG', 'false','2');
+INSERT INTO CHOICE (choices, is_answer,quiz_id) VALUES('SMTP', 'false','2');
+
+INSERT INTO CHOICE (choices, is_answer,quiz_id) VALUES('インスタンス', 'false','3');
+INSERT INTO CHOICE (choices, is_answer,quiz_id) VALUES('カプセル化', 'true','3');
+INSERT INTO CHOICE (choices, is_answer,quiz_id) VALUES('クラスタ化', 'false','3');
+INSERT INTO CHOICE (choices, is_answer,quiz_id) VALUES('抽象化', 'false','3');
+
+
+INSERT INTO CHOICE (choices, is_answer,quiz_id) VALUES('値呼び出し', 'true','4');
+INSERT INTO CHOICE (choices, is_answer,quiz_id) VALUES('結果呼出し', 'false','4');
+INSERT INTO CHOICE (choices, is_answer,quiz_id) VALUES('参照呼出し', 'false','4');
+INSERT INTO CHOICE (choices, is_answer,quiz_id) VALUES('名前呼出し', 'false','4');
+
+INSERT INTO CHOICE (choices, is_answer,quiz_id) VALUES('エミュレータ', 'false','5');
+INSERT INTO CHOICE (choices, is_answer,quiz_id) VALUES('シミュレータ', 'false','5');
+INSERT INTO CHOICE (choices, is_answer,quiz_id) VALUES('スタブ', 'true','5');
+INSERT INTO CHOICE (choices, is_answer,quiz_id) VALUES('ドライバ', 'false','5');
+
+
+Workingテーブル
