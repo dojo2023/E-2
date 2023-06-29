@@ -20,7 +20,7 @@
 		</div>
 		<div class="word_box">
 			<div class="word">
-				<div>今日の用語:${word1}</div>
+				<div>今日の用語:${word}</div>
 			</div>
 			<div class="word_button">
 				<div>解説</div>
@@ -43,10 +43,7 @@
 				id="line2"></span> <span class="inner_line" id="line3"></span>
 		</div>
 	</header>
-</body>
-<br>
-<br>
-<br>
+<main style="background-image: url('img/${bgid}.png'); background-attachment: fixed;">
 <!-- クイズコンテンツ -->
 <div class="bg_onetime_popup">
 	<div class="onetime_popup">
@@ -130,5 +127,11 @@
 		<input type="submit" name="regist" value="登録">
 	</div>
 </form>
+<br>
+<br>
+<br>
+<br>
+<br>
+</main>
 </body>
 </html>

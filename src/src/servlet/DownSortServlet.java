@@ -31,11 +31,19 @@ public class DownSortServlet extends HttpServlet {
 //			response.sendRedirect("/kumano_onigiri/LoginServlet");
 //			return;
 //		}
-		
+
+		HttpSession session = request.getSession();
+		String staff_id = (String)session.getAttribute("staff_id");
+
+				Back_groundDAO bgdao = new Back_groundDAO();
+				bgdao.connect();
+				String bgid = bgdao.select(staff_id);//numのところにstaff_idを入れる
+				bgdao.disconnect();
+				request.setAttribute("bgid", bgid);
 		// 用語ページにフォワードする
 				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/ward.jsp");
 				dispatcher.forward(request, response);
-						
+
 				doPost(request, response);
 		}
 
@@ -52,17 +60,17 @@ public class DownSortServlet extends HttpServlet {
 		//一覧表示
 		List<Study> cardList = sd.StudyDownSort();
 		session.setAttribute("cardList", cardList);
-		
+
 		//ログインIDを取得
 		//HttpSession session = request.getSession();
 		String staff_id = (String)session.getAttribute("staff_id");
-		
+
 		Back_groundDAO bgdao = new Back_groundDAO();
 		bgdao.connect();
 		String bgid = bgdao.select(staff_id);//numのところにstaff_idを入れる
 		bgdao.disconnect();
 		request.setAttribute("bgid", bgid);
-		
+
 		// 用語ページにフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/ward.jsp");
 		dispatcher.forward(request, response);

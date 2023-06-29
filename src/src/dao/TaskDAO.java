@@ -24,7 +24,8 @@ public class TaskDAO {
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6/db/GardenDB", "sa", "password");
 
 			// SQL文を準備する
-			String sql = "insert into TASK values (null, ?, ?, ?)";
+			String sql = "UPDATE TASK SET TASK_THREAD  = ?, CALENDAR   = ? where STAFF_ID  = ?";
+
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			// SQL文を完成させる

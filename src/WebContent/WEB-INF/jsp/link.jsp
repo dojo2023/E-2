@@ -17,7 +17,7 @@
         </div>
          <div class="word_box">
 	        <div class="word">
-	        今日の用語:SQLインジェクション
+	        今日の用語:${word}
 	            <a href="/kumano_onigiri/WardServlet" class="word_button">解説</a>
 
 	        </div>

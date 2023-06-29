@@ -19,7 +19,7 @@
         </div>
         <div class="word_box">
         <div class="word">
-            <div>今日の用語:${word1}</div>
+            <div>今日の用語:${word}</div>
           </div>
           <div class="word_button">
             <div>解説</div>
@@ -29,8 +29,8 @@
           <ul>
             <li><a href="/kumano_onigiri/MypageServlet">拙者</a></li>
             <li><a href="/kumano_onigiri/WorkingServlet">勤怠</a></li>
-            <li><a href="/kumano_onigiri/WorkingServlet">勉強</a></li>
-            <li><a href="/kumano_onigiriCommunityServlet">コミュニティ</a></li><br><br><br>
+            <li><a href="/kumano_onigiri/StudyServlet">勉強</a></li>
+            <li><a href="/kumano_onigiri/CommunityServlet">コミュニティ</a></li><br><br><br>
             <li><a href="/kumano_onigiri/LogoutServlet">ログアウト</a></li>
           </ul>
         </nav>
@@ -41,8 +41,8 @@
           <span class="inner_line" id="line3"></span>
         </div>
       </header>
+      <main style="background-image: url('img/${bgid}.png'); background-attachment: fixed;">
 <form method="POST" action="/kumano_onigiri/WorkingServlet">
-<br><br><br><br>
 
 <div class="table">
 <table class="work_list" align="right" border="1" width="65%">
@@ -97,5 +97,11 @@ font-size: 20px;
 		</script>
 	</c:when>
 </c:choose>
+<br>
+<br>
+<br>
+<br>
+<br>
+</main>
 </body>
 </html>

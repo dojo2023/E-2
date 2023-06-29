@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import dao.Back_groundDAO;
 import dao.ChoiceDAO;
 import dao.PointDAO;
 import dao.QuizDAO;
@@ -35,6 +36,14 @@ public class TopServlet extends HttpServlet {
 		String word = (String) session.getAttribute("word");
 		int staff_id = Integer.parseInt((String) session.getAttribute("staff_id"));
 
+
+		//背景を取得する処理
+		String num = (String)session.getAttribute("staff_id");
+				Back_groundDAO bgdao = new Back_groundDAO();
+				bgdao.connect();
+				String bgid = bgdao.select(num);//numのところにstaff_idを入れる
+				bgdao.disconnect();
+				request.setAttribute("bgid", bgid);
 		TodayDate date = new TodayDate();
 		if (date.datecheck(staff_id)) {
 
@@ -104,6 +113,14 @@ public class TopServlet extends HttpServlet {
 		//IDを取得
 		HttpSession session = request.getSession();
 		int staff_id = Integer.parseInt((String) session.getAttribute("staff_id"));
+
+		//背景を取得する処理
+				String num = (String)session.getAttribute("staff_id");
+						Back_groundDAO bgdao = new Back_groundDAO();
+						bgdao.connect();
+						String bgid = bgdao.select(num);//numのところにstaff_idを入れる
+						bgdao.disconnect();
+						request.setAttribute("bgid", bgid);
 
 		// リクエストパラメータを取得する
 		request.setCharacterEncoding("UTF-8");

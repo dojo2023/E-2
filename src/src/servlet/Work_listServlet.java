@@ -24,11 +24,11 @@ import model.Working;
 @WebServlet("/Work_listServlet")
 public class Work_listServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	
+
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// もしもログインしていなかったらログインサーブレットにリダイレクトする
 //		HttpSession session = request.getSession();
@@ -36,14 +36,22 @@ public class Work_listServlet extends HttpServlet {
 //			response.sendRedirect("/kumano_onigiri/LoginServlet");
 //			return;
 //		}
-		
+		HttpSession session = request.getSession();
+String staff_id = (String)session.getAttribute("staff_id");
+
+		Back_groundDAO bgdao = new Back_groundDAO();
+		bgdao.connect();
+		String bgid = bgdao.select(staff_id);//numのところにstaff_idを入れる
+		bgdao.disconnect();
+		request.setAttribute("bgid", bgid);
+
 		// 勤怠一覧ページにフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/work_list.jsp");
 		dispatcher.forward(request, response);
-				
+
 		doPost(request, response);
 	}
-	
+
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
@@ -54,22 +62,22 @@ public class Work_listServlet extends HttpServlet {
 //			response.sendRedirect("/kumano_onigiri/LoginServlet");
 //			return;
 //		}
-		
+
 		//ログインIDを取得
 		//HttpSession session = request.getSession();
 		String staff_id = (String)session.getAttribute("staff_id");
-		
+
 		Back_groundDAO bgdao = new Back_groundDAO();
 		bgdao.connect();
 		String bgid = bgdao.select(staff_id);//numのところにstaff_idを入れる
 		bgdao.disconnect();
 		request.setAttribute("bgid", bgid);
-		
+
 		//HttpSession session = request.getSession();
 		WorkingDAO bDao = new WorkingDAO();
 		List<Working> w_cardList = bDao.WorkingAllList();
 		session.setAttribute("w_cardList", w_cardList);
-		
+
 		// 勤怠一覧ページにフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/work_list.jsp");
 		dispatcher.forward(request, response);

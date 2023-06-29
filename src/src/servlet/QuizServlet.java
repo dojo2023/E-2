@@ -29,6 +29,9 @@ public class QuizServlet extends HttpServlet {
 	  public void doGet(HttpServletRequest req, HttpServletResponse res)
 	      throws IOException, ServletException {
 
+		  HttpSession session = req.getSession();
+
+
 	    Random random = new Random();
 		  int rd = random.nextInt(4)+1;
 
@@ -58,7 +61,6 @@ public class QuizServlet extends HttpServlet {
 	    //テスト
 
 	    //ポイント取得
-	    HttpSession session = req.getSession();
 	    String staff_id = (String)session.getAttribute("staff_id");
 	    int st_id = Integer.parseInt(staff_id);
 
@@ -67,15 +69,15 @@ public class QuizServlet extends HttpServlet {
 		int quiz_point = pdao.select_point(st_id);//セッションに格納されているスタッフIDを引数に入れる
 		pdao.disconnect();
 
-		//検索結果をリクエストスコープに格納
-		req.setAttribute("quiz_point", quiz_point);
-
 		//背景を取得する処理
 		Back_groundDAO bgdao = new Back_groundDAO();
 		bgdao.connect();
 		String bgid = bgdao.select(staff_id);//numのところにstaff_idを入れる
 		bgdao.disconnect();
 		req.setAttribute("bgid", bgid);
+
+		//検索結果をリクエストスコープに格納
+		req.setAttribute("quiz_point", quiz_point);
 
 		//JSPにフォワード
 	    RequestDispatcher rd_choice = req.getRequestDispatcher("/WEB-INF/jsp/quiz.jsp");
@@ -127,8 +129,10 @@ public class QuizServlet extends HttpServlet {
 		//ポイントを更新
 		PointDAO pdao = new PointDAO();
 		pdao.connect();
-		int point = pdao.update_point(point_pram,6);//セッションに格納されているスタッフIDを引数に入れる
+		int point = pdao.update_point(point_pram,st_id);//セッションに格納されているスタッフIDを引数に入れる
 		pdao.disconnect();
+		
+		
 
 		doGet(req, res);
 

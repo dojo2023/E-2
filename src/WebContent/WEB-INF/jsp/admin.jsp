@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <!-- スタイルシートの挿入 -->
-<link rel="stylesheet" href="/kumano_onigiri/css/admin.css">
+<link rel="stylesheet" href="/kumano_onigiri/css/top.css">
 <link rel="stylesheet" href="/kumano_onigiri/css/quizpopup.css">
 <link rel="stylesheet" href="/kumano_onigiri/css/common.css">
 <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css"
@@ -20,7 +20,7 @@
 		</div>
 		<div class="word_box">
 			<div class="word">
-				<div>今日の用語:${word1}</div>
+				<div>今日の用語:${word}</div>
 			</div>
 			<div class="word_button">
 				<div>解説</div>
@@ -43,10 +43,7 @@
 				id="line2"></span> <span class="inner_line" id="line3"></span>
 		</div>
 	</header>
-</body>
-<br>
-<br>
-<br>
+<main style="background-image: url('img/${bgid}.png'); background-attachment: fixed;">
 <!-- クイズコンテンツ -->
 <div class="bg_onetime_popup">
 	<div class="onetime_popup">
@@ -59,7 +56,7 @@
 		<div class="pop"><%=request.getAttribute("quiz_point")%></div>
 		<div id="hoge" title="<%=request.getAttribute("quiz_point")%>"></div>
 
-		<form id="quiz" action="/kumano_onigiri/TopServlet">
+		<form id="quiz" action="/kumano_onigiri/AdminServlet">
 			<c:forEach var="e" items="${ChoiceList}">
 				<div>
 					<label><input type="radio" name="radio"
@@ -90,10 +87,6 @@
 		</div>
 	</div>
 </div>
-<!-- このリンクを書くことでjqueryが使用できる -->
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="./js/common.js"></script>
 
 <c:choose>
 	<c:when test="${isTaskRegistError}">
@@ -123,6 +116,10 @@
 		<input type="submit" name="regist" value="登録">
 	</div>
 </form>
-<script src="./js/common.js"></script>
+</main>
 </body>
+<!-- このリンクを書くことでjqueryが使用できる -->
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="./js/common.js"></script>
 </html>
